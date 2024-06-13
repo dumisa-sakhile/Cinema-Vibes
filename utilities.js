@@ -26,11 +26,28 @@ $("#alert-title").textContent = alertTitle;
 $("#alert-message").textContent = alertMessage;
 
 if (alertType == 404) {
-  $("#alert").classList.remove("bg-indigo-600");
-  $("#alert").classList.add("bg-red-600");
+  $("#alert").classList.remove("bg-green-400");
+  $("#alert").classList.add("bg-red-400");
+  $("#alert").classList.remove("ring-green-600");
+  $("#alert").classList.add("ring-red-600");
+  $("#alert").classList.remove("text-green-900");
+  $("#alert").classList.add("text-red-900");
+
+  $("#close-alert").style.fill = "maroon";
+
+
 } else if (alertType == 200) {
-  $("#alert").classList.remove("bg-red-600");
-  $("#alert").classList.add("bg-indigo-600");
+  $("#alert").classList.remove("bg-red-400");
+  $("#alert").classList.add("bg-green-400");
+  
+  $("#alert").classList.add("ring-green-600");
+  $("#alert").classList.remove("ring-red-600");
+  $("#alert").classList.add("text-green-900");
+  $("#alert").classList.remove("text-red-900");
+
+  $("#close-alert").style.fill="green";
 }
 
 }
+
+

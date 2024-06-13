@@ -1,7 +1,7 @@
-import './style.css'
+import './style.css';
+import "./tippy.js";
+import "./movie.js";
 import { $, $$, none, flex, grid, block,alert } from './utilities.js';
-import tippy from "tippy.js";
-import "tippy.js/dist/tippy.css";
 
 
 const moviesOpen = $("#movies-open");
@@ -27,30 +27,8 @@ moviesOpen.addEventListener("click", () => {
 
 });
 
-
-tippy("#movie-filter", {
-  content: "Open movie filters!",
-});
-
-tippy("#tv-filter", {
-  content: "Open tv filters!",
-});
-
-
-tippy("#tv-open", {
-  content: "Switch to TV Shows!",
-});
-
-tippy("#movie-open", {
-  content: "Switch to the Movies!",
-});
-
-tippy("#close-alert", {
-  content: "Close!",
-});
-
 $("#close-alert").addEventListener("click", ()=>{
   none($("#alert"));
 })
 
-alert("movie not found","requested movie could not be found",200)
+//alert("movie not found","requested movie could not be found",200)
