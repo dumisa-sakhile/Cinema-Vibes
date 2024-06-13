@@ -31,4 +31,4 @@ $("#close-alert").addEventListener("click", ()=>{
   none($("#alert"));
 })
 
-//alert("movie not found","requested movie could not be found",200)
+alert("movie not found","requested movie could not be found",404)

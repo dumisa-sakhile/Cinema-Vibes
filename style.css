@@ -103,15 +103,15 @@ font-style: normal;
 @layer components {
 
 .scroll{
-    @apply scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-indigo-600 scrollbar-track-inherit hover:scrollbar-thumb-indigo-700;
+    @apply scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-green-600 scrollbar-track-inherit hover:scrollbar-thumb-green-700;
   }
 
   .filter-active{
-  @apply py-2 px-6 bg-green-400 rounded-full text-green-900 ring-1 ring-green-500 text-sm capitalize roboto-condensed-medium font-medium cursor-pointer hover:bg-green-500;
+  @apply py-2 px-6 bg-green-400 rounded-lg text-green-900 ring-1 ring-green-500 text-sm capitalize roboto-condensed-medium font-medium cursor-pointer hover:bg-green-500;
 }
 
 .filter-disabled{
-  @apply py-2 px-6 bg-green-100 rounded-full text-green-900 ring-1 ring-green-200 text-sm capitalize roboto-condensed-regular hover:bg-green-200 cursor-pointer;
+  @apply py-2 px-6 bg-red-200 rounded-lg text-red-900 ring-1 ring-red-200 text-sm capitalize roboto-condensed-regular hover:bg-slate-100 cursor-pointer;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
