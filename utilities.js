@@ -26,11 +26,11 @@ $("#alert-title").textContent = alertTitle;
 $("#alert-message").textContent = alertMessage;
 
 if (alertType == 404) {
-  $("#alert").classList.remove("bg-indigo-500");
-  $("#alert").classList.add("bg-red-500");
+  $("#alert").classList.remove("bg-indigo-600");
+  $("#alert").classList.add("bg-red-600");
 } else if (alertType == 200) {
-  $("#alert").classList.remove("bg-red-500");
-  $("#alert").classList.add("bg-indigo-500");
+  $("#alert").classList.remove("bg-red-600");
+  $("#alert").classList.add("bg-indigo-600");
 }
 
 }
