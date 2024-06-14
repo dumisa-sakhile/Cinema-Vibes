@@ -29,3 +29,4 @@ tippy("#tmdb", {
   content: "API powered by TMDB API",
 });
 
+

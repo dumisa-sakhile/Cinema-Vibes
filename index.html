@@ -40,14 +40,16 @@
     </div>
     <!-- logo -->
 
-    <!-- search -->
+    <!-- search & filter -->
     <div class="flex items-center justify-center gap-2"> 
-      <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit" class="w-[70%] rounded-md h-[40px] text-sm text-gray-900 px-6 roboto-condensed-light shadow border-none focus:outline-none focus:ring-2 focus:ring-green-500 bg-slate-100" autocomplete="off"> 
+
+      <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit" class="w-[70%] rounded-md h-[40px] text-sm text-gray-900 px-6 roboto-condensed-light shadow border-none focus:outline-none focus:ring-2 focus:ring-green-500 bg-slate-100" autocomplete="off" value="hobbit"> 
 
       <aside  class="flex items-center justify-center gap-2 w-[30%]"><img src="filter.svg" alt="filter" class="bg-green-500 py-2 px-2 rounded-full hover:bg-green-700 cursor-pointer" id="movie-filter"></aside>
 
     </div>
-    <!-- search -->
+
+    <!-- search & filter -->
 
     <div class="flex items-center justify-center gap-12">
 
@@ -118,6 +120,36 @@
 </aside>
 <!--Movie Pagination -->
 
+<!-- Movie Search Page -->
+ <aside id="movie-search-page" class="hidden fixed top-0 left-0 z-[20] w-full bg-gray-800 h-full">
+
+  <section class="absolute top-0 left-0 w-full h-full overflow-auto flex flex-col items-center justify-start">
+    <div class="flex flex-col items-center justify-center gap-4 mt-4">
+    <p class="text-sm font-black text-slate-300 roboto-condensed-black capitalize">Showing search results for:&nbsp;</p>
+
+  <h1 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500 roboto-condensed-black capitalize">Hobbit</h1>
+  </div>
+
+  <main id="movie-search-box" class="flex flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4"></main>
+
+  <main class="fixed bottom-10 min-w-[320px] min-h-20 flex flex-wrap items-center justify-center gap-6 p-4 z-10 rounded-md bg-slate-100">
+
+    <p class="text-sm font-black text-gray-900 roboto-condensed-light capitalize">go back to the main page</p>
+  <button type="button" id="close-movie-search-page" class="py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-gray-900 shadow-xl rajdhani-bold hover:bg-red-700 w-[310px]">close search</button>
+
+  </main>
+  </section>
+
+ </aside>
+<!-- Movie Search Page -->
+
+
+<!-- Movie Details Page -->
+ <section id="movie-details-page" class="hidden fixed top-0 left-0 z-[30] w-full bg-gray-800 h-full overflow-auto flex flex-col items-center justify-start gap-4 py-4 px-4 text-slate-300 roboto-condensed-regular">
+
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga omnis similique quisquam aliquid officiis dignissimos iste nostrum. Maxime unde sed voluptas inventore porro, tempore reiciendis fuga enim animi tenetur blanditiis.
+ </section>
+<!-- Movie Details Page -->
 
 
 <!-- Movie Display Box -->
@@ -200,8 +232,6 @@
 
 
 <!-- Footer -->
- 
-
 <footer class="bg-white dark:bg-gray-900 relative w-full z-[11]">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
@@ -257,7 +287,6 @@
       </div>
     </div>
 </footer>
-
  <!-- Footer -->
 
 
