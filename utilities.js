@@ -48,5 +48,40 @@ if (alertType == 404) {
 }
 
 }
+export function createMovieCard(movie, container) {
+  const imgBaseUrl = "https://image.tmdb.org/t/p/original";
+  const { title, poster_path, vote_average, id, release_date } = movie;
 
+  const article = document.createElement("article");
+  article.id = id;
+  article.className =
+    "movie-container w-[180px] h-[270px] shadow-lg rounded-md flex flex-col items-center justify-start relative bg-gray-800 text-slate-300 border-2 border-green-600";
 
+  const img = document.createElement("img");
+  img.src = poster_path ? `${imgBaseUrl}${poster_path}` : "/poster.png";
+  img.className = "rounded-sm overflow-hidden";
+  img.setAttribute("alt", title);
+  article.appendChild(img);
+
+  const rating = document.createElement("div");
+  rating.className =
+    "movie-rating bg-green-500  w-[50px] h-[50px] absolute  -top-5  rounded-full flex items-center justify-center roboto-condensed-light text-slate-900 text-md ring-[1px] ring-green-600 shadow";
+  rating.textContent = vote_average ?? 0;
+  article.appendChild(rating);
+
+  const hover = document.createElement("div");
+  hover.className =
+    "movie-hover bg-modal w-full h-full absolute top-0 left-0 rounded-sm opacity-0 hover:opacity-100 cursor-pointer flex items-center justify-center flex-col gap-4";
+  article.appendChild(hover);
+
+  const h1 = document.createElement("h1");
+  h1.className = "movie-title text-center text-sm roboto-condensed-medium";
+  h1.textContent = title;
+  hover.appendChild(h1);
+  const p = document.createElement("p");
+  p.className = "movie-overview text-center text-xs roboto-condensed-light";
+  p.textContent = release_date ?? new Date(release_date).toLocaleDateString();
+  hover.appendChild(p);
+
+  container.appendChild(article);
+}
