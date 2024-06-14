@@ -1,5 +1,5 @@
 import axios from "axios";
-import { $, $$, none, flex, grid, block, alert, createMovieCard } from "./utilities.js";
+import { $, $$, none, flex, grid, block, alert, createMovieCard, showSearchBox } from "./utilities.js";
 
 
 const tmdbApi = axios.create({
@@ -18,7 +18,7 @@ tmdbApi.interceptors.request.use((config) => {
 //search Movies
 async function searchMovies() {
   try {
-    const response = await tmdbApi.get(`search/movie?q`, {
+    const response = await tmdbApi.get(`search/movie?`, {
       params: {
         query: `${$("#movie-search").value.trim()}`,
       },
@@ -29,24 +29,13 @@ async function searchMovies() {
       alert("movie not found", "requested movie could not be found", 404);
     }else{
 
-      $("#movie-search-box").className = "w-full min-h-[700px] flex flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
+        showSearchBox(true);
 
-      $("#movie-display-box").className =
-        "w-full min-h-[700px] hidden flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
-
-      $("#movie-search-box").innerText="";
-
-      $("#movie-clear-search").className =
-        "fixed bottom-10 w-full min-h-20 flex flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
-
-      $("#movie-pagination").className =
-        "fixed bottom-10 w-full min-h-20 hidden flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
-      
       response.data.results.map((movie) => {
         createMovieCard(movie, $("#movie-search-box"));
       })
       
-    console.log(response.data);
+    //console.log(response.data);
 
     }
 
@@ -54,7 +43,6 @@ async function searchMovies() {
     console.error(error);
   }
 }
-
 $("#movie-search").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     !this.value.trim()
@@ -62,23 +50,84 @@ $("#movie-search").addEventListener("keydown", function (event) {
       : searchMovies();
   }
 });
-
 $("#movie-clear-search").addEventListener("click", () => { 
-  
-  $("#movie-search-box").className =
-    "w-full min-h-[700px] hidden flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
+  showSearchBox(false);
+});
+//search Movies END
 
-  $("#movie-display-box").className =
-    "w-full min-h-[700px] flex flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
 
-  $("#movie-clear-search").className =
-    "fixed bottom-10 w-full min-h-20 hidden flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
+//Fetch Movie Summary
 
-  $("#movie-pagination").className =
-    "fixed bottom-10 w-full min-h-20 flex flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
-      
-    $("#movie-search").value = null;
+let movieListType;
+let moviePageNumber;
+const movieListBox = $("#movie-list-box");
 
+const movieLists = [
+  {
+    name: "Now Playing",
+    id: "now_playing",
+  },
+  { name: "Popular", id: "popular" },
+  {
+    name: "Top Rated",
+    id: "top_rated",
+  },
+  { name: "Upcoming", id: "upcoming" },
+];
+
+movieLists.map((list) => {
+  const span = document.createElement("span");
+  span.id = list.id;
+  span.textContent = list.name;
+  span.classList = "filter-disabled";
+  movieListBox.appendChild(span);
 });
 
-//search Movies
+function removeMovieListActive() {
+  $$(`#movie-list-box span`).forEach((span) => {
+    span.classList.remove("filter-active");
+    span.classList.add("filter-disabled");
+  });
+}
+
+$$(`#movie-list-box span`).forEach((span) => {
+  span.addEventListener("click", function (ev) {
+    removeMovieListActive();
+
+    ev.currentTarget.classList.add("filter-active");
+    ev.currentTarget.classList.remove("filter-disabled");
+
+    movieListType = ev.currentTarget.id;
+    moviePageNumber = 2;
+    fetchMovies();
+  });
+});
+
+
+async function fetchMovies() {
+  try {
+    const response = await tmdbApi.get(`movie/${movieListType}?`, {
+      params: {
+        page: moviePageNumber,
+      },
+    });
+
+    if (!response.data.results.length) {
+      alert("movie not found", "requested movie could not be found", 404);
+    } else {
+
+      $("#movie-display-box").innerText = "";
+
+      showSearchBox(false);
+
+      response.data.results.map((movie) => {
+        createMovieCard(movie, $("#movie-display-box"));
+      });
+
+      console.log(response.data);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+//Fetch Movie Summary

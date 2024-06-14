@@ -7,6 +7,7 @@ import {
   block,
   alert,
   createMovieCard,
+  showSearchBox,
 } from "./utilities.js";
 import "./movie-fetch.js"
 
@@ -80,42 +81,4 @@ $$(`#movie-genre-box span`).forEach((span) => {
     ev.currentTarget.classList.toggle("filter-disabled");
   });
 });
-
-const movieLists = [
-  {
-    name: "Now Playing",
-    id: "https://api.themoviedb.org/3/movie/now_playing?page=",
-  },
-  { name: "Popular", id: "https://api.themoviedb.org/3/movie/popular?page=" },
-  {
-    name: "Top Rated",
-    id: "https://api.themoviedb.org/3/movie/top_rated?page=",
-  },
-  { name: "Upcoming", id: "https://api.themoviedb.org/3/movie/upcoming?page=" },
-];
-
-movieLists.map((list) => {
-  const span = document.createElement("span");
-  span.id = list.id;
-  span.textContent = list.name;
-  span.classList = "filter-disabled";
-  movieListBox.appendChild(span);
-});
-
-function removeMovieListActive() {
-  $$(`#movie-list-box span`).forEach((span) => {
-    span.classList.remove("filter-active");
-    span.classList.add("filter-disabled");
-  });
-}
-
-$$(`#movie-list-box span`).forEach((span) => {
-  span.addEventListener("click", function (ev) {
-    removeMovieListActive();
-
-    ev.currentTarget.classList.add("filter-active");
-    ev.currentTarget.classList.remove("filter-disabled");
-  });
-});
-
 
