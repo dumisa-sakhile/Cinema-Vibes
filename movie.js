@@ -21,6 +21,7 @@ movieList.addEventListener("change", function () {
   movieGenre.checked = false;
   flex(movieListBox);
   none(genreFilterBox);
+  none($("#movie-genre-apply"));
 });
 
 movieGenre.addEventListener("change", function () {
@@ -28,6 +29,7 @@ movieGenre.addEventListener("change", function () {
   movieList.checked = false;
   none(movieListBox);
   flex(genreFilterBox);
+  block($("#movie-genre-apply"));
 });
 
 movieGenre.click();

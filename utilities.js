@@ -17,7 +17,7 @@ export function grid(selector) {
 }
 export function block(selector) {
   selector.classList.remove("hidden");
-  selector.classList.block("flex");
+  selector.classList.add("block");
 }
 export function alert(alertTitle,alertMessage,alertType){
 flex($("#alert"));
