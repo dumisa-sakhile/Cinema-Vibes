@@ -66,7 +66,7 @@
 
 
    <!-- All Movie Filters -->
-      <main id="movie-filters-group" class="bg-slate-100 text-gray-900 w-[320px] min-h-[300px] fixed top-[150px] left-10 rounded-md shadow-lg py-2 hidden flex-col items-center space-y-4 roboto-condensed-medium z-10">
+      <main id="movie-filters-group" class="bg-slate-100 text-gray-900 w-[320px] min-h-[300px] fixed top-[150px] left-10 rounded-md shadow-lg py-2 flex flex-col items-center space-y-4 roboto-condensed-medium z-10">
 
 <h1 class="text-md">Filters Group</h1>
 <p class="text-justify px-2 text-sm">Select between Genre and Movie Lists the criteria of your filter:</p>
@@ -121,8 +121,7 @@
 
 
 <!-- Movie Display Box -->
- <aside id="movie-display-box" class="w-full min-h-[500px] flex flex-wrap items-center justify-center gap-4 py-10 px-10">
-
+ <aside id="movie-display-box" class="w-full min-h-[500px] flex flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4">
 
 <main class="movie-container w-[180px] h-[270px] shadow-lg rounded-md flex flex-col items-center justify-start relative bg-gray-800 text-slate-300 border-2 border-green-600">
 
@@ -138,9 +137,6 @@
 
 </main>
 
-
-
-  
  </aside>
 <!-- Movie Display Box -->
 
@@ -201,6 +197,69 @@
 
 </section>
 <!-- Alert -->
+
+
+<!-- Footer -->
+ 
+
+<footer class="bg-white dark:bg-gray-900 relative w-full z-[11]">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="md:flex md:justify-between">
+          <div class="mb-6 md:mb-0">
+              <a href="https://dumisa.onrender.com/" class="flex items-center" target="_blank">
+                  <img src="/dumisa.svg" class="h-20 me-3" alt="FlowBite Logo" />
+              </a>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="https://developer.themoviedb.org/docs/getting-started" class="hover:text-green-600">TMDB API</a>
+                      </li>
+                      <li>
+                          <a href="https://tailwindcss.com/" class="hover:text-green-600">Tailwind CSS</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="https://github.com/dumisa-sakhile" class="hover:text-green-600 ">Github</a>
+                      </li>
+                      <li>
+                          <a href="mailto:dumisa.developer@gmail.com?subject=Reach Out from the CinemaVibes" class="hover:text-green-600">Email us</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="#" class="hover:text-green-600">Privacy Policy</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:text-green-600">Terms &amp; Conditions</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; <span class="year"></span> <a href="#" class="hover:text-green-600">Cinema Vibes</a>. All Rights Reserved.
+          </span>
+          <div class="flex flex-col mt-4 sm:justify-center sm:mt-0 gap">
+              <a href="https://github.com/dumisa-sakhile" class="text-gray-500 hover:text-green-600 mr-4 roboto-condensed-regular">Made with <span class="text-green-500 text-lg">&hearts;</span> by Dumisa</a>
+              <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg" alt="TMDB" id="tmdb">
+          </div>
+      </div>
+    </div>
+</footer>
+
+ <!-- Footer -->
+
 
   </body>
 </html>

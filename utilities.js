@@ -19,7 +19,6 @@ export function block(selector) {
   selector.classList.remove("hidden");
   selector.classList.block("flex");
 }
-
 export function alert(alertTitle,alertMessage,alertType){
 flex($("#alert"));
 $("#alert-title").textContent = alertTitle;

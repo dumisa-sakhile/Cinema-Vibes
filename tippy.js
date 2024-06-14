@@ -24,3 +24,8 @@ tippy("#close-alert", {
 tippy("#movie-filters-group-close", {
   content: "Close filters!",
 });
+
+tippy("#tmdb", {
+  content: "API powered by TMDB API",
+});
+

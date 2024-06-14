@@ -5,12 +5,12 @@ const movieGenre = $("#movie-genre-filter");
 const genreFilterBox = $("#movie-genre-box");
 const movieListBox = $("#movie-list-box");
 
-movieList.addEventListener("change",function(){
-this.checked=true;
-movieGenre.checked = false;
-flex(movieListBox);
-none(genreFilterBox);
-})
+movieList.addEventListener("change", function () {
+  this.checked = true;
+  movieGenre.checked = false;
+  flex(movieListBox);
+  none(genreFilterBox);
+});
 
 movieGenre.addEventListener("change", function () {
   this.checked = true;
@@ -19,8 +19,7 @@ movieGenre.addEventListener("change", function () {
   flex(genreFilterBox);
 });
 
-movieList.click();
-
+movieGenre.click();
 
 const movieGenres = [
   { name: "Action", id: 28, query: "28" },
@@ -44,19 +43,18 @@ const movieGenres = [
   { name: "Western", id: 37, query: "37" },
 ];
 
-movieGenres.map(genre=>{
-
+movieGenres.map((genre) => {
   const span = document.createElement("span");
   span.id = genre.id;
   span.setAttribute("data-query", genre.query);
   span.textContent = genre.name;
-  span.classList ="filter-disabled"
+  span.classList = "filter-disabled";
   genreFilterBox.appendChild(span);
-})
+});
 
 // close Filters Group
-$("#movie-filters-group-close").addEventListener("click",()=>{
-none($("#movie-filters-group"));
+$("#movie-filters-group-close").addEventListener("click", () => {
+  none($("#movie-filters-group"));
 });
 // close Filters Group
 
@@ -66,15 +64,12 @@ $("#movie-filter").addEventListener("click", () => {
 });
 // open Filters Group
 
-
-
 $$(`#movie-genre-box span`).forEach((span) => {
   span.addEventListener("click", function (ev) {
     ev.currentTarget.classList.toggle("filter-active");
     ev.currentTarget.classList.toggle("filter-disabled");
   });
-})
-
+});
 
 const movieLists = [
   {
@@ -89,15 +84,15 @@ const movieLists = [
   { name: "Upcoming", id: "https://api.themoviedb.org/3/movie/upcoming?page=" },
 ];
 
-movieLists.map(list=>{
+movieLists.map((list) => {
   const span = document.createElement("span");
   span.id = list.id;
   span.textContent = list.name;
-  span.classList="filter-disabled";
+  span.classList = "filter-disabled";
   movieListBox.appendChild(span);
-})
+});
 
-function removeMovieListActive(){
+function removeMovieListActive() {
   $$(`#movie-list-box span`).forEach((span) => {
     span.classList.remove("filter-active");
     span.classList.add("filter-disabled");
@@ -105,12 +100,28 @@ function removeMovieListActive(){
 }
 
 $$(`#movie-list-box span`).forEach((span) => {
-
   span.addEventListener("click", function (ev) {
-    
-     removeMovieListActive();
+    removeMovieListActive();
 
     ev.currentTarget.classList.add("filter-active");
     ev.currentTarget.classList.remove("filter-disabled");
   });
-})
+});
+
+for (let i = 0; i < 20; i++) {
+  $(
+    "#movie-display-box"
+  ).innerHTML += `<main class="movie-container w-[180px] h-[270px] shadow-lg rounded-md flex flex-col items-center justify-start relative bg-gray-800 text-slate-300 border-2 border-green-600">
+
+ <img src="https://media.themoviedb.org/t/p/w220_and_h330_face/gKkl37BQuKTanygYQG1pyYgLVgf.jpg" alt="" class="rounded-sm">
+
+ <div class="movie-rating bg-green-500  w-[50px] h-[50px] absolute  -top-5  rounded-full flex items-center justify-center roboto-condensed-light text-slate-900 text-md ring-[1px] ring-green-600 shadow">7.5</div>
+
+
+ <div class="movie-hover bg-modal w-full h-full absolute top-0 left-0 rounded-sm opacity-0 hover:opacity-100 cursor-pointer flex items-center justify-center flex-col gap-4">
+<h1 class="movie-display-title text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-lime-600 roboto-condensed-black capitalize">bad boys</h1>
+<p class="movie-display-date roboto-condensed-light text-sm">14 May 2024</p>
+ </div>
+
+</main>`;
+}
