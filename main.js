@@ -10,10 +10,10 @@ const tv = $("#tv");
 const movieFilter = $("#movieFilter");
 
 tvOpen.addEventListener("click", () => {
-  none(movies);
-  flex(tv);
+  //none(movies);
+ // flex(tv);
 
-  alert("TV Shows", "Welcome to the TV Shows page!", 200);
+  alert("Under Construction", "TV Shows page is under construction and coming soon!", 200);
 });
 
 moviesOpen.addEventListener("click", () => {

@@ -169,6 +169,10 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
+$(`#movie-list-box #now_playing`).click();
+
+alert("Cinema Vibes", "Welcome to the Movies Page, please note that this site is still under construction!", 200);
+
 
 async function fetchMovies() {
 

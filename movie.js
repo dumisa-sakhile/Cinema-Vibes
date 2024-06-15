@@ -36,7 +36,7 @@ movieGenre.addEventListener("change", function () {
     "grid grid-cols-2 items-center justify-center gap-4 w-full py-4 px-2";
 });
 
-movieGenre.click();
+movieList.click();
 
 
 // close Filters Group

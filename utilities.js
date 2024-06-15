@@ -102,6 +102,9 @@ export function showSearchBox(isSearch){
 
     $("#movie-pagination").className =
       "fixed bottom-10 w-full min-h-20 hidden flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
+
+        //hide filters when search box is shown
+      $("#movie-filters-group-close").click();
   }else{
     $("#movie-search-box").className =
       "w-full min-h-[700px] hidden flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
