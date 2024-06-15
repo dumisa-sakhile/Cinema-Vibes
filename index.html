@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <meta name="theme-color" content="rgb(226 232 240)" />
+     <meta name="theme-color" content="rgb(226,232,240)" />
      <meta
       name="description"
       content="Experience the ultimate cinematic journey with Cinema Vibes. Get hooked on our expertly curated movie and TV show recommendations, featuring similar titles, captivating summaries, and thrilling trailers. Find your new favorite film or series and vibe with the community of movie lovers!" />
@@ -33,58 +33,61 @@
   <!-- Movie Welcome -->
 
    <!-- Movie Header -->
-<header class="p-4 w-full min-h-[60px] grid items-center justify-center gap-4 grid-cols-3">
+<header class="flex-wrap md:flex-nowrap  p-4 w-full min-h-[60px] flex items-center justify-center gap-4 *:w-full">
 
     <!-- logo -->
-    <div class="flex items-center justify-center space-x-4">
+    <div class="hidden md:flex items-center justify-center space-x-4">
       <img src="/blob.svg" alt="blob" class="w-12 h-12">
      <h1 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500 roboto-condensed-black capitalize">CinemaVibes</h1>
     </div>
     <!-- logo -->
 
-    <!-- search & filter -->
+    <!-- search -->
     <div class="flex items-center justify-center gap-2"> 
 
       <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit" class="w-[70%] rounded-md h-[40px] text-sm text-gray-900 px-6 roboto-condensed-light shadow border-none focus:outline-none focus:ring-2 focus:ring-green-500 bg-slate-100" autocomplete="off" value="hobbit"> 
 
-      <aside  class="flex items-center justify-center gap-2 w-[30%]"><img src="filter.svg" alt="filter" class="bg-green-500 py-2 px-2 rounded-full hover:bg-green-700 cursor-pointer" id="movie-filter"></aside>
-
     </div>
+    <!-- search -->
 
-    <!-- search & filter -->
+    <!-- tvOpenBtn & filter -->
+<div class="flex items-center justify-center gap-12">
 
-    <div class="flex items-center justify-center gap-12">
+<aside class="flex flex-row-reverse md:flex-row py-4 px-4 items-center justify-center gap-14 text-slate-300 text-lg w-full">
 
-     <aside class=" py-4 px-4 flex items-center justify-center gap-14 text-slate-300 text-lg">
+ <aside  class="flex items-center justify-center gap-2 w-[30%]"><img src="filter.svg" alt="filter" class="bg-green-500 py-2 px-2 rounded-full hover:bg-green-700 cursor-pointer" id="movie-filter"></aside>
 
-     <button class="py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-gray-900 shadow-lg rajdhani-bold hover:bg-green-700" id="tv-open">TV Shows</button>
+<button class="py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-gray-900 shadow-lg rajdhani-bold hover:bg-green-700" id="tv-open">TV Shows</button>
 
-    </aside>
+</aside>
 
+</div>
+    <!-- tvOpenBtn & filter -->
 
-    </div>
-
-   </header>
-   <!-- Movie Header -->
+</header>
+<!-- Movie Header -->
 
 
    <!-- All Movie Filters -->
-      <main id="movie-filters-group" class="bg-slate-100 text-gray-900 w-[320px] min-h-[300px] fixed top-[150px] left-10 rounded-md shadow-lg py-2 flex flex-col items-center space-y-4 roboto-condensed-medium z-10">
+      <main id="movie-filters-group" class="bg-slate-100 text-gray-900 w-[320px] min-h-[300px] fixed top-[150px] left-10 rounded-md shadow-lg py-2 flex flex-col items-center space-y-4 roboto-condensed-medium z-[12]">
 
 <h1 class="text-md">Filters Group</h1>
 <p class="text-justify px-2 text-sm">Select between Genre and Movie Lists the criteria of your filter:</p>
 
 
 <div class="grid grid-cols-2 items-center justify-center gap pb-4 shadow w-full *:accent-green-500">
+
   <div class="flex items-center justify-center gap-2">
 <input type="checkbox" name="genre" id="movie-genre-filter" class="w-4 h-4 bg-green-500 rounded-full hover:bg-green-700 cursor-pointer">
-<label for="movie-genre-filter" class="roboto-condensed-medium text-sm">Genre</label>
+<label for="movie-genre-filter" class="roboto-condensed-medium text-sm cursor-pointer focus:outline-none">Genre</label>
 </div>
+
 
 <div class="flex items-center justify-center gap-2">
 <input type="checkbox" name="list" id="movie-list-filter" class="w-4 h-4 bg-green-500 rounded-full hover:bg-green-700 cursor-pointer">
-<label for="movie-list-filter" class="roboto-condensed-medium text-sm">Movie Lists</label>
+<label for="movie-list-filter" class="roboto-condensed-medium text-sm cursor-pointer focus:outline-none">Movie Lists</label>
 </div>
+
 </div>
 
 <div id="movie-genre-box" class="p-2 w-full flex items-center justify-start flex-wrap gap-2"></div>
@@ -197,7 +200,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga omnis similique q
 <!-- TV -->
 
 <!-- Alert -->
-<section id="alert" class="fixed top-[150px] right-20 w-[320px] bg-green-400 ring-[1px] ring-green-600 text-green-900 rounded min-h-[50px] p-4 shadow  hidden flex-col gap-4 hover:scale-105">
+<section id="alert" class="fixed top-[150px] right-20 w-[320px] bg-green-400 ring-[1px] ring-green-600 text-green-900 rounded min-h-[50px] p-4 shadow  hidden flex-col gap-4 hover:scale-105 z-[15]">
 
 <div class="flex">
 <h1 class="w-[90%] roboto-condensed-bold text-md capitalize" id="alert-title"></h1>
