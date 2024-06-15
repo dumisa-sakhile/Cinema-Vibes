@@ -80,7 +80,7 @@ export function createMovieCard(movie, container) {
   hover.appendChild(h1);
   const p = document.createElement("p");
   p.className = "movie-overview text-center text-xs roboto-condensed-light";
-  p.textContent = release_date ?? new Date(release_date).toLocaleDateString();
+  p.textContent = release_date ? new Date(release_date).toLocaleDateString() : "";
   hover.appendChild(p);
 
   container.appendChild(article);
