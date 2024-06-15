@@ -55,7 +55,7 @@ export function createMovieCard(movie, container) {
   const article = document.createElement("article");
   article.id = id;
   article.className =
-    "movie-container sm:w-[150px] sm:h-[240px] md:w-[180px] md:h-[270px] shadow-lg rounded-md flex flex-col items-center justify-start relative bg-gray-800 text-slate-300 border-2 border-green-600";
+    "movie-container w-[180px] h-[270px] shadow-lg rounded-md flex flex-col items-center justify-start relative bg-gray-800 text-slate-300 border-2 border-green-600";
 
   const img = document.createElement("img");
   img.src = poster_path ? `${imgBaseUrl}${poster_path}` : "/poster.png";
@@ -65,7 +65,7 @@ export function createMovieCard(movie, container) {
 
   const rating = document.createElement("div");
   rating.className =
-    "movie-rating bg-green-500  w-[50px] h-[50px] absolute  -top-5  rounded-full flex items-center justify-center roboto-condensed-light text-slate-900 text-md ring-[1px] ring-green-600 shadow";
+    "movie-rating bg-green-400  w-[50px] h-[50px] absolute  -top-5  rounded-full flex items-center justify-center roboto-condensed-light text-slate-900 text-md ring-[1px] ring-green-600 shadow";
   rating.textContent = vote_average ?? 0;
   article.appendChild(rating);
 

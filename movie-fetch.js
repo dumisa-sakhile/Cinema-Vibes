@@ -68,7 +68,7 @@ let movieCurrentPageTwo = $("#movie-current-page-2");
 
 function setMoviePages(total_pages){
   movieCurrentPage.textContent = moviePageNumber;
-  movieTotalPages.textContent = total_pages;
+  movieTotalPages.textContent = total_pages.toLocaleString();
   movieCurrentPageTwo.textContent = moviePageNumber;
 }
 
@@ -169,7 +169,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-$(`#movie-list-box #now_playing`).click();
+//$(`#movie-list-box #now_playing`).click();
 
 alert("Cinema Vibes", "Welcome to the Movies Page, please note that this site is still under construction!", 200);
 
