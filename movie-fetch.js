@@ -157,6 +157,11 @@ $$(`#movie-list-box span`).forEach((span) => {
     removeMovieListActive();
 
     ev.currentTarget.classList.add("filter-active");
+    alert(
+      "Movie List Filter",
+      `Movie list filtered according to ${ev.currentTarget.textContent} movies`,
+      200
+    );
     ev.currentTarget.classList.remove("filter-disabled");
 
     movieListType = ev.currentTarget.id;
@@ -172,7 +177,6 @@ $$(`#movie-list-box span`).forEach((span) => {
 //$(`#movie-list-box #now_playing`).click();
 
 alert("Cinema Vibes", "Welcome to the Movies Page, please note that this site is still under construction!", 200);
-
 
 async function fetchMovies() {
 
@@ -227,6 +231,7 @@ async function fetchMovies() {
 const movieGenre = $("#movie-genre-filter");
 const genreFilterBox = $("#movie-genre-box");
 let movieFetchGenreQuery;
+let movieActiveGenre = new Set();
 
 async function fetchMoviesGenre() {
   try {
@@ -330,10 +335,23 @@ $$(`#movie-genre-box span`).forEach((span) => {
       ? movieGenresQuery.add(ev.currentTarget.dataset.query)
       : movieGenresQuery.delete(ev.currentTarget.dataset.query);
       //console.log(movieGenresQuery);
+
+      //for alert purposes
+      ev.currentTarget.classList.contains("filter-active")
+        ? movieActiveGenre.add(ev.currentTarget.textContent)
+        : movieActiveGenre.delete(ev.currentTarget.textContent);
   });
 });
 
 $("#movie-genre-apply").addEventListener("click", () => {
+  //for alert purposes
+  let movieActiveGenreArray = Array.from(movieActiveGenre);
+  alert(
+    "Movie Genre Filter",
+    `Movie list filtered according to ${movieActiveGenreArray.join(",")} movies`,
+    200
+  );
+  //for alert purposes End
 
   moviePageNumber = 1;
 
