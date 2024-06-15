@@ -55,7 +55,7 @@ export function createMovieCard(movie, container) {
   const article = document.createElement("article");
   article.id = id;
   article.className =
-    "movie-container w-[180px] h-[270px] shadow-lg rounded-md flex flex-col items-center justify-start relative bg-gray-800 text-slate-300 border-2 border-green-600";
+    "movie-container sm:w-[150px] sm:h-[240px] md:w-[180px] md:h-[270px] shadow-lg rounded-md flex flex-col items-center justify-start relative bg-gray-800 text-slate-300 border-2 border-green-600";
 
   const img = document.createElement("img");
   img.src = poster_path ? `${imgBaseUrl}${poster_path}` : "/poster.png";
