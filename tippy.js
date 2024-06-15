@@ -29,4 +29,10 @@ tippy("#tmdb", {
   content: "API powered by TMDB API",
 });
 
+tippy("#movie-genre-apply", {
+  content: "Apply the selected genre filters!",
+});
 
+tippy("#movie-search", {
+  content: "Hit enter on your keyboard to search!",
+});
