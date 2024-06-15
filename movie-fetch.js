@@ -174,7 +174,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-//$(`#movie-list-box #now_playing`).click();
+$(`#movie-list-box #now_playing`).click();
 
 alert("Cinema Vibes", "Welcome to the Movies Page, please note that this site is still under construction!", 200);
 
@@ -360,6 +360,52 @@ $("#movie-genre-apply").addEventListener("click", () => {
     : alert("No genre selected", "Please select a genre", 404);
 });
 // Fetch Movie Genres END
+
+//Movie Description
+async function fetchMovieSources(movieId) {
+  try {
+    const [movieDetails, movieVideos, recommendedMovies, similarMovies] =
+      await Promise.all([
+        tmdbApi.get(`movie/${movieId}?`, {
+          params: {
+            language: "en-US",
+          },
+        }),
+        tmdbApi.get(`movie/${movieId}/videos?`, {
+          params: {
+            language: "en-US",
+          },
+        }),
+        tmdbApi.get(`movie/${movieId}/recommendations?`, {
+          params: {
+            language: "en-US",
+            page: 1,
+          },
+        }),
+        tmdbApi.get(`movie/${movieId}/similar?`, {
+          params: {
+            language: "en-US",
+            page: 1,
+          },
+        }),
+      ]);
+
+    const movieDetailsData = movieDetails.data;
+    const movieVideosData = movieVideos.data.results;
+    const recommendedMoviesData = recommendedMovies.data.results;
+    const similarMoviesData = similarMovies.data.results;
+
+    // Handle the data
+    console.log("details", movieDetailsData);
+    console.log("videos", movieVideosData);
+    console.log("recommended",recommendedMoviesData);
+    console.log("similar",similarMoviesData);
+  } catch (error) {
+    console.error(error);
+  }
+}
+//Movie Description
+
 
 
 
