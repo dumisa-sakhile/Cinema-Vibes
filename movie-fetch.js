@@ -58,8 +58,70 @@ $("#movie-clear-search").addEventListener("click", () => {
 
 //Fetch Movie Summary
 let movieListType;
-let movieGenresQuery = new Set();
+
+
+//Pagination Functionality
 let moviePageNumber;
+let movieCurrentPage = $("#movie-current-page");
+let movieTotalPages = $("#movie-total-pages");
+let movieCurrentPageTwo = $("#movie-current-page-2");
+
+function setMoviePages(total_pages){
+  movieCurrentPage.textContent = moviePageNumber;
+  movieTotalPages.textContent = total_pages;
+  movieCurrentPageTwo.textContent = moviePageNumber;
+}
+
+function hideShowMovieButtons(total_pages) {
+  moviePageNumber <= 1
+    ? (moviePreviousPage.className =
+        "hidden py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-red-700")
+    : (moviePreviousPage.className =
+        "block py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-red-700");
+
+  moviePageNumber < total_pages
+    ? (movieNextPage.className =
+        "block py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-green-700")
+    : (movieNextPage.className =
+        "hidden py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-green-700");
+}
+
+let moviePreviousPage = $("#movie-previous-page");
+let movieNextPage = $("#movie-next-page");
+
+moviePreviousPage.addEventListener("click", function(){
+
+  moviePageNumber--;
+  switch (paginationStatus) {
+    case "list":
+      fetchMovies();
+      break;
+
+    case "genre":
+      fetchMoviesGenre();
+      break;
+  }
+});
+
+movieNextPage.addEventListener("click", () => {
+  moviePageNumber++;
+  switch (paginationStatus) {
+    case "list":
+      fetchMovies();
+      break;
+
+    case "genre":
+      fetchMoviesGenre();
+      break;
+  }
+});
+//Pagination Functionality END
+
+//determines whether the pagination is being used for movie list
+let paginationStatus = "list";
+//paginationStatus = "list" or "genre" or "details"
+
+let movieGenresQuery = new Set();
 const movieListBox = $("#movie-list-box");
 
 const movieLists = [
@@ -109,7 +171,11 @@ $$(`#movie-list-box span`).forEach((span) => {
 
 
 async function fetchMovies() {
+
   try {
+
+  paginationStatus = "list";
+
     const response = await tmdbApi.get(`movie/${movieListType}?`, {
       params: {
         page: moviePageNumber,
@@ -123,7 +189,8 @@ async function fetchMovies() {
       $("#movie-display-box").innerText = "";
 
       showSearchBox(false);
-
+      hideShowMovieButtons(response.data.total_pages);
+      setMoviePages(response.data.total_pages);
       //Map movies
       response.data.results.map((movie) => {
         createMovieCard(movie, $("#movie-display-box"));
@@ -133,7 +200,7 @@ async function fetchMovies() {
       $$("#movie-display-box article").forEach((article) => {
 
         article.addEventListener("click", function (ev) {
-          console.log(ev.currentTarget.id);
+          //console.log(ev.currentTarget.id);
         });
 
       });
@@ -159,6 +226,9 @@ let movieFetchGenreQuery;
 
 async function fetchMoviesGenre() {
   try {
+
+    paginationStatus = "genre";
+
     movieFetchGenreQuery = "";
 
     Array.from(movieGenresQuery).forEach((genreQuery) => {
@@ -167,10 +237,9 @@ async function fetchMoviesGenre() {
 
     let with_genres_query = movieFetchGenreQuery;
 
-    console.log("final query is: ", with_genres_query);
-    console.log("final set is: ", movieGenresQuery);
+    //console.log("final query is: ", with_genres_query);
+    //console.log("final set is: ", movieGenresQuery);
 
-    //https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=12%2C28
     const response = await tmdbApi.get(`discover/movie?`, {
       params: {
         include_adult: false,
@@ -188,7 +257,10 @@ async function fetchMoviesGenre() {
       $("#movie-display-box").innerText = "";
 
       showSearchBox(false);
-      console.log(`invoked`, response.data.results);
+      //console.log(`invoked`, response.data.results);
+
+      hideShowMovieButtons(response.data.total_pages);
+      setMoviePages(response.data.total_pages);
 
       //Map movies
       response.data.results.map((movie) => {
@@ -198,7 +270,7 @@ async function fetchMoviesGenre() {
       //Event Listeners
       $$("#movie-display-box article").forEach((article) => {
         article.addEventListener("click", function (ev) {
-          console.log(ev.currentTarget.id);
+          //console.log(ev.currentTarget.id);
         });
       });
 
@@ -249,7 +321,7 @@ $$(`#movie-genre-box span`).forEach((span) => {
   span.addEventListener("click", function (ev) {
     ev.currentTarget.classList.toggle("filter-active");
     ev.currentTarget.classList.toggle("filter-disabled");
-    console.log(ev.currentTarget.dataset.query);
+    //console.log(ev.currentTarget.dataset.query);
     ev.currentTarget.classList.contains("filter-active")
       ? movieGenresQuery.add(ev.currentTarget.dataset.query)
       : movieGenresQuery.delete(ev.currentTarget.dataset.query);
@@ -266,5 +338,6 @@ $("#movie-genre-apply").addEventListener("click", () => {
     : alert("No genre selected", "Please select a genre", 404);
 });
 // Fetch Movie Genres END
+
 
 
