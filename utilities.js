@@ -112,6 +112,8 @@ export function showSearchBox(isSearch){
     $("#movie-clear-search").className =
       "fixed bottom-10 w-full min-h-20 hidden flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
 
+      $("#movie-search-box").innerText = "";
+
     $("#movie-pagination").className =
       "fixed bottom-10 w-full min-h-20 flex flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
 
