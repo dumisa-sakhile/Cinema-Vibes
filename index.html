@@ -29,72 +29,54 @@
 <section id="movies" class="w-full flex flex-col">
 
    <!-- Movie Header -->
-<header class="flex-wrap md:flex-nowrap  p-4 w-full min-h-[60px] flex items-center justify-center gap-4 *:w-full shadow-sm dark:shadow-lg">
+<header class="flex-wrap md:flex-nowrap w-full min-h-[40px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3 shadow-sm dark:shadow-slate-800">
 
-    <!-- logo -->
-    <div class="hidden md:flex items-center justify-center space-x-4">
-      <img src="/blob.svg" alt="blob" class="w-12 h-12">
-     <h1 class="text-md font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500 roboto-condensed-medium capitalize">CinemaVibes</h1>
-    </div>
-    <!-- logo -->
+<!-- logo -->
+<div class="hidden md:flex items-center min-w-[320px] justify-around gap-2">
+<a href="/" id="logo" class="flex items-center justify-center space-x-4">
+ <img src="/blob.svg" alt="blob" class="w-12 h-12">
+ <h1 class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 roboto-condensed-regular uppercase">CinemaVibes</h1>
+</a></div>
+<!-- logo -->
 
-    <!-- search -->
-    <div class="flex items-center justify-center gap-2"> 
+<!-- Movie List -->
+<nav id="movie-list-box" class="p-2 min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2"></nav>
+<!-- Movie List -->
 
-      <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit" class="bg-slate-50 w-full lg:w-[70%] rounded-md h-[40px] text-sm dark:bg-gray-700  px-6 roboto-condensed-light shadow border-none focus:outline-none ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2 focus:ring-green-500 text-gray-900 dark:text-slate-300" autocomplete="off"> 
+<div class="flex w-full min-w-[320px] items-center justify-center flex-wrap gap-2">
 
-    </div>
-    <!-- search -->
+  <!-- search -->
+  <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit"
+    class="bg-slate-50 w-[90%] lg:w-[50%] rounded-md h-[40px] text-sm dark:bg-gray-700  px-6 roboto-condensed-light shadow border-none focus:outline-none ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2 focus:ring-green-500 text-gray-900 dark:text-slate-300"
+    autocomplete="off">
+  <!-- search -->
 
-    <!-- tvOpenBtn & filter -->
-<div class="flex items-center justify-center gap-12">
+  <!-- TvOpenBtn & filter -->
+  <button
+    class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500"
+    id="movie-filter">Filters</button>
 
-<aside class="flex flex-row-reverse md:flex-row py-4 px-4 items-center justify-center gap-14 text-slate-300 text-lg w-full">
-
- <aside  class="flex items-center justify-center gap-2 w-[30%]"><button
-  class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500"
-  id="movie-filter">Filters</button></aside>
-
-
-
-<button class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500" id="tv-open">TV Shows</button>
-
-</aside>
+  <button
+    class=" min-w-[100px] max-h-[36px] py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500"
+    id="tv-open">TV series</button>
+  <!-- TvOpenBtn & filter -->
 
 </div>
-    <!-- tvOpenBtn & filter -->
+
 
 </header>
 <!-- Movie Header -->
 
 
    <!-- All Movie Filters -->
-      <main id="movie-filters-group" class="bg-slate-50 dark:bg-gray-700 dark:text-slate-300 ring-[1px] ring-slate-300 dark:ring-gray-800 w-[320px] min-h-[100px] fixed top-[150px] left-10 rounded-md shadow-lg py-2 flex flex-col items-center  roboto-condensed-light z-[12]">
+<main id="movie-filters-group" class="bg-slate-50 dark:bg-gray-700 dark:text-slate-300 ring-[1px] ring-slate-300 dark:ring-gray-800 w-[320px] min-h-[100px] absolute top-[150px] left-10 rounded-md shadow-lg py-2 flex flex-col items-center  roboto-condensed-light z-[12]">
 
-<h1 class="text-md">Filters Group</h1><br>
-<p class="text-justify px-2 text-sm">Select between Genre and Movie Lists the criteria of your filter:</p>
-<br>
-
-<div class="grid grid-cols-2 items-center justify-center gap pb-4 shadow w-full *:accent-green-500">
-
-  <div class="flex items-center justify-center gap-2">
-<input type="checkbox" name="genre" id="movie-genre-filter" class="w-4 h-4 bg-green-500 rounded-full hover:bg-green-700 cursor-pointer">
-<label for="movie-genre-filter" class="roboto-condensed-light text-sm cursor-pointer focus:outline-none">Genre</label>
-</div>
-
-
-<div class="flex items-center justify-center gap-2">
-<input type="checkbox" name="list" id="movie-list-filter" class="w-4 h-4 bg-green-500 rounded-full hover:bg-green-700 cursor-pointer">
-<label for="movie-list-filter" class="roboto-condensed-light text-sm cursor-pointer focus:outline-none">Movie Lists</label>
-</div>
-
-</div>
+<h1 class="text-md">Movie Genre Filters</h1><br>
+<p class="text-justify px-2 text-sm shadow">Please note that these filters are based on the <span class="text-green-600 roboto-condensed-bold">AND</span> operator</p>
 
 <div id="movie-genre-box" class="p-2 w-full flex items-center justify-center flex-wrap gap-2 mt-2"></div>
 
-<div id="movie-list-box"  class="p-2 w-full flex items-center justify-center flex-wrap gap-2 mt-2"></div>
-
-<div id="movie-filters-group-apply" class="flex items-center justify-center w-full">
+<div id="movie-filters-group-apply" class="grid grid-cols-2 items-center justify-center gap-4 w-full py-4 px-2">
 
 <button id="movie-filters-group-close" class="w-full py-2 px-6 bg-red-400 rounded-lg text-sm capitalize text-red-950 shadow-lg roboto-condensed-regular hover:bg-red-500 ring-[1px] ring-red-600 dark:ring-red-700 focus:ring-2 focus:ring-red-500">close</button>
 
@@ -259,9 +241,8 @@
                         <input type="checkbox" name="theme"  id="theme-toggle" class="hidden">
                           <label for="theme-toggle" class="theme-toggle" id="theme-text">Light/Dark</label>
                       </li>
-                      <li class="hover:text-green-600 cursor-pointer" id="fullscreen">
-                          Fullscreen
-                      </li>
+                      <li class="hover:text-green-600 " id="fullscreen">
+  Fullscreen</li>
                   </ul>
               </div>
           </div>

@@ -75,15 +75,15 @@ function setMoviePages(total_pages){
 function hideShowMovieButtons(total_pages) {
   moviePageNumber <= 1
     ? (moviePreviousPage.className =
-        "hidden py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-red-700")
+        "hidden py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700")
     : (moviePreviousPage.className =
-        "block py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-red-700");
+        "block py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700");
 
   moviePageNumber < total_pages
     ? (movieNextPage.className =
-        "block py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-green-700")
+        "block py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-green-700")
     : (movieNextPage.className =
-        "hidden py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-green-700");
+        "hidden py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-green-700");
 }
 
 let moviePreviousPage = $("#movie-previous-page");
@@ -174,11 +174,11 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-$(`#movie-list-box #now_playing`).click();
+//$(`#movie-list-box #now_playing`).click();
 //commented out for now
 
 
-alert("Cinema Vibes", "Welcome to the Movies Page, please note that this site is still under construction!", 404);
+//alert("Cinema Vibes", "Welcome to the Movies Page, please note that this site is still under construction!", 404);
 
 async function fetchMovies() {
 

@@ -16,27 +16,7 @@ const movieGenre = $("#movie-genre-filter");
 const genreFilterBox = $("#movie-genre-box");
 const movieListBox = $("#movie-list-box");
 
-movieList.addEventListener("change", function () {
-  this.checked = true;
-  movieGenre.checked = false;
-  flex(movieListBox);
-  none(genreFilterBox);
-  none($("#movie-genre-apply"));
-  $("#movie-filters-group-apply").className =
-    "flex items-center justify-center gap-4 w-full py-4 px-2";
-});
 
-movieGenre.addEventListener("change", function () {
-  this.checked = true;
-  movieList.checked = false;
-  none(movieListBox);
-  flex(genreFilterBox);
-  block($("#movie-genre-apply"));
-  $("#movie-filters-group-apply").className =
-    "grid grid-cols-2 items-center justify-center gap-4 w-full py-4 px-2";
-});
-
-movieList.click();
 
 
 // close Filters Group

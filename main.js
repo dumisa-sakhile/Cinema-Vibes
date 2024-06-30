@@ -39,6 +39,7 @@ const fullScreen = $("#fullscreen");
 fullScreen.addEventListener("click", toggleFullscreen);
 
 fullScreen.textContent = "Enter Fullscreen Mode";
+
 function toggleFullscreen() {
   if (document.fullscreenElement) {
     // If there's an element in fullscreen, exit fullscreen

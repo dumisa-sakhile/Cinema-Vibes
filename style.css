@@ -80,7 +80,7 @@ font-style: normal;
 }
 
 .filter-disabled{
-  @apply py-2 px-6 bg-red-100 rounded-lg text-red-900 ring-1 ring-red-200 text-sm capitalize roboto-condensed-regular hover:bg-red-200 cursor-pointer;
+  @apply py-2 px-6 bg-red-200 rounded-lg text-red-900 ring-1 ring-red-200 text-sm capitalize roboto-condensed-regular hover:bg-red-300 hover:ring-red-400 cursor-pointer;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
