@@ -46,9 +46,7 @@ $("#movie-filters-group-close").addEventListener("click", () => {
 // close Filters Group
 
 // open Filters Group
-$("#movie-filter").addEventListener("click", () => {
-  flex($("#movie-filters-group"));
-});
+$("#movie-filter").addEventListener("click", () => {flex($("#movie-filters-group"));});
 // open Filters Group
 
 

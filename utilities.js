@@ -25,24 +25,24 @@ $("#alert-title").textContent = alertTitle;
 $("#alert-message").textContent = alertMessage;
 
 if (alertType == 404) {
-  $("#alert").classList.remove("bg-green-400");
-  $("#alert").classList.add("bg-red-400");
-  $("#alert").classList.remove("ring-green-600");
-  $("#alert").classList.add("ring-red-600");
-  $("#alert").classList.remove("text-green-900");
-  $("#alert").classList.add("text-red-900");
+  $("#alert").classList.remove("bg-green-300");
+  $("#alert").classList.add("bg-red-300");
+  $("#alert").classList.remove("ring-green-500");
+  $("#alert").classList.add("ring-red-500");
+  $("#alert").classList.remove("text-green-950");
+  $("#alert").classList.add("text-red-950");
 
   $("#close-alert").style.fill = "maroon";
 
 
 } else if (alertType == 200) {
-  $("#alert").classList.remove("bg-red-400");
-  $("#alert").classList.add("bg-green-400");
+  $("#alert").classList.remove("bg-red-300");
+  $("#alert").classList.add("bg-green-300");
   
-  $("#alert").classList.add("ring-green-600");
-  $("#alert").classList.remove("ring-red-600");
-  $("#alert").classList.add("text-green-900");
-  $("#alert").classList.remove("text-red-900");
+  $("#alert").classList.add("ring-green-500");
+  $("#alert").classList.remove("ring-red-500");
+  $("#alert").classList.add("text-green-950");
+  $("#alert").classList.remove("text-red-950");
 
   $("#close-alert").style.fill="green";
 }
@@ -55,33 +55,33 @@ export function createMovieCard(movie, container) {
   const article = document.createElement("article");
   article.id = id;
   article.className =
-    "movie-container w-[180px] h-[270px] shadow-lg rounded-md flex flex-col items-center justify-start relative bg-gray-800 text-slate-300 border-2 border-green-600";
+    "movie-container w-[180px] h-[360px] rounded-md flex flex-col items-center justify-start relative bg-inherit dark:text-slate-300 space-y-2 ring-[1px] ring-slate-300 dark:ring-gray-800 shadow-lg";
 
   const img = document.createElement("img");
   img.src = poster_path ? `${imgBaseUrl}${poster_path}` : "/poster.png";
-  img.className = "rounded-sm overflow-hidden";
+  img.className = "rounded-t-md overflow-hidden";
   img.setAttribute("alt", title);
   article.appendChild(img);
 
-  const rating = document.createElement("div");
-  rating.className =
-    "movie-rating bg-green-400  w-[50px] h-[50px] absolute  -top-5  rounded-full flex items-center justify-center roboto-condensed-light text-slate-900 text-md ring-[1px] ring-green-600 shadow";
-  rating.textContent = vote_average ?? 0;
-  article.appendChild(rating);
-
   const hover = document.createElement("div");
   hover.className =
-    "movie-hover bg-modal w-full h-full absolute top-0 left-0 rounded-sm opacity-0 hover:opacity-100 cursor-pointer flex items-center justify-center flex-col gap-4";
+    "movie-hover bg-modal w-full h-full absolute -top-2 left-0 rounded-md opacity-0 hover:opacity-100 cursor-pointer flex items-center justify-center flex-col ring-2 dark:ring-[1px] ring-green-600";
   article.appendChild(hover);
+
+  const rating = document.createElement("div");
+  rating.className =
+    "movie-rating bg-green-400  w-[50px] h-[50px]  rounded-full flex items-center justify-center roboto-condensed-light text-slate-900 text-md ring-[1px] ring-green-600 shadow";
+  rating.textContent = vote_average ?? 0;
+  hover.appendChild(rating);
 
   const h1 = document.createElement("h1");
   h1.className = "movie-title text-center text-sm roboto-condensed-medium";
   h1.textContent = title;
-  hover.appendChild(h1);
+  article.appendChild(h1);
   const p = document.createElement("p");
   p.className = "movie-overview text-center text-xs roboto-condensed-light";
   p.textContent = release_date ? new Date(release_date).toLocaleDateString() : "";
-  hover.appendChild(p);
+  article.appendChild(p);
 
   container.appendChild(article);
 }

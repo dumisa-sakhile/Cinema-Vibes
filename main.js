@@ -33,3 +33,22 @@ $("#close-alert").addEventListener("click", () => {
 let date = new Date();
 $(".year").textContent = date.getFullYear();
 //Date and CopyRight
+
+const fullScreen = $("#fullscreen");
+
+fullScreen.addEventListener("click", toggleFullscreen);
+
+fullScreen.textContent = "Enter Fullscreen Mode";
+function toggleFullscreen() {
+  if (document.fullscreenElement) {
+    // If there's an element in fullscreen, exit fullscreen
+    document.exitFullscreen();
+    this.textContent = "Enter Fullscreen Mode";
+  } else {
+    // If not in fullscreen, request fullscreen on the document
+    this.textContent = "Exit Fullscreen Mode";
+    document.documentElement.requestFullscreen().catch((err) => {
+     alert("Setting Failure","Failed to enter fullscreen", 404);
+    });
+  }
+}
