@@ -7,10 +7,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <meta name="theme-color" content="rgb(226,232,240)" />
+     <!-- <meta name="theme-color" content="rgb(226,232,240)" /> -->
      <meta
       name="description"
       content="Experience the ultimate cinematic journey with Cinema Vibes. Get hooked on our expertly curated movie and TV show recommendations, featuring similar titles, captivating summaries, and thrilling trailers. Find your new favorite film or series and vibe with the community of movie lovers!" />
@@ -20,35 +20,29 @@
   window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-    <script type="module" crossorigin src="/assets/index-BFV-dOa3.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DeqNgEQx.css">
+    <script type="module" crossorigin src="/assets/index-2osVK7KQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BYUlQiDi.css">
   </head>
 
-  <body class="flex flex-col items-center justify-center dm-sans-400 bg-gray-900 scroll selection:text-green-500 selection:bg-emerald-900">
+  <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-gray-900 dark:text-slate-300 scroll selection:text-green-500 selection:bg-emerald-900">
 
 <!-- Movies -->
 <section id="movies" class="w-full flex flex-col">
-  
-  <!-- Movie Welcome -->
-  <div class="full flex items-center justify-center mt-5">
-    <h1 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500 roboto-condensed-black capitalize">Welcome to the Movies Page</h1>
-  </div>
-  <!-- Movie Welcome -->
 
    <!-- Movie Header -->
-<header class="flex-wrap md:flex-nowrap  p-4 w-full min-h-[60px] flex items-center justify-center gap-4 *:w-full">
+<header class="flex-wrap md:flex-nowrap  p-4 w-full min-h-[60px] flex items-center justify-center gap-4 *:w-full shadow-sm dark:shadow-lg">
 
     <!-- logo -->
     <div class="hidden md:flex items-center justify-center space-x-4">
       <img src="/blob.svg" alt="blob" class="w-12 h-12">
-     <h1 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500 roboto-condensed-black capitalize">CinemaVibes</h1>
+     <h1 class="text-md font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500 roboto-condensed-medium capitalize">CinemaVibes</h1>
     </div>
     <!-- logo -->
 
     <!-- search -->
     <div class="flex items-center justify-center gap-2"> 
 
-      <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit" class="w-full rounded-md h-[40px] text-sm bg-gray-700 px-6 roboto-condensed-light shadow border-none focus:outline-none ring-[1px] ring-gray-600 focus:ring-2 focus:ring-green-500 text-slate-300" autocomplete="off" value="hobbit"> 
+      <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit" class="bg-slate-50 w-full lg:w-[70%] rounded-md h-[40px] text-sm dark:bg-gray-700  px-6 roboto-condensed-light shadow border-none focus:outline-none ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2 focus:ring-green-500 text-gray-900 dark:text-slate-300" autocomplete="off"> 
 
     </div>
     <!-- search -->
@@ -58,9 +52,13 @@
 
 <aside class="flex flex-row-reverse md:flex-row py-4 px-4 items-center justify-center gap-14 text-slate-300 text-lg w-full">
 
- <aside  class="flex items-center justify-center gap-2 w-[30%]"><img src="filter.svg" alt="filter" class="bg-green-500 py-2 px-2 rounded-full hover:bg-green-700 cursor-pointer" id="movie-filter"></aside>
+ <aside  class="flex items-center justify-center gap-2 w-[30%]"><button
+  class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500"
+  id="movie-filter">Filters</button></aside>
 
-<button class="py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-gray-900 shadow-lg rajdhani-bold hover:bg-green-700" id="tv-open">TV Shows</button>
+
+
+<button class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500" id="tv-open">TV Shows</button>
 
 </aside>
 
@@ -72,35 +70,36 @@
 
 
    <!-- All Movie Filters -->
-      <main id="movie-filters-group" class="text-slate-300 bg-gray-700 w-[320px] min-h-[300px] fixed top-[150px] left-10 rounded-md shadow-lg py-2 flex flex-col items-center space-y-4 roboto-condensed-medium z-[12]">
+      <main id="movie-filters-group" class="bg-slate-50 dark:bg-gray-700 dark:text-slate-300 ring-[1px] ring-slate-300 dark:ring-gray-800 w-[320px] min-h-[100px] fixed top-[150px] left-10 rounded-md shadow-lg py-2 flex flex-col items-center  roboto-condensed-light z-[12]">
 
-<h1 class="text-md">Filters Group</h1>
+<h1 class="text-md">Filters Group</h1><br>
 <p class="text-justify px-2 text-sm">Select between Genre and Movie Lists the criteria of your filter:</p>
+<br>
 
 <div class="grid grid-cols-2 items-center justify-center gap pb-4 shadow w-full *:accent-green-500">
 
   <div class="flex items-center justify-center gap-2">
 <input type="checkbox" name="genre" id="movie-genre-filter" class="w-4 h-4 bg-green-500 rounded-full hover:bg-green-700 cursor-pointer">
-<label for="movie-genre-filter" class="roboto-condensed-medium text-sm cursor-pointer focus:outline-none">Genre</label>
+<label for="movie-genre-filter" class="roboto-condensed-light text-sm cursor-pointer focus:outline-none">Genre</label>
 </div>
 
 
 <div class="flex items-center justify-center gap-2">
 <input type="checkbox" name="list" id="movie-list-filter" class="w-4 h-4 bg-green-500 rounded-full hover:bg-green-700 cursor-pointer">
-<label for="movie-list-filter" class="roboto-condensed-medium text-sm cursor-pointer focus:outline-none">Movie Lists</label>
+<label for="movie-list-filter" class="roboto-condensed-light text-sm cursor-pointer focus:outline-none">Movie Lists</label>
 </div>
 
 </div>
 
-<div id="movie-genre-box" class="p-2 w-full flex items-center justify-start flex-wrap gap-2"></div>
+<div id="movie-genre-box" class="p-2 w-full flex items-center justify-center flex-wrap gap-2 mt-2"></div>
 
-<div id="movie-list-box"  class="p-2 w-full flex items-center justify-center flex-wrap gap-2"></div>
+<div id="movie-list-box"  class="p-2 w-full flex items-center justify-center flex-wrap gap-2 mt-2"></div>
 
-<div id="movie-filters-group-apply" class="flex items-center justify-center gap-4 w-full py-4 px-2">
+<div id="movie-filters-group-apply" class="flex items-center justify-center w-full">
 
-<button id="movie-filters-group-close" class="w-full py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-gray-900 shadow-lg rajdhani-bold hover:bg-red-700">close</button>
+<button id="movie-filters-group-close" class="w-full py-2 px-6 bg-red-400 rounded-lg text-sm capitalize text-red-950 shadow-lg roboto-condensed-regular hover:bg-red-500 ring-[1px] ring-red-600 dark:ring-red-700 focus:ring-2 focus:ring-red-500">close</button>
 
-  <button id="movie-genre-apply" class="py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-gray-900 shadow-lg rajdhani-bold hover:bg-green-700">Apply</button>
+  <button id="movie-genre-apply" class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500">Apply</button>
 
 </div>
 </main>
@@ -109,16 +108,16 @@
 
 <!--Movie Pagination -->
 <aside id="movie-pagination" class="fixed bottom-10 w-full min-h-20 flex flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none">
-  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 bg-gray-700 rounded shadow-lg pointer-events-auto">
+  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 bg-slate-50 dark:bg-gray-700 rounded shadow-lg pointer-events-auto ring-[1px] dark:ring-gray-800 ring-slate-300">
 
-  <p class="roboto-condensed-medium text-sm capitalize text-slate-300">Page <span id="movie-current-page">1</span> of <span id="movie-total-pages">300</span> page(s)</p>
+  <p class="roboto-condensed-medium text-sm capitalize">Page <span id="movie-current-page">1</span> of <span id="movie-total-pages">300</span> page(s)</p>
 
   <div class="flex items-center justify-center gap-2">
-    <button class="py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-red-700" id="movie-previous-page">Previous</button>
+    <button class="py-2 px-6 bg-red-400 rounded-lg text-sm capitalize text-red-950 shadow-lg roboto-condensed-regular hover:bg-red-500 ring-[1px] ring-red-600 dark:ring-red-700 focus:ring-2 focus:ring-red-500" id="movie-previous-page">Previous</button>
 
-    <button class="py-2 px-6 bg-inherit rounded-lg text-sm uppercase text-green-600 shadow-lg rajdhani-bold ring ring-green-400 cursor-not-allowed" id="movie-current-page-2">2</button>
+    <button class="py-2 px-6 bg-inherit rounded-lg text-sm uppercase text-green-600 shadow-lg roboto-condensed-medium ring ring-green-400 cursor-not-allowed" id="movie-current-page-2">2</button>
 
-    <button class="py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-green-700" id="movie-next-page">Next</button>
+    <button class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500" id="movie-next-page">Next</button>
   </div>
 
 </main>
@@ -127,11 +126,11 @@
 
 <!--Movie Clear Search -->
 <aside id="movie-clear-search" class="fixed bottom-10 w-full min-h-20 hidden flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none">
-  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 bg-gray-700 rounded shadow-lg pointer-events-auto">
+  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 bg-slate-50 dark:bg-gray-800 rounded shadow-lg pointer-events-auto">
 
 
   <div class="flex items-center justify-center gap-2">
-    <button class="py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg rajdhani-bold hover:bg-red-700" id="movie-previous-page">clear movie search</button>
+    <button class="py-2 px-6 bg-red-400 rounded-lg text-sm capitalize text-red-950 shadow-lg roboto-condensed-regular hover:bg-red-500 ring-[1px] ring-red-600 dark:ring-red-700 focus:ring-2 focus:ring-red-500" id="movie-previous-page">clear movie search</button>
 
     
   </div>
@@ -153,7 +152,7 @@
 <!-- Movies -->
 
 <!-- Movie Details Page -->
- <section id="movie-details-page" class="w-full h-full min-h-lvh hidden flex-row items-center justify-start text-slate-300 roboto-condensed-regular">
+ <section id="movie-details-page" class="w-full h-full min-h-lvh hidden flex-row items-center justify-start roboto-condensed-regular">
 
 <aside>
 
@@ -179,7 +178,7 @@
 
     <!-- search -->
     <div class="flex items-center justify-center gap-2"> 
-      <input type="search" name="tv-search" id="tv-search" placeholder="Show e.g. Stranger Things" class="w-[70%] rounded-md h-[40px] text-sm px-6 rajdhani-medium border border-solid border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500" autocomplete="off"> 
+      <input type="search" name="tv-search" id="tv-search" placeholder="Show e.g. Stranger Things" class="w-[70%] rounded-md h-[40px] text-sm px-6 roboto-condensed-light border border-solid border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500" autocomplete="off"> 
 
       <aside id="filter"  class="flex items-center justify-center gap-2 w-[30%]"><img src="filter.svg" alt="filter" class="bg-green-500 py-2 px-2 rounded-full hover:bg-green-700 cursor-pointer" id="tv-filter"></aside>
 
@@ -191,10 +190,10 @@
       
      <aside class=" py-4 px-4 flex items-center justify-center gap-14 text-gray-900 text-lg">
 
-      <p class="rajdhani-light"><span class="text-green-600 rajdhani-bold">TV Shows</span> Page, currently being viewed.</p>
+      <p><span class="text-green-600 roboto-condensed-medium">TV Shows</span> Page, currently being viewed.</p>
 
 
-     <button class="py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-200 shadow-lg rajdhani-bold hover:bg-green-700" id="movies-open">Movies</button>
+     <button class="py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-200 shadow-lg roboto-condensed-medium hover:bg-green-700" id="movies-open">Movies</button>
 
     </aside>
 
@@ -208,31 +207,32 @@
 <!-- TV -->
 
 <!-- Alert -->
-<section id="alert" class="fixed top-[150px] right-20 w-[320px] bg-green-400 ring-[1px] ring-green-600 text-green-900 rounded min-h-[50px] p-4 shadow  hidden flex-col gap-4 hover:scale-105 z-[15]">
+<section id="alert" class="fixed top-[150px] md:right-20 w-[320px] bg-green-400 ring-[1px] ring-green-600 text-green-900 rounded min-h-[50px] p-4 shadow-lg  hidden flex-col gap-4 hover:scale-105 z-[15]">
 
 <div class="flex">
-<h1 class="w-[90%] roboto-condensed-bold text-md capitalize" id="alert-title"></h1>
-<svg xmlns="http://www.w3.org/2000/svg"  id="close-alert" class="w-[10%] focus:outline-none hover:grayscale" height="24px" viewBox="0 0 24 24" width="24px" fill="#060"><path d="M0 0h24v24H0z" fill="none" /><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
+<h1 class="w-[90%] roboto-condensed-medium text-md capitalize" id="alert-title"></h1>
+<span id="close-alert" class="text-xl w-[10%] focus:outline-none hover:grayscale cursor-pointer">x</span>
 </div>
 
-<p class="roboto-condensed-medium text-sm" id="alert-message"></p>
+<p class="roboto-condensed-light text-sm" id="alert-message"></p>
 
 </section>
 <!-- Alert -->
 
 
 <!-- Footer -->
-<footer class="bg-white dark:bg-gray-900 relative w-full rajdhani-medium">
+<footer class="bg-inherit dark:bg-gray-900 relative w-full roboto-condensed-light">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
-              <a href="https://dumisa.onrender.com/" class="flex items-center" target="_blank">
-                  <img src="/dumisa.svg" class="h-20 me-3" alt="FlowBite Logo" />
-              </a>
+              <a href="https://dumisa.onrender.com/" class="flex items-center gap-2 hover:text-green-600 roboto-condensed-light" target="_blank">
+               Made with <span
+                    class="text-green-500 text-lg">&hearts;</span> by Dumisa</a>
+              
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                  <h2 class="mb-6 text-sm  text-gray-900 uppercase dark:text-white">Resources</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
                           <a href="https://developer.themoviedb.org/docs/getting-started" class="hover:text-green-600">TMDB API</a>
@@ -243,7 +243,7 @@
                   </ul>
               </div>
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                  <h2 class="mb-6 text-sm  text-gray-900 uppercase dark:text-white">Follow us</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
                           <a href="https://github.com/dumisa-sakhile" class="hover:text-green-600 ">Github</a>
@@ -254,24 +254,25 @@
                   </ul>
               </div>
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                  <h2 class="mb-6 text-sm  text-gray-900 uppercase dark:text-white">Settings</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                      <li class="mb-4">
-                          <a href="#" class="hover:text-green-600">Privacy Policy</a>
+                      <li class="mb-4 hover:text-green-600 *:cursor-pointer">
+                        <input type="checkbox" name="theme"  id="theme-toggle" class="hidden">
+                          <label for="theme-toggle" class="theme-toggle" id="theme-text">Light/Dark</label>
                       </li>
-                      <li>
-                          <a href="#" class="hover:text-green-600">Terms &amp; Conditions</a>
+                      <li class="hover:text-green-600 cursor-pointer" id="fullscreen">
+                          Fullscreen
                       </li>
                   </ul>
               </div>
           </div>
       </div>
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <hr class="my-6 border-slate-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div class="sm:flex sm:items-center sm:justify-between">
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; <span class="year"></span> <a href="#" class="hover:text-green-600">Cinema Vibes</a>. All Rights Reserved.
           </span>
           <div class="flex flex-col mt-4 sm:justify-center sm:mt-0 gap">
-              <a href="https://github.com/dumisa-sakhile" class="text-gray-500 hover:text-green-600 mr-4">Made with <span class="text-green-500 text-lg">&hearts;</span> by Dumisa</a>
+              
               <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg" alt="TMDB" id="tmdb">
           </div>
       </div>
