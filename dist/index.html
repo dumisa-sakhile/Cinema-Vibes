@@ -15,13 +15,23 @@
       name="description"
       content="Experience the ultimate cinematic journey with Cinema Vibes. Get hooked on our expertly curated movie and TV show recommendations, featuring similar titles, captivating summaries, and thrilling trailers. Find your new favorite film or series and vibe with the community of movie lovers!" />
       <meta name="keywords" content="TV, movie,movies, tv shows, tv series, television, shows">
-    <title>Cinema Vibes</title>
+    <title>Cinema Vibes</title>
+
+
 <script defer>
   window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
 </script>
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid 
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+</script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-    <script type="module" crossorigin src="/assets/index-x8BkxrdC.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DfY_Fr-m.css">
+    <script type="module" crossorigin src="/assets/index-BHsrbetj.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-vxa0p-TC.css">
   </head>
 
   <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-gray-900 dark:text-slate-300 scroll selection:text-green-500 selection:bg-emerald-900">
@@ -62,6 +72,22 @@
     id="tv-open">TV series</button>
   <!-- TvOpenBtn & filter -->
 
+  <!-- theme toggle -->
+  <button id="theme-toggle" type="button"
+    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+    </svg>
+    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+        fill-rule="evenodd" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+<!-- theme toggle -->
+  
 </div>
 
 
@@ -207,7 +233,7 @@
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
-              <a href="https://dumisa.onrender.com/" class="flex items-center gap-2 hover:text-green-600 roboto-condensed-light" target="_blank">
+              <a href="https://sakhile-dumisa.vercel.app/" class="flex items-center gap-2 roboto-condensed-regular text-sm hover:text-green-600" target="_blank">
                Made with <span
                     class="text-green-500 text-lg">&hearts;</span> by Dumisa</a>
               
@@ -238,10 +264,7 @@
               <div>
                   <h2 class="mb-6 text-sm  text-gray-900 uppercase dark:text-white">Settings</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                      <li class="mb-4 hover:text-green-600 *:cursor-pointer">
-                        <input type="checkbox" name="theme"  id="theme-toggle" class="hidden">
-                          <label for="theme-toggle" class="theme-toggle" id="theme-text">Light/Dark</label>
-                      </li>
+                      <li class="mb-4 hover:text-green-600"></li>
                       <li class="hover:text-green-600 " id="fullscreen">
   Fullscreen</li>
                   </ul>
@@ -254,7 +277,7 @@
           </span>
           <div class="flex flex-col mt-4 sm:justify-center sm:mt-0 gap">
               
-              <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg" alt="TMDB" id="tmdb">
+              <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg" alt="TMDB" id="tmdb" class="w-[100px]">
           </div>
       </div>
     </div>
