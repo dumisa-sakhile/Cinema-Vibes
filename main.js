@@ -103,3 +103,15 @@ themeToggleBtn.addEventListener("click", function () {
   }
 });
 //Theme Toggle
+
+
+$("#logo").addEventListener("click", function()  {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+$$(".go-up").forEach((el) => {
+  el.classList.add("cursor-pointer");
+  el.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})

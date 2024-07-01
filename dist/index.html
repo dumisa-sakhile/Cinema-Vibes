@@ -30,8 +30,8 @@
   }
 </script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-    <script type="module" crossorigin src="/assets/index-BHsrbetj.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-vxa0p-TC.css">
+    <script type="module" crossorigin src="/assets/index-BBryYSdz.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-RLucoHbn.css">
   </head>
 
   <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-gray-900 dark:text-slate-300 scroll selection:text-green-500 selection:bg-emerald-900">
@@ -44,10 +44,10 @@
 
 <!-- logo -->
 <div class="hidden md:flex items-center min-w-[320px] justify-around gap-2">
-<a href="/" id="logo" class="flex items-center justify-center space-x-4">
+<span id="logo" class="flex items-center justify-center space-x-4 cursor-pointer">
  <img src="/blob.svg" alt="blob" class="w-12 h-12">
  <h1 class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 roboto-condensed-regular uppercase">CinemaVibes</h1>
-</a></div>
+</span></div>
 <!-- logo -->
 
 <!-- Movie List -->
@@ -159,15 +159,55 @@
 </section>
 <!-- Movies -->
 
+
+
+
 <!-- Movie Details Page -->
- <section id="movie-details-page" class="w-full h-full min-h-lvh hidden flex-row items-center justify-start roboto-condensed-regular">
+ <section id="movie-details-page" class="w-full h-full min-h-lvh hidden flex-row items-center justify-center roboto-condensed-regular">
 
-<aside>
+<aside class="w-full min-h-full bg-modal absolute top-0 left-0 z-10 flex flex-row items-center justify-center gap-4">
 
+  <!-- poster -->
+<img src="https://image.tmdb.org/t/p/original/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" alt="poster path"
+class="w-[400px] h-[600px] rounded-md ring-1 ring-green-500" 
+id="poster">
+  <!-- poster -->
+
+  <!-- details -->
+<main class="min-w-[900px] min-h-[600px] rounded-md shadow-lg flex flex-col items-center justify-start bg-slate-100 dark:bg-gray-800 text-gray-900 dark:text-gray-300 ring-1 ring-green-500 p-4">
+
+<h1 id="movie-details-title" class="text-2xl roboto-condensed-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700 capitalize">inside out</h1>
+
+<p id="movie-details-tagline" class="roboto-condensed-light text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><br>
+
+<iframe width="300px" class="rounded-md" src="https://www.youtube-nocookie.com/embed/SkNqDn81dys?si=SxF-JKDUGQmOQpHb"
+  title="YouTube video player" frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<article class="flex items-center justify-center gap-2 text-sm roboto-condensed-light">
+
+<div class="flex items-center justify-center space-x-2"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="imdb" class="w-8 h-8"><span id="movie-details-rating">7.8</span></div>|
+<div class="flex items-center justify-center space-x-2"><img
+    src="./release.svg" alt="release" class="w-4 h-4"><span
+    id="movie-details-release-date">2022-06-08</span></div>
+|
+<div class="flex items-center justify-center space-x-2"><img src="./duration.svg" alt="imdb" class="w-4 h-4"><span
+    id="movie-details-duration">90 min</span></div>
+    |
+    <div class="flex items-center justify-center space-x-2"><img src="./language.svg" alt="imdb" class="w-4 h-4"><span
+        id="movie-details-language">English</span></div>
+</article>
+
+</main>
+  <!-- details -->
+
+
+  
 </aside>
 
- <img src="https://image.tmdb.org/t/p/original/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" alt="poster path" class="w-[300px] hihdden">
- <img src="https://image.tmdb.org/t/p/original/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg" alt="img" class="w-full ">
+ 
+ <img src="https://image.tmdb.org/t/p/original/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg" alt="img" class="w-full fixed top-0 left-0 z-0" id="backdrop">
 
  </section>
 <!-- Movie Details Page -->
@@ -273,7 +313,7 @@
       </div>
       <hr class="my-6 border-slate-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; <span class="year"></span> <a href="#" class="hover:text-green-600">Cinema Vibes</a>. All Rights Reserved.
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; <span class="year"></span> <span class="hover:text-green-600 go-up">Cinema Vibes</span>. All Rights Reserved.
           </span>
           <div class="flex flex-col mt-4 sm:justify-center sm:mt-0 gap">
               
