@@ -115,3 +115,61 @@ $$(".go-up").forEach((el) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 })
+
+const navOverview = $("#nav-overview");
+const navVideos = $("#nav-videos");
+const navRecommendations = $("#nav-recommendations");
+const navSimilar = $("#nav-similar");
+
+const movieDetailsOverview = $("#movie-details-overview");
+const movieDetailsVideos = $("#movie-details-videos");
+const movieDetailsRecommendations = $("#movie-details-recommendations");
+const movieDetailsSimilar = $("#movie-details-similar");
+
+
+function removeMovieListActive() {
+  $$(`#movie-details-nav span`).forEach((span) => {
+    span.classList.remove("filter-active");
+    span.classList.add("filter-disabled");
+  });
+}
+
+$$(`#movie-details-nav span`).forEach((span) => {
+  span.addEventListener("click", function (ev) {
+    removeMovieListActive();
+
+    ev.currentTarget.classList.add("filter-active");
+    ev.currentTarget.classList.remove("filter-disabled");
+
+  });
+});
+
+let movieDetailsPages = [movieDetailsOverview, movieDetailsVideos, movieDetailsRecommendations, movieDetailsSimilar];
+
+function setMovieDetailsActive(whichDetailsToShow) {
+
+  movieDetailsPages.forEach((page) => {
+    none(page);
+  });
+  flex(whichDetailsToShow);
+  
+}
+
+navOverview.addEventListener("click", () => {
+  setMovieDetailsActive(movieDetailsOverview);
+});
+
+navVideos.addEventListener("click", () => {
+  setMovieDetailsActive(movieDetailsVideos);
+});
+
+navRecommendations.addEventListener("click", () => {
+  setMovieDetailsActive(movieDetailsRecommendations);
+});   
+
+navSimilar.addEventListener("click", () => {
+  setMovieDetailsActive(movieDetailsSimilar);
+});
+
+//set default
+setMovieDetailsActive(movieDetailsVideos);

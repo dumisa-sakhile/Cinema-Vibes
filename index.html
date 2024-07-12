@@ -36,7 +36,7 @@
   <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-black dark:text-slate-300 scroll selection:text-green-500 selection:bg-emerald-900">
 
 <!-- Movies -->
-<section id="movies" class="w-full flex flex-col">
+<section id="movies" class="w-full hidden flex-col">
 
    <!-- Movie Header -->
 <header class="flex-wrap md:flex-nowrap w-full min-h-[40px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3 shadow-sm dark:shadow-slate-800">
@@ -133,7 +133,7 @@
 
 <!--Movie Clear Search -->
 <aside id="movie-clear-search" class="fixed bottom-10 w-full min-h-20 hidden flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none">
-  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 bg-transparent rounded shadow-lg ">
+  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 bg-transparent rounded ">
 
 
   <div class="flex items-center justify-center gap-2 pointer-events-auto">
@@ -162,51 +162,68 @@
 
 
 <!-- Movie Details Page -->
- <section id="movie-details-page" class="w-full h-full min-h-lvh hidden flex-row items-center justify-center roboto-condensed-regular">
+ <section id="movie-details-page" class="w-full h-full min-h-lvh flex flex-row items-center justify-center roboto-condensed-regular">
 
 <aside class="w-full min-h-full bg-modal absolute top-0 left-0 z-10 flex flex-row items-center justify-center gap-4">
 
   <!-- poster -->
 <img src="https://image.tmdb.org/t/p/original/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" alt="poster path"
-class="w-[400px] h-[600px] rounded-md ring-1 ring-green-500" 
+class="w-[400px] h-[600px] rounded-md" 
 id="poster">
   <!-- poster -->
 
   <!-- details -->
-<main class="min-w-[900px] min-h-[600px] rounded-md shadow-lg flex flex-col items-center justify-start bg-slate-100 dark:bg-gray-800 text-gray-900 dark:text-gray-300 ring-1 ring-green-500 p-4">
+<main class="min-w-[900px] min-h-[600px] rounded-md shadow-lg flex flex-col items-center justify-start bg-slate-100 dark:bg-black text-gray-900 dark:text-gray-300 p-4 space-y-4">
 
-<h1 id="movie-details-title" class="text-2xl roboto-condensed-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700 capitalize">inside out</h1>
+<h1 id="movie-details-title" class="text-5xl roboto-condensed-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700 capitalize">inside out</h1>
 
-<p id="movie-details-tagline" class="roboto-condensed-light text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><br>
-
-<iframe width="300px" class="rounded-md" src="https://www.youtube-nocookie.com/embed/SkNqDn81dys?si=SxF-JKDUGQmOQpHb"
-  title="YouTube video player" frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p id="movie-details-tagline" class="roboto-condensed-light text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
 <article class="flex items-center justify-center gap-2 text-sm roboto-condensed-light">
 
-<div class="flex items-center justify-center space-x-2"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="imdb" class="w-8 h-8"><span id="movie-details-rating">7.8</span></div>|
-<div class="flex items-center justify-center space-x-2"><img
-    src="./release.svg" alt="release" class="w-4 h-4"><span
-    id="movie-details-release-date">2022-06-08</span></div>
-|
-<div class="flex items-center justify-center space-x-2"><img src="./duration.svg" alt="imdb" class="w-4 h-4"><span
-    id="movie-details-duration">90 min</span></div>
-    |
-    <div class="flex items-center justify-center space-x-2"><img src="./language.svg" alt="imdb" class="w-4 h-4"><span
-        id="movie-details-language">English</span></div>
+  <div class="flex items-center justify-center space-x-2"><img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="imdb" class="w-8 h-8"><span
+      id="movie-details-rating">7.8</span></div>|
+  <div class="flex items-center justify-center space-x-2"><img src="./release.svg" alt="release" class="w-4 h-4"><span
+      id="movie-details-release-date">2022-06-08</span></div>
+  |
+  <div class="flex items-center justify-center space-x-2"><img src="./duration.svg" alt="imdb" class="w-4 h-4"><span
+      id="movie-details-duration">90 min</span></div>
+  |
+  <div class="flex items-center justify-center space-x-2"><img src="./language.svg" alt="imdb" class="w-4 h-4"><span
+      id="movie-details-language">English</span></div>
 </article>
+
+<nav class="grid items-center justify-center grid-cols-4 gap-2 *:text-center" id="movie-details-nav">
+<span class="filter-active" id="nav-overview">Overview</span>
+<span class="filter-disabled" id="nav-videos">Videos</span>
+<span class="filter-disabled" id="nav-recommendations">recommendations</span>
+<span class="filter-disabled" id="nav-similar">Similar Movies</span>
+</nav>
+
+<section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-overview">
+  
+  <p class="text-sm roboto-condensed-light text-justify max-w-[600px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus deserunt quae alias fuga recusandae eius porro pariatur distinctio, asperiores, ad suscipit temporibus aliquid aliquam eaque, quam laboriosam ut? Aut, perferendis!</p>
+
+</section>
+
+<section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-videos">
+  
+
+  
+</section>
+
+<section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-recommendations">recommendations</section>
+
+<section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-similar">similar</section>
 
 </main>
   <!-- details -->
 
-
-  
 </aside>
 
  
- <img src="https://image.tmdb.org/t/p/original/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg" alt="img" class="w-full fixed top-0 left-0 z-0" id="backdrop">
+ <img src="https://image.tmdb.org/t/p/original/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg" alt="img" class="w-full h-lvh fixed top-0 left-0 z-0" id="backdrop">
 
  </section>
 <!-- Movie Details Page -->
