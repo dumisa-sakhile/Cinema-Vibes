@@ -1,3 +1,6 @@
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css";
+
 export function $(selector) {
   return document.querySelector(selector);
 }
@@ -19,34 +22,31 @@ export function block(selector) {
   selector.classList.remove("hidden");
   selector.classList.add("block");
 }
-export function alert(alertTitle,alertMessage,alertType){
-flex($("#alert"));
-$("#alert-title").textContent = alertTitle;
-$("#alert-message").textContent = alertMessage;
+export function alert(alertTitle, alertMessage, alertType) {
+  flex($("#alert"));
+  $("#alert-title").textContent = alertTitle;
+  $("#alert-message").textContent = alertMessage;
 
-if (alertType == 404) {
-  $("#alert").classList.remove("bg-green-300");
-  $("#alert").classList.add("bg-red-300");
-  $("#alert").classList.remove("ring-green-500");
-  $("#alert").classList.add("ring-red-500");
-  $("#alert").classList.remove("text-green-950");
-  $("#alert").classList.add("text-red-950");
+  if (alertType == 404) {
+    $("#alert").classList.remove("bg-green-300");
+    $("#alert").classList.add("bg-red-300");
+    $("#alert").classList.remove("ring-green-500");
+    $("#alert").classList.add("ring-red-500");
+    $("#alert").classList.remove("text-green-950");
+    $("#alert").classList.add("text-red-950");
 
-  $("#close-alert").style.fill = "maroon";
+    $("#close-alert").style.fill = "maroon";
+  } else if (alertType == 200) {
+    $("#alert").classList.remove("bg-red-300");
+    $("#alert").classList.add("bg-green-300");
 
+    $("#alert").classList.add("ring-green-500");
+    $("#alert").classList.remove("ring-red-500");
+    $("#alert").classList.add("text-green-950");
+    $("#alert").classList.remove("text-red-950");
 
-} else if (alertType == 200) {
-  $("#alert").classList.remove("bg-red-300");
-  $("#alert").classList.add("bg-green-300");
-  
-  $("#alert").classList.add("ring-green-500");
-  $("#alert").classList.remove("ring-red-500");
-  $("#alert").classList.add("text-green-950");
-  $("#alert").classList.remove("text-red-950");
-
-  $("#close-alert").style.fill="green";
-}
-
+    $("#close-alert").style.fill = "green";
+  }
 }
 export function createMovieCard(movie, container) {
   const imgBaseUrl = "https://image.tmdb.org/t/p/original";
@@ -80,15 +80,16 @@ export function createMovieCard(movie, container) {
   article.appendChild(h1);
   const p = document.createElement("p");
   p.className = "movie-overview text-center text-xs roboto-condensed-light";
-  p.textContent = release_date ? new Date(release_date).toLocaleDateString() : "";
+  p.textContent = release_date
+    ? new Date(release_date).toLocaleDateString()
+    : "";
   article.appendChild(p);
 
   container.appendChild(article);
 }
 
-export function showSearchBox(isSearch){
-
-  if(isSearch){
+export function showSearchBox(isSearch) {
+  if (isSearch) {
     $("#movie-search-box").className =
       "w-full min-h-[700px] flex flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
 
@@ -103,9 +104,9 @@ export function showSearchBox(isSearch){
     $("#movie-pagination").className =
       "fixed bottom-10 w-full min-h-20 hidden flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
 
-        //hide filters when search box is shown
-      $("#movie-filters-group-close").click();
-  }else{
+    //hide filters when search box is shown
+    $("#movie-filters-group-close").click();
+  } else {
     $("#movie-search-box").className =
       "w-full min-h-[700px] hidden flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
 
@@ -115,12 +116,25 @@ export function showSearchBox(isSearch){
     $("#movie-clear-search").className =
       "fixed bottom-10 w-full min-h-20 hidden flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
 
-      $("#movie-search-box").innerText = "";
+    $("#movie-search-box").innerText = "";
 
     $("#movie-pagination").className =
       "fixed bottom-10 w-full min-h-20 flex flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none";
 
     $("#movie-search").value = null;
   }
+}
 
+export function updatePaginationTippy() {
+  tippy("#movie-previous-page", {
+    content: `Page ${
+      parseInt(document.querySelector("#movie-current-page").textContent) - 1
+    }`,
+  });
+
+  tippy("#movie-next-page", {
+    content: `Page ${
+      parseInt(document.querySelector("#movie-current-page").textContent) + 1
+    }`,
+  });
 }

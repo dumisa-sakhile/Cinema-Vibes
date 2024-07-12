@@ -36,3 +36,13 @@ tippy("#movie-genre-apply", {
 tippy("#movie-search", {
   content: "Hit enter on your keyboard to search!",
 });
+
+tippy("#theme-toggle-dark-icon", {
+  content: "Switch to dark mode!",
+});
+
+tippy("#theme-toggle-light-icon", {
+  content: "Switch to light mode!",
+});
+
+//

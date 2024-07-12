@@ -1,5 +1,6 @@
 import axios from "axios";
-import { $, $$, none, flex, grid, block, alert, createMovieCard, showSearchBox } from "./utilities.js";
+import { $, $$, none, flex, grid, block, alert, createMovieCard, showSearchBox, updatePaginationTippy} from "./utilities.js";
+
 
 
 const tmdbApi = axios.create({
@@ -101,6 +102,7 @@ moviePreviousPage.addEventListener("click", function(){
       fetchMoviesGenre();
       break;
   }
+
 });
 
 movieNextPage.addEventListener("click", () => {
@@ -114,6 +116,8 @@ movieNextPage.addEventListener("click", () => {
       fetchMoviesGenre();
       break;
   }
+
+  
 });
 //Pagination Functionality END
 
@@ -171,6 +175,9 @@ $$(`#movie-list-box span`).forEach((span) => {
     movieGenresQuery.clear();
 
     fetchMovies();
+
+
+
   });
 });
 
@@ -219,6 +226,9 @@ async function fetchMovies() {
       $$(`#movie-genre-box span`).forEach((span) => {
         span.className = "filter-disabled";
       });
+
+      //update pagination tippy
+      updatePaginationTippy();
 
      // console.log(response.data);
     }
@@ -272,6 +282,9 @@ async function fetchMoviesGenre() {
 
       hideShowMovieButtons(response.data.total_pages);
       setMoviePages(response.data.total_pages);
+
+      //update pagination tippy
+      updatePaginationTippy();
 
       //Map movies
       response.data.results.map((movie) => {
