@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        modal: "rgb(0, 0, 0, 0.5)",
+        modal: "rgb(0, 0, 0, 0.7)",
       },
     },
   },

@@ -73,7 +73,7 @@
 
   <!-- theme toggle -->
   <button id="theme-toggle" type="button"
-    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 *:focus:outline-none">
     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg">
       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -164,22 +164,19 @@
 <!-- Movie Details Page -->
  <section id="movie-details-page" class="w-full h-full min-h-lvh flex flex-row items-center justify-center roboto-condensed-regular">
 
-<aside class="w-full min-h-full bg-modal absolute top-0 left-0 z-10 flex flex-row items-center justify-center gap-4">
+  
 
-  <!-- poster -->
-<img src="https://image.tmdb.org/t/p/original/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" alt="poster path"
-class="w-[400px] h-[600px] rounded-md" 
-id="poster">
-  <!-- poster -->
+<aside class="w-full min-h-full bg-modal absolute top-0 left-0 z-10 flex flex-col items-center justify-start gap-10 pt-10">
 
-  <!-- details -->
-<main class="min-w-[900px] min-h-[600px] rounded-md shadow-lg flex flex-col items-center justify-start bg-slate-100 dark:bg-black text-gray-900 dark:text-gray-300 p-4 space-y-4">
+  <!-- title, rating, duration, release, language -->
+<header class="flex flex-col items-center justify-center
+ space-x-4 w-full">
+  <h1 id="movie-details-title" class="text-6xl roboto-condensed-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700 capitalize">inside out</h1>
 
-<h1 id="movie-details-title" class="text-5xl roboto-condensed-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700 capitalize">inside out</h1>
+<p id="movie-details-tagline" class="roboto-condensed-medium text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
-<p id="movie-details-tagline" class="roboto-condensed-light text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
-<article class="flex items-center justify-center gap-2 text-sm roboto-condensed-light">
+<!-- rating, release, duration & language -->
+<article class="flex items-center justify-center gap-2 text-md roboto-condensed-medium">
 
   <div class="flex items-center justify-center space-x-2"><img
       src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="imdb" class="w-8 h-8"><span
@@ -193,32 +190,138 @@ id="poster">
   <div class="flex items-center justify-center space-x-2"><img src="./language.svg" alt="imdb" class="w-4 h-4"><span
       id="movie-details-language">English</span></div>
 </article>
+<!-- rating, release, duration & language -->
+</header>
+  <!-- title, rating, duration, release, language -->
 
+  <!-- details nav -->
 <nav class="grid items-center justify-center grid-cols-4 gap-2 *:text-center" id="movie-details-nav">
-<span class="filter-active" id="nav-overview">Overview</span>
-<span class="filter-disabled" id="nav-videos">Videos</span>
-<span class="filter-disabled" id="nav-recommendations">recommendations</span>
-<span class="filter-disabled" id="nav-similar">Similar Movies</span>
+  <span class="filter-active" id="nav-overview">Overview</span>
+  <span class="filter-disabled" id="nav-videos">Videos</span>
+  <span class="filter-disabled" id="nav-recommendations">recommendations</span>
+  <span class="filter-disabled" id="nav-similar">Similar Movies</span>
 </nav>
+  <!-- details nav -->
 
-<section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-overview">
+
+  <!-- details & poster -->
+ <section class="flex flex-row items-center justify-center space-x-4 bg-transparent w-full h-[600px]">
+  <!-- poster -->
+<img src="https://image.tmdb.org/t/p/original/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" alt="poster path"
+  class="w-[400px] h-[600px] rounded-md" id="poster">
+<!-- poster -->
+
+<!-- details -->
+<main
+  class="min-w-[900px] min-h-[600px] rounded-md block items-center justify-start bg-slate-100 dark:bg-black text-gray-900 dark:text-gray-300 p-4 pt-1 space-y-4">
+
+
+  <!-- details overview -->
+  <section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-overview">
+
+    <p class="text-md roboto-condensed-regular text-justify max-w-[600px]">Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Voluptatibus deserunt quae alias fuga recusandae eius porro pariatur distinctio, asperiores, ad
+      suscipit temporibus aliquid aliquam eaque, quam laboriosam ut? Aut, perferendis!</p>
+
+  </section>
+  <!-- details overview -->
+
+
+  <!-- details videos -->
+  <section class="w-full h-full flex" id="movie-details-videos">
+
   
-  <p class="text-sm roboto-condensed-light text-justify max-w-[600px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus deserunt quae alias fuga recusandae eius porro pariatur distinctio, asperiores, ad suscipit temporibus aliquid aliquam eaque, quam laboriosam ut? Aut, perferendis!</p>
+  <!-- Slider main container -->
+  <section class="swiper w-[600px] h-[500px]" >
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
 
-</section>
 
-<section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-videos">
+<!-- Slides -->
+<div class="swiper-slide">
+
+<article class="relative w-full h-full flex items-center justify-center gap-4 flex-col">
+
+<h1>Here's the <span class="text-green-600">trailer</span> of the movie</h1>
+
+<iframe width="560" height="315" class="rounded-md" src="https://www.youtube-nocookie.com/embed/aWdxDSDz0H4?si=Tj0y_MSLQFrFAOMb"
+  title="YouTube video player" frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  </article>
+
+  </div>
+
+    <div class="swiper-slide">
+    
+      <article class="relative w-full h-full flex items-center justify-center gap-4 flex-col">
+    
+        <h1>Here's the <span class="text-green-600">trailer</span> of the movie</h1>
+    
+        <iframe width="560" height="315" class="rounded-md"
+          src="https://www.youtube-nocookie.com/embed/aWdxDSDz0H4?si=Tj0y_MSLQFrFAOMb" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+      </article>
+    
+    </div>
+
+    <div class="swiper-slide">
+    
+      <article class="relative w-full h-full flex items-center justify-center gap-4 flex-col">
+    
+        <h1>Here's the <span class="text-green-600">trailer</span> of the movie</h1>
+    
+        <iframe width="560" height="315" class="rounded-md"
+          src="https://www.youtube-nocookie.com/embed/aWdxDSDz0H4?si=Tj0y_MSLQFrFAOMb" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+      </article>
+    
+    </div>
+<!-- Slides -->
+
+
+    </div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
   
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </section>
 
-  
-</section>
+     
 
-<section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-recommendations">recommendations</section>
+  </section>
+  <!-- details videos -->
 
-<section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-similar">similar</section>
+
+  <!-- details recommendations -->
+  <section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-recommendations">
+    recommendations</section>
+  <!-- details recommendations -->
+
+
+  <!-- details similar -->
+  <section class="w-full min-h-full flex items-center justify-center gap-4" id="movie-details-similar">similar</section>
+  <!-- details similar -->
 
 </main>
-  <!-- details -->
+<!-- details -->
+</section>
+  <!-- details & poster -->
+
+
 
 </aside>
 

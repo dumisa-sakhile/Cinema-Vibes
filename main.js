@@ -3,6 +3,17 @@ import "./tippy.js";
 import { $, $$, none, flex, grid, block, alert } from "./utilities.js";
 import "./movie.js";
 
+// core version + navigation, pagination modules:
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+// import Swiper and modules styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+
+
+
 const moviesOpen = $("#movies-open");
 const tvOpen = $("#tv-open");
 const movies = $("#movies");
@@ -173,3 +184,36 @@ navSimilar.addEventListener("click", () => {
 
 //set default
 setMovieDetailsActive(movieDetailsVideos);
+
+
+// init Swiper:
+
+const swiper = new Swiper(".swiper", {
+
+  modules: [Navigation, Pagination],
+  // Optional parameters
+  direction: "horizontal",
+  effect : "cards",
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+
+const swiperClass = document.querySelector(".swiper").swiper;
+
+// Now you can use all slider methods like
+swiperClass.slideNext();
