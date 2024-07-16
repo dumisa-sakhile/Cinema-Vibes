@@ -3,17 +3,6 @@ import "./tippy.js";
 import { $, $$, none, flex, grid, block, alert } from "./utilities.js";
 import "./movie.js";
 
-// core version + navigation, pagination modules:
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-// import Swiper and modules styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-
-
-
 const moviesOpen = $("#movies-open");
 const tvOpen = $("#tv-open");
 const movies = $("#movies");
@@ -127,93 +116,26 @@ $$(".go-up").forEach((el) => {
   });
 })
 
-const navOverview = $("#nav-overview");
-const navVideos = $("#nav-videos");
-const navRecommendations = $("#nav-recommendations");
-const navSimilar = $("#nav-similar");
 
-const movieDetailsOverview = $("#movie-details-overview");
-const movieDetailsVideos = $("#movie-details-videos");
-const movieDetailsRecommendations = $("#movie-details-recommendations");
-const movieDetailsSimilar = $("#movie-details-similar");
-
-
-function removeMovieListActive() {
-  $$(`#movie-details-nav span`).forEach((span) => {
-    span.classList.remove("filter-active");
-    span.classList.add("filter-disabled");
-  });
-}
-
-$$(`#movie-details-nav span`).forEach((span) => {
-  span.addEventListener("click", function (ev) {
-    removeMovieListActive();
-
-    ev.currentTarget.classList.add("filter-active");
-    ev.currentTarget.classList.remove("filter-disabled");
-
-  });
+$("#movie-trailer-close").addEventListener("click", () => {
+  console.clear();
+  $("#movie-details-trailer").contentWindow.postMessage("pause", "*");
+  $("#movie-details-trailer").src = $("#movie-details-trailer").src;
+  $("#movie-trailer-box").className =
+    "w-full h-full bg-modal fixed top-0 left-0 hidden items-center justify-center";
 });
 
-let movieDetailsPages = [movieDetailsOverview, movieDetailsVideos, movieDetailsRecommendations, movieDetailsSimilar];
+$("#movie-trailer-open").addEventListener("click",()=>{
+  $("#movie-trailer-box").className =
+    "w-full h-full bg-modal fixed top-0 left-0 flex items-center justify-center";
+})
 
-function setMovieDetailsActive(whichDetailsToShow) {
+$("#movie-details-close").addEventListener("click", () => {
 
-  movieDetailsPages.forEach((page) => {
-    none(page);
-  });
-  flex(whichDetailsToShow);
-  
-}
+$("footer").className="bg-inherit dark:bg-gray-900 block relative w-full roboto-condensed-light"
 
-navOverview.addEventListener("click", () => {
-  setMovieDetailsActive(movieDetailsOverview);
+$("#movies").className = "w-full flex flex-col";
+
+  $("#movie-details-page").className =
+    "w-full h-full hidden flex-row items-center justify-center gap-0";
 });
-
-navVideos.addEventListener("click", () => {
-  setMovieDetailsActive(movieDetailsVideos);
-});
-
-navRecommendations.addEventListener("click", () => {
-  setMovieDetailsActive(movieDetailsRecommendations);
-});   
-
-navSimilar.addEventListener("click", () => {
-  setMovieDetailsActive(movieDetailsSimilar);
-});
-
-//set default
-setMovieDetailsActive(movieDetailsVideos);
-
-
-// init Swiper:
-
-const swiper = new Swiper(".swiper", {
-
-  modules: [Navigation, Pagination],
-  // Optional parameters
-  direction: "horizontal",
-  effect : "cards",
-  loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  // And if we need scrollbar
-  scrollbar: {
-    el: ".swiper-scrollbar",
-  },
-});
-
-const swiperClass = document.querySelector(".swiper").swiper;
-
-// Now you can use all slider methods like
-swiperClass.slideNext();

@@ -45,4 +45,17 @@ tippy("#theme-toggle-light-icon", {
   content: "Switch to light mode!",
 });
 
+
+tippy("#movie-trailer-close", {
+  content: "Close the movie trailer!",
+});
+
+tippy("#movie-trailer-open", {
+  content: "open the movie trailer!",
+});
+
+tippy("#movie-details-close", {
+  content: "Close the movie details page!",
+});
+
 //
