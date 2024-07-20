@@ -36,6 +36,21 @@ async function searchMovies() {
         createMovieCard(movie, $("#movie-search-box"));
       })
       
+
+      $$("#movie-search-box article").forEach((article) => {
+        article.addEventListener("click", function (ev) {
+          fetchMovieSources(ev.currentTarget.id);
+          $("footer").className =
+            "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+          $("#movies").className = "w-full hidden flex-col";
+
+          $("#movie-details-page").className =
+            "w-full h-full flex flex-row items-center justify-center gap-0";
+
+          $("#movie-details-overview").click();
+        });
+      });
     //console.log(response.data);
 
     }
@@ -486,7 +501,7 @@ async function fetchMovieSources(movieId) {
     movieDetailsData.spoken_languages.forEach((language) => {
       const span = document.createElement("span");
       span.className = "hover:text-green-600";  
-      span.textContent = language.name;
+      span.textContent = language.english_name;
       span.setAttribute("data-id", language.iso_639_1);
       $("#movie-details-languages-box").appendChild(span);
     });
@@ -497,6 +512,23 @@ async function fetchMovieSources(movieId) {
       createMovieCard(movie, $("#movie-details-recommendations-wrapper"));
     });
 
+      $$("#movie-details-recommendations-wrapper article").forEach(
+        (article) => {
+          article.addEventListener("click", function (ev) {
+            fetchMovieSources(ev.currentTarget.id);
+            $("footer").className =
+              "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+            $("#movies").className = "w-full hidden flex-col";
+
+            $("#movie-details-page").className =
+              "w-full h-full flex flex-row items-center justify-center gap-0";
+
+            $("#movie-details-overview").click();
+          });
+        }
+      );
+
 
     //similar movies
     $("#movie-details-similar-wrapper").textContent = "";
@@ -504,6 +536,22 @@ async function fetchMovieSources(movieId) {
       createMovieCard(movie, $("#movie-details-similar-wrapper"));
     });
 
+    $$("#movie-details-similar-wrapper article").forEach(
+        (article) => {
+          article.addEventListener("click", function (ev) {
+            fetchMovieSources(ev.currentTarget.id);
+            $("footer").className =
+              "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+            $("#movies").className = "w-full hidden flex-col";
+
+            $("#movie-details-page").className =
+              "w-full h-full flex flex-row items-center justify-center gap-0";
+
+            $("#movie-details-overview").click();
+          });
+        }
+      );
 
     // console.log("details", movieDetailsData);
     // console.log("videos", movieVideosData);
@@ -514,7 +562,7 @@ async function fetchMovieSources(movieId) {
   }
 }
 
-fetchMovieSources(519182);
+//fetchMovieSources(519182);
 //Movie Description
 
 
