@@ -194,7 +194,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-$(`#movie-list-box #popular`).click();
+//$(`#movie-list-box #popular`).click();
 //commented out for now
 
 
@@ -319,6 +319,23 @@ async function fetchMoviesGenre() {
       response.data.results.map((movie) => {
         createMovieCard(movie, $("#movie-display-box"));
       });
+
+      $$("#movie-display-box article").forEach(
+        (article) => {
+          article.addEventListener("click", function (ev) {
+            fetchMovieSources(ev.currentTarget.id);
+            $("footer").className =
+              "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+            $("#movies").className = "w-full hidden flex-col";
+
+            $("#movie-details-page").className =
+              "w-full h-full flex flex-row items-center justify-center gap-0";
+
+            $("#movie-details-overview").click();
+          });
+        }
+      );
 
       //Event Listeners
       $$("#movie-display-box article").forEach((article) => {
