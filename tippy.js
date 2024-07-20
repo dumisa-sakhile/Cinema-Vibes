@@ -58,4 +58,8 @@ tippy("#movie-details-close", {
   content: "Close the movie details page!",
 });
 
+tippy("#movie-clear-search", {
+  content: "Close the search results!",
+});
+
 //

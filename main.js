@@ -139,3 +139,9 @@ $("#movies").className = "w-full flex flex-col";
   $("#movie-details-page").className =
     "w-full h-full hidden flex-row items-center justify-center gap-0";
 });
+
+
+const movieDetailsOverview = $("#movie-details-overview");
+const movieDetailsVideo = $("#movie-details-video");
+const movieDetailsRecommendations = $("#movie-details-recommendations");
+const movieDetailsSimilar = $("#movie-details-similar");

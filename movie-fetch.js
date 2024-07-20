@@ -179,7 +179,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-$(`#movie-list-box #now_playing`).click();
+$(`#movie-list-box #popular`).click();
 //commented out for now
 
 

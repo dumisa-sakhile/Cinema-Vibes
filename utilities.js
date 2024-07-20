@@ -55,7 +55,7 @@ export function createMovieCard(movie, container) {
   const article = document.createElement("article");
   article.id = id;
   article.className =
-    "movie-container w-[180px] h-[360px] rounded-md flex flex-col items-center justify-start relative bg-inherit dark:text-slate-300 space-y-2 ring-[1px] ring-slate-300 dark:ring-gray-800 shadow-lg";
+    "movie-container w-[180px] h-[360px] rounded-md flex flex-col items-center justify-start relative bg-inherit dark:text-slate-300 space-y-2 ring-[1px] ring-slate-300 dark:ring-gray-800 shadow-sm";
 
   const img = document.createElement("img");
   img.src = poster_path ? `${imgBaseUrl}${poster_path}` : "/poster.png";
@@ -65,7 +65,7 @@ export function createMovieCard(movie, container) {
 
   const hover = document.createElement("div");
   hover.className =
-    "movie-hover bg-modal w-full h-full absolute -top-2 left-0 rounded-md opacity-0 hover:opacity-100 cursor-pointer flex items-center justify-center flex-col ring-2 dark:ring-[1px] ring-green-600";
+    "movie-hover bg-popup dark:bg-modal  w-full h-full absolute -top-2 left-0 rounded-md opacity-0 hover:opacity-100 cursor-pointer flex items-center justify-center flex-col ring-2 dark:ring-[1px] ring-green-600";
   article.appendChild(hover);
 
   const rating = document.createElement("div");

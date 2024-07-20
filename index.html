@@ -46,7 +46,7 @@
 <div class="hidden md:flex items-center min-w-[320px] justify-around gap-2">
 <span id="logo" class="flex items-center justify-center space-x-4 cursor-pointer">
  <img src="/blob.svg" alt="blob" class="w-12 h-12">
- <h1 class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 roboto-condensed-regular uppercase">CinemaVibes</h1>
+ <h1 class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 roboto-condensed-regular uppercase">Cinema&nbsp;Vibes</h1>
 </span></div>
 <!-- logo -->
 
@@ -58,23 +58,23 @@
 
   <!-- search -->
   <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit"
-    class="bg-slate-50 w-[90%] lg:w-[50%] rounded-md h-[40px] text-sm dark:bg-customGray  px-6 roboto-condensed-light shadow border-none focus:outline-none ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2 focus:ring-green-500 text-gray-900 dark:text-slate-300"
+    class="w-[90%] lg:w-[50%] rounded-md h-[40px] text-sm bg-slate-50 dark:bg-black  px-6 roboto-condensed-light shadow border-none focus:outline-none ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2 text-gray-900 dark:text-slate-300"
     autocomplete="off">
   <!-- search -->
 
   <!-- TvOpenBtn & filter -->
   <button
-    class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500"
+    class="py-2 px-6 bg-customGray hover:bg-gray-900 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-gray-900 text-slate-100 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular  ring-[1px] ring-slate-600 dark:ring-slate-700 focus:ring-2 focus:ring-slate-500"
     id="movie-filter">Filters</button>
-
+    
   <button
-    class=" min-w-[100px] max-h-[36px] py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500"
+    class="min-w-[100px] max-h-[36px] py-2 px-6 bg-customGray hover:bg-gray-900 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-gray-900 text-slate-100 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular  ring-[1px] ring-slate-600 dark:ring-slate-700 focus:ring-2 focus:ring-slate-500"
     id="tv-open">TV series</button>
   <!-- TvOpenBtn & filter -->
 
   <!-- theme toggle -->
   <button id="theme-toggle" type="button"
-    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 *:focus:outline-none">
+    class="text-customGray dark:text-slate-100 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 *:focus:outline-none">
     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg">
       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -96,18 +96,18 @@
 
 
    <!-- All Movie Filters -->
-<main id="movie-filters-group" class="bg-slate-50 dark:bg-customGray dark:text-slate-300 ring-[1px] ring-slate-300 dark:ring-gray-800 w-[320px] min-h-[100px] absolute top-[150px] left-10 rounded-md shadow-lg py-2 flex flex-col items-center  roboto-condensed-light z-[12]">
+<main id="movie-filters-group" class="bg-slate-50 dark:bg-black dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2  w-[320px] min-h-[100px] absolute top-[150px] left-10 rounded-md shadow-sm py-2 flex flex-col items-center  roboto-condensed-light z-[12]">
 
 <h1 class="text-md">Movie Genre Filters</h1><br>
-<p class="text-justify px-2 text-sm shadow">Please note that these filters are based on the <span class="text-green-600 ">AND</span> operator</p>
+<p class="text-justify px-2 text-sm shadow">Please note that these filters are based on the <span class="text-green-600 ">AND</span> operator:</p>
 
 <div id="movie-genre-box" class="p-2 w-full flex items-center justify-center flex-wrap gap-2 mt-2"></div>
 
 <div id="movie-filters-group-apply" class="grid grid-cols-2 items-center justify-center gap-4 w-full py-4 px-2">
 
-<button id="movie-filters-group-close" class="w-full py-2 px-6 bg-red-400 rounded-lg text-sm capitalize text-red-950 shadow-lg roboto-condensed-regular hover:bg-red-500 ring-[1px] ring-red-600 dark:ring-red-700 focus:ring-2 focus:ring-red-500">close</button>
+<button id="movie-filters-group-close" class="block py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700">close</button>
 
-  <button id="movie-genre-apply" class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500">Apply</button>
+  <button id="movie-genre-apply" class="block py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-green-700">Apply</button>
 
 </div>
 </main>
@@ -116,7 +116,7 @@
 
 <!--Movie Pagination -->
 <aside id="movie-pagination" class="fixed bottom-10 w-full min-h-20 flex flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none">
-  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 bg-slate-50 dark:bg-customGray rounded shadow-lg pointer-events-auto ring-[1px] dark:ring-gray-800 ring-slate-300">
+  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 rounded shadow-lg pointer-events-auto bg-slate-50 dark:bg-black dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2">
 
   <p class="roboto-condensed-medium text-sm capitalize">Page <span id="movie-current-page">1</span> of <span id="movie-total-pages">300</span> page(s)</p>
 
@@ -138,7 +138,7 @@
 
 
   <div class="flex items-center justify-center gap-2 pointer-events-auto">
-    <button class="py-2 px-6 bg-red-400 rounded-lg text-sm capitalize text-red-950 shadow-lg roboto-condensed-regular hover:bg-red-500 ring-[1px] ring-red-600 dark:ring-red-700 focus:ring-2 focus:ring-red-500" id="movie-previous-page">clear movie search</button>
+    <button class="block py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700">clear movie search</button>
   </div>
 
 </main>
@@ -166,6 +166,7 @@
   <!-- main details wrapper -->
 <main class="w-full h-lvh bg-modal scroll fixed top-0 left-0 z-10 flex flex-col items-center justify-start pt-8 gap-4 overflow-y-auto pb-20 ">
 
+  
 <!-- trailer play popup -->
 <aside class="w-full h-full bg-modal fixed top-0 left-0 hidden items-center justify-center z-10" id="movie-trailer-box">
 
@@ -191,6 +192,47 @@
 </aside>
 <!-- trailer play popup -->
 
+<!-- Details Header -->
+<header
+  class="flex-wrap md:flex-nowrap w-full min-h-[60px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3 shadow-sm dark:shadow-slate-800">
+
+  <!-- logo -->
+  <div class="hidden md:flex items-center min-w-[320px] justify-around gap-2">
+    <span id="logo-title" class="flex items-center justify-center space-x-4 cursor-pointer">
+      <img src="/blob.svg" alt="blob" class="w-12 h-12">
+      <h1
+        class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 roboto-condensed-regular uppercase">
+        The Lord of the rings: the return of the king.</h1>
+    </span>
+  </div>
+  <!-- logo -->
+
+  <!-- Details Nav -->
+  <nav id="movie-details-nav" class="p-2 min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2">
+    <span class="filter-active" id="movie-details-overview">overview</span>
+    <span class="filter-disabled" id="movie-details-videos">videos</span>
+    <span class="filter-disabled" id="movie-details-recommendations">recommendations</span>
+    <span class="filter-disabled" id="movie-details-similar">similar</span>
+  </nav>
+  <!-- Details Nav -->
+
+  <div class="flex w-full min-w-[320px] items-center justify-center flex-wrap gap-2">
+
+
+<!-- close movie details page -->
+    <button
+      class=" min-w-[100px] max-h-[36px] py-2 px-6 bg-red-400 rounded-lg text-sm capitalize text-red-950 shadow-lg roboto-condensed-regular hover:bg-red-500 ring-[1px] ring-red-600 dark:ring-red-700 focus:ring-2 focus:ring-red-500"
+      id="movie-details-close">close movie info</button>
+<!-- close movie details page -->
+
+
+  </div>
+
+
+</header>
+<!-- Details Header -->
+
+
   <!-- overview & poster -->
  <section class="flex flex-row items-center justify-center space-x-4 bg-transparent w-full h-[600px]">
 
@@ -206,13 +248,9 @@
 
 <!-- overview -->
 <main
-  class="w-[900px] min-h-[600px] rounded-md block items-center justify-start bg-transparent text-gray-900 dark:text-gray-300 p-4 pt-1 space-y-4" id="movie-details-overview">
+  class="w-[900px] min-h-[600px] rounded-md block items-center justify-center bg-transparent text-gray-900 dark:text-gray-300 p-4 pt-1 space-y-4" id="movie-details-overview">
 
-  <!-- close details page btn and show movie-page & footer -->
-<div 
-class="flex items-center justify-center pointer-events-auto fixed right-8 z-0 w-10 h-10 rounded-full bg-black ring-[1px] ring-slate-300 text-lg text-slate-300 cursor-pointer animate-bounce hover:animate-none hover:scale-[1.1] hover:text-red-700 hover:ring-red-700 roboto-condensed-thin" id="movie-details-close">
-  x
-</div>
+
   <!-- close details page btn and show movie-page & footer -->
 
   <h1 id="movie-details-title"
@@ -330,199 +368,7 @@ class="flex items-center justify-center pointer-events-auto fixed right-8 z-0 w-
   <!-- overview & poster -->
 
 
-  <!-- cast -->
-  <section class="flex flex-col items-start justify-center p-8 bg-transparent rounded-md w-full min-h-[310px] -mt-8">
-<h1 class="roboto-condensed-medium text-green-600 text-sm capitalize">here's the full cast & crew of the movie</h1>
-
-<aside class="slider bg-transparent w-full min-h-[270px] rounded flex items-center justify-start gap-14 px-4 overflow-x-auto scrollbar-hide *:w-[100px] *:h-[186px] *:inline-block">
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-<div>
-  <div
-    class="item bg-slate-100 dark:bg-inherit ring-[1px] ring-gray-700 w-[120px] h-[186px] rounded-md flex items-center justify-center flex-col gap-4 shadow-lg hover:scale-[1.1] cursor-pointer hover:bg-black">
-    <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/gKuHEuYjPS7mWfD1wufVCFkJNVz.jpg" alt="kjj"
-      class="rounded-lg w-[50px]">
-    <span class="text-[.7rem] roboto-condensed-regular capitalize text-center">Nicole Anderson as Christie</span>
-  </div>
-</div>
-
-</aside>
-
-  </section>
-  <!-- cast -->
+  
 
 
 
@@ -629,7 +475,7 @@ class="flex items-center justify-center pointer-events-auto fixed right-8 z-0 w-
 
 
 <!-- Footer -->
-<footer class="bg-inherit dark:bg-inherit block relative w-full roboto-condensed-light">
+<footer class="bg-slate-100 dark:bg-black block relative w-full roboto-condensed-light">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
