@@ -460,7 +460,7 @@ async function fetchMovieSources(movieId) {
     // Handle the data
 
     $("#movie-logo-title").textContent = movieDetailsData.title;
-    $("#movie-details-poster").src = `https://image.tmdb.org/t/p/w500${movieDetailsData.poster_path}`;
+    $("#movie-details-poster").src = movieDetailsData.poster_path ? `https://image.tmdb.org/t/p/w500${movieDetailsData.poster_path}` : "/poster.png";
     $("#movie-details-poster").setAttribute("alt", movieDetailsData.title);
     $("#movie-details-title").textContent = movieDetailsData.title;
     $("#movie-details-tagline").textContent = movieDetailsData.tagline;
@@ -473,18 +473,27 @@ async function fetchMovieSources(movieId) {
     $("#movie-details-revenue").textContent =
       movieDetailsData.revenue.toLocaleString();
     $("#movies-details-description").textContent = movieDetailsData.overview;
-    $("#movie-details-backdrop").src = `https://image.tmdb.org/t/p/w500${movieDetailsData.backdrop_path}`;
+    $("#movie-details-backdrop").src = movieDetailsData.backdrop_path ? `https://image.tmdb.org/t/p/w500${movieDetailsData.backdrop_path}` : "/wallpaper.jpg";
 
-    movieVideosData.forEach(type=>{
-      if(type.type === "Trailer"){
-        $("#movie-details-trailer").src = `https://www.youtube.com/embed/${type.key}`;
-        return;
+    movieVideosData.forEach(video=>{
+
+      switch (video.type) {
+        case "Trailer":
+        $(
+          "#movie-details-trailer"
+        ).src = `https://www.youtube.com/embed/${video.key}`;
+          
+          break;
+      
+        default:
+        $(
+          "#movie-details-trailer"
+        ).src = `https://www.youtube.com/embed/Y-x0efG1seA`;
+
+          break;
       }
-      else{
-    $(
-      "#movie-details-trailer"
-    ).src = `https://www.youtube.com/embed/${movieVideosData[0].key}`;
-      }
+
+      
     })
 
     $("#movie-details-genre-box").textContent = "";

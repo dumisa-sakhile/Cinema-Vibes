@@ -120,7 +120,7 @@ $("#movie-details-close").addEventListener("click", () => {
 
   //clear movie content to improve memory
   $("#movie-logo-title").textContent = null;
-  $("#movie-details-poster").src = null;
+  $("#movie-details-poster").src = "/poster.png";
   $("#movie-details-title").textContent = null;
   $("#movie-details-tagline").textContent = null;
   $("#movie-details-rating-count").textContent = null;
@@ -130,7 +130,7 @@ $("#movie-details-close").addEventListener("click", () => {
   $("#movie-details-language").textContent = null;
   $("#movie-details-revenue").textContent = null;
   $("#movies-details-description").textContent = null;
-  $("#movie-details-backdrop").src = null;
+  $("#movie-details-backdrop").src = "/wallpaper.jpg";
   $("#movie-details-trailer").src = null;
   $("#movie-details-genre-box").textContent = null;
   $("#movie-details-countries-box").textContent = null;

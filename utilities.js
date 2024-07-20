@@ -47,6 +47,10 @@ export function alert(alertTitle, alertMessage, alertType) {
 
     $("#close-alert").style.fill = "green";
   }
+
+  setTimeout(() => {
+    $("#close-alert").click();
+  }, 3000);
 }
 export function createMovieCard(movie, container) {
   const imgBaseUrl = "https://image.tmdb.org/t/p/original";
