@@ -31,8 +31,8 @@
   }
 </script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-    <script type="module" crossorigin src="/assets/index-f8jGTtQA.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-wDNW2yqV.css">
+    <script type="module" crossorigin src="/assets/index-ub7SNR0w.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BH2Lto33.css">
   </head>
 
   <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-black dark:text-slate-300 scroll selection:text-green-500 selection:bg-emerald-900 ">
@@ -65,11 +65,11 @@
 
   <!-- TvOpenBtn & filter -->
   <button
-    class="py-2 px-6 bg-customGray hover:bg-gray-900 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-gray-900 text-slate-100 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular  ring-[1px] ring-slate-600 dark:ring-slate-700 focus:ring-2 focus:ring-slate-500"
+    class="py-2 px-6 bg-black hover:bg-gray-900 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-gray-900 text-slate-100 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular  ring-[1px] ring-slate-600 dark:ring-slate-700 focus:ring-2 focus:ring-slate-500"
     id="movie-filter">Filters</button>
     
   <button
-    class="min-w-[100px] max-h-[36px] py-2 px-6 bg-customGray hover:bg-gray-900 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-gray-900 text-slate-100 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular  ring-[1px] ring-slate-600 dark:ring-slate-700 focus:ring-2 focus:ring-slate-500"
+    class="min-w-[100px] max-h-[36px] py-2 px-6 bg-black hover:bg-gray-900 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-gray-900 text-slate-100 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular  ring-[1px] ring-slate-600 dark:ring-slate-700 focus:ring-2 focus:ring-slate-500"
     id="tv-open">TV series</button>
   <!-- TvOpenBtn & filter -->
 
@@ -117,7 +117,7 @@
 
 <!--Movie Pagination -->
 <aside id="movie-pagination" class="fixed bottom-10 w-full min-h-20 flex flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none">
-  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 rounded shadow-lg pointer-events-auto bg-slate-50 dark:bg-black dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2">
+  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 rounded shadow-lg pointer-events-auto bg-slate-50 dark:bg-black dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-transparent focus:ring-2">
 
   <p class="roboto-condensed-medium text-sm capitalize">Page <span id="movie-current-page">1</span> of <span id="movie-total-pages">300</span> page(s)</p>
 
@@ -165,45 +165,41 @@
  <section id="movie-details-page" class="w-full h-full hidden flex-row items-center justify-center gap-0 ">
 
   <!-- main details wrapper -->
-<main class="w-full h-lvh bg-modal scroll fixed top-0 left-0 z-10 flex flex-col items-center justify-start pt-8 gap-4 overflow-y-auto pb-20 ">
-
-  
-<!-- trailer play popup -->
-<aside class="w-full h-full bg-modal fixed top-0 left-0 hidden items-center justify-center z-10" id="movie-trailer-box">
-
-  <iframe width="660" height="415" class="rounded-md shadow-xl"
-    src="https://www.youtube-nocookie.com/embed/bTqVqk7FSmY?si=hPgFEk5ju-0Fpgxj" title="YouTube video player"
-    id="movie-details-trailer" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <!-- close details page btn and show movie-page & footer -->
-  <div class="flex items-center justify-center gap-2 pointer-events-auto fixed top-8">
-    <button
-      class="flex items-center justify-center w-14 h-14 bg-modal rounded-full text-sm capitalize text-slate-400 shadow-lg roboto-condensed-light hover:bg-gray-900 animate-bounce hover:animate-none"
-      id="movie-trailer-close">
-      
-      <svg class="w-6 h-6 text-gray-800 dark:text-slate-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-        height="24" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M6 18 17.94 6M18 18 6.06 6" />
-      </svg>
-</button>
-  </div>
-  <!-- close details page btn and show movie-page & footer -->
-</aside>
-<!-- trailer play popup -->
+<main class="w-full h-lvh bg-popup dark:bg-modal scroll fixed top-0 left-0 z-10 flex flex-col items-center justify-center pt-8 gap-4 overflow-y-auto pb-20 ">
 
 <!-- Details Header -->
 <header
-  class="flex-wrap md:flex-nowrap w-full min-h-[60px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3 shadow-sm dark:shadow-slate-800">
+  class="absolute top-0 left-0 z-[1] flex-wrap md:flex-nowrap w-full min-h-[60px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3 shadow-sm dark:shadow-slate-800 bg-transparent">
+
+  <!-- trailer play popup -->
+  <aside class="w-full h-full bg-popup dark:bg-modal fixed top-0 left-0 hidden items-center justify-center z-20" id="movie-trailer-box">
+  
+    <iframe width="660" height="415" class="rounded-md shadow-xl"
+      src="https://www.youtube-nocookie.com/embed/bTqVqk7FSmY" title="YouTube video player"
+      id="movie-details-trailer" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- close details page btn and show movie-page & footer -->
+    <div class="flex items-center justify-center gap-2 pointer-events-auto fixed top-8">
+      <button
+        class="flex items-center justify-center w-14 h-14 bg-black dark:bg-slate-100 hover:bg-gray-700 dark:hover:bg-slate-300 rounded-full text-sm capitalize text-slate-400 shadow-lg roboto-condensed-light animate-bounce hover:animate-none"
+        id="movie-trailer-close">
+  
+        <svg class="w-6 h-6 text-white dark:text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18 17.94 6M18 18 6.06 6" />
+        </svg>
+      </button>
+    </div>
+    <!-- close details page btn and show movie-page & footer -->
+  </aside>
+  <!-- trailer play popup -->
+
 
   <!-- logo -->
   <div class="hidden md:flex items-center min-w-[320px] justify-around gap-2">
-    <span id="logo-title" class="flex items-center justify-center space-x-4 cursor-pointer">
-      <img src="/blob.svg" alt="blob" class="w-12 h-12">
-      <h1
-        class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 roboto-condensed-regular uppercase">
-        The Lord of the rings: the return of the king.</h1>
+    <span id="movie-logo-title" class="flex items-center justify-center space-x-4 cursor-pointer text-lg text-black dark:text-slate-100 roboto-condensed-black capitalize">
     </span>
   </div>
   <!-- logo -->
@@ -211,7 +207,7 @@
   <!-- Details Nav -->
   <nav id="movie-details-nav" class="p-2 min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2">
     <span class="filter-active" id="movie-details-overview">overview</span>
-    <span class="filter-disabled" id="movie-details-videos">videos</span>
+    <!-- <span class="filter-disabled" id="movie-details-videos">videos</span> -->
     <span class="filter-disabled" id="movie-details-recommendations">recommendations</span>
     <span class="filter-disabled" id="movie-details-similar">similar</span>
   </nav>
@@ -222,8 +218,7 @@
 
 <!-- close movie details page -->
     <button
-      class=" min-w-[100px] max-h-[36px] py-2 px-6 bg-red-400 rounded-lg text-sm capitalize text-red-950 shadow-lg roboto-condensed-regular hover:bg-red-500 ring-[1px] ring-red-600 dark:ring-red-700 focus:ring-2 focus:ring-red-500"
-      id="movie-details-close">close movie info</button>
+      class="block py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700" id="movie-details-close">close movie info</button>
 <!-- close movie details page -->
 
 
@@ -235,107 +230,73 @@
 
 
   <!-- overview & poster -->
- <section class="flex flex-row items-center justify-center space-x-4 bg-transparent w-full h-[600px]">
+ <section class="flex flex-row items-center justify-center space-x-4 bg-transparent w-full h-[600px]"  id="movie-details-overview-wrapper">
 
 
   <!-- poster -->
-   <div class="w-[300px] h-[500px]">
-  
-
-
-<img src="https://image.tmdb.org/t/p/original/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" alt="poster path"
-  class="w-[300px] h-[500px] rounded-md shadow-lg hover:scale-[1.1] cursor-zoom-in" id="poster"></div>
+<div class="w-[300px] h-[500px]">
+<img src="" alt="poster path"
+  class="w-[300px] h-[500px] rounded-md shadow-lg hover:scale-[1.1] cursor-zoom-in" id="movie-details-poster"></div>
 <!-- poster -->
 
 <!-- overview -->
 <main
-  class="w-[900px] min-h-[600px] rounded-md block items-center justify-center bg-transparent text-gray-900 dark:text-gray-300 p-4 pt-1 space-y-4" id="movie-details-overview">
+  class="w-[900px] min-h-[600px] rounded-md block items-center justify-center bg-transparent text-gray-900 dark:text-gray-300 p-4 pt-1 space-y-4">
 
 
   <!-- close details page btn and show movie-page & footer -->
 
   <h1 id="movie-details-title"
-    class="text-6xl  source-sans-black capitalize">
-    inside out</h1>
+    class="text-6xl  roboto-condensed-black capitalize"></h1>
   
-  <p id="movie-details-tagline" class=" text-sm source-sans-regular">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  <p id="movie-details-tagline" class=" text-sm roboto-condensed-regular"></p>
   
   <!-- rating, release, duration & language -->
   <article class="flex items-center justify-start gap-2 text-sm">
   
     <div class="flex items-center justify-center space-x-2"><img
         src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="imdb" class="w-8 h-8"><span
-        id="movie-details-rating">7.8</span>&nbsp; <span>(407)</span></div>|
+        id="movie-details-rating"></span>&nbsp; <span 
+        id="movie-details-rating-count"></span></div>|
     <div class="flex items-center justify-center space-x-2"><img src="./release.svg" alt="release" class="w-4 h-4"><span
-        id="movie-details-release-date">2022-06-08</span></div>
+        id="movie-details-release-date"></span></div>
     |
     <div class="flex items-center justify-center space-x-2"><img src="./duration.svg" alt="imdb" class="w-4 h-4"><span
-        id="movie-details-duration">90 min</span></div>
+        id="movie-details-duration"></span></div>
     |
     <div class="flex items-center justify-center space-x-2"><img src="./language.svg" alt="imdb" class="w-4 h-4"><span
-        id="movie-details-language">English</span></div>|
+        id="movie-details-language"></span></div>|
         <div class="flex items-center justify-center space-x-2"><img src="./money.svg" alt="revenue" class="w-4 h-4"><span
-            id="movie-details-revenue">3000,000</span></div>
+            id="movie-details-revenue"></span></div>
   </article>
 
-  <h6 class="source-sans-bold text-green-600 text-sm capitalize">overview:</h6>
-  <p class="source-sans-medium text-sm" id="movies-details-overview">Several generations following Caesar's reign, apes – now the dominant species – live harmoniously while humans have been
-  reduced to living in the shadows. As a new tyrannical ape leader builds his empire, one young ape undertakes a harrowing
-  journey that will cause him to question all he's known about the past and to make choices that will define a future for
-  apes and humans alike.</p>
+  <h6 class="roboto-condensed-bold text-sm capitalize">overview:</h6>
+  <p class="roboto-condensed-medium text-sm" id="movies-details-description"></p>
 
   <!-- genre, language, production countries & companies -->
   <main class="w-full grid grid-cols-2 grid-rows-2 gap-4 items-center justify-center">
 
   <aside>
-  <h6 class="source-sans-bold text-green-600 text-md capitalize">genre:</h6>
-  <p class="*:cursor-pointer source-sans-regular text-sm *:capitalize" id="details-genre-box">
-    <span class="hover:text-green-600">Romance</span>, <span class="hover:text-green-600">action</span>,<span class="hover:text-green-600">sci-fi</span>,
-    <span class="hover:text-green-600">triller</span>,
-    <span class="hover:text-green-600">adventure</span>,
-    <span class="hover:text-green-600">suspense</span>,
-    <span class="hover:text-green-600">music</span>
+  <h6 class="roboto-condensed-bold text-md capitalize">genre:</h6>
+  <p class="*:cursor-pointer roboto-condensed-regular text-sm *:capitalize *:ml-2" id="movie-details-genre-box">
   </p>
   </aside>
 
 <aside>
-  <h6 class="source-sans-bold text-green-600 text-md capitalize">production countries:</h6>
-  <p class="*:cursor-pointer source-sans-regular text-sm *:capitalize" id="details-genre-box">
-    <span class="hover:text-green-600">Spain</span>, <span
-      class="hover:text-green-600">Nigeria</span>,<span
-      class="hover:text-green-600">South Africa</span>,
-    <span class="hover:text-green-600">Gabon</span>,
-    <span class="hover:text-green-600">France</span>
+  <h6 class="roboto-condensed-bold text-md capitalize">production countries:</h6>
+  <p class="*:cursor-pointer roboto-condensed-regular text-sm *:capitalize *:ml-2" id="movie-details-countries-box">
   </p>
 </aside>
 
 <aside>
-<h6 class="source-sans-bold text-green-600 text-md capitalize">production companies:</h6>
-<p class="*:cursor-pointer source-sans-regular text-sm *:capitalize" id="details-genre-box">
-  <span class="hover:text-green-600">DC Comics</span>, <span
-    class="hover:text-green-600">Warner Bros Pictures</span>,<span
-    class="hover:text-green-600">Marvel Comics</span>,
-  <span class="hover:text-green-600">Disney</span>,
-  <span class="hover:text-green-600">Motion Pictures</span>
+<h6 class="roboto-condensed-bold text-md capitalize">production companies:</h6>
+<p class="*:cursor-pointer roboto-condensed-regular text-sm *:capitalize *:ml-2" id="movie-details-companies-box">
 </p>
 </aside>
 
 <aside>
-<h6 class="source-sans-bold text-green-600 text-md capitalize">spoken languages:</h6>
-<p class="*:cursor-pointer source-sans-regular text-sm *:capitalize" id="details-genre-box">
-  <span class="hover:text-green-600">IsiZulu</span>, <span
-    class="hover:text-green-600">English</span>,<span
-    class="hover:text-green-600">French</span>,
-  <span class="hover:text-green-600">German</span>,
-  <span class="hover:text-green-600">Polish</span>,
-  <span class="hover:text-green-600">Yoruba</span>,
-  <span class="hover:text-green-600">Chinese</span>,
-<p class="*:cursor-pointer source-sans-regular text-sm *:capitalize" id="details-genre-box">
-  <span class="hover:text-green-600">Greek</span>, <span
-    class="hover:text-green-600">Xhosa</span>,<span
-    class="hover:text-green-600">Igbo</span>,
-  <span class="hover:text-green-600">Swahili</span>,
-</p>
+<h6 class="roboto-condensed-bold text-md capitalize">spoken languages:</h6>
+<p class="*:cursor-pointer roboto-condensed-regular text-sm *:capitalize  *:ml-2" id="movie-details-languages-box">
 </p>
 </aside>
 
@@ -345,18 +306,13 @@
 
 
   <!-- director, & trailer -->
-  <main class="w-full grid grid-cols-2 gap-4 items-center justify-center">
-  
-    <aside>
-    <h6 class="source-sans-bold text-green-600 text-md capitalize">director:</h6>
-    <p class="source-sans-medium text-sm *:capitalize" id="details-director-box">Jennifer Lawrence</p></aside>
+  <main class="w-[600px] min-h-[20px] flex items-center justify-center">
 
-   <aside>
 
   <button
-    class="py-2 px-6 bg-green-400 rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular hover:bg-green-500 ring-[1px] ring-green-600 dark:ring-green-700 focus:ring-2 focus:ring-green-500"
+    class="filter-active"
     id="movie-trailer-open">watch trailer</button>
-  </aside>
+  </asideX>
   
 </main>
   <!-- director, & trailer -->
@@ -369,11 +325,8 @@
   <!-- overview & poster -->
 
 
-  
 
-
-
-<!-- details videos -->
+<!-- details videos
 <section class="w-full h-full hidden" id="movie-details-videos">
 
 <div class="glide">
@@ -394,17 +347,17 @@
 </div>
 
 </section>
-<!-- details videos -->
+ details videos -->
 
 
 <!-- details recommendations -->
-<section class="w-full min-h-full hidden items-center justify-center gap-4" id="movie-details-recommendations">
+<section class="w-full min-h-[700px] flex flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4" id="movie-details-recommendations-wrapper">
   recommendations</section>
 <!-- details recommendations -->
 
 
 <!-- details similar -->
-<section class="w-full min-h-full hidden items-center justify-center gap-4" id="movie-details-similar">similar</section>
+<section class="w-full min-h-[700px] flex flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4" id="movie-details-similar-wrapper">similar</section>
 <!-- details similar -->
 
 </main>
@@ -412,7 +365,7 @@
 
  
   <!-- background image / backdrop image -->
- <img src="https://image.tmdb.org/t/p/original/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg" alt="img" class="w-full h-lvh fixed top-0 left-0 z-0 scrollbar-hide" id="backdrop">
+ <img src="" alt="img" class="w-full h-lvh fixed top-0 left-0 z-0 scrollbar-hide" id="movie-details-backdrop">
   <!-- background image / backdrop image -->
 
 

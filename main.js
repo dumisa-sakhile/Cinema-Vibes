@@ -11,9 +11,13 @@ const movieFilter = $("#movieFilter");
 
 tvOpen.addEventListener("click", () => {
   //none(movies);
- // flex(tv);
+  // flex(tv);
 
-  alert("Under Construction", "TV Shows page is under construction and coming soon!", 200);
+  alert(
+    "Under Construction",
+    "TV Shows page is under construction and coming soon!",
+    200
+  );
 });
 
 moviesOpen.addEventListener("click", () => {
@@ -27,13 +31,10 @@ $("#close-alert").addEventListener("click", () => {
   none($("#alert"));
 });
 
-
-
 //Date and CopyRight
 let date = new Date();
 $(".year").textContent = date.getFullYear();
 //Date and CopyRight
-
 
 //Fullscreen
 const fullScreen = $("#fullscreen");
@@ -51,12 +52,11 @@ function toggleFullscreen() {
     // If not in fullscreen, request fullscreen on the document
     this.textContent = "Exit Fullscreen Mode";
     document.documentElement.requestFullscreen().catch((err) => {
-     alert("Setting Failure","Failed to enter fullscreen", 404);
+      alert("Setting Failure", "Failed to enter fullscreen", 404);
     });
   }
 }
 //Fullscreen
-
 
 //Theme Toggle
 
@@ -104,8 +104,7 @@ themeToggleBtn.addEventListener("click", function () {
 });
 //Theme Toggle
 
-
-$("#logo").addEventListener("click", function()  {
+$("#logo").addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
@@ -114,8 +113,7 @@ $$(".go-up").forEach((el) => {
   el.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-})
-
+});
 
 $("#movie-trailer-close").addEventListener("click", () => {
   console.clear();
@@ -125,23 +123,82 @@ $("#movie-trailer-close").addEventListener("click", () => {
     "w-full h-full bg-modal fixed top-0 left-0 hidden items-center justify-center";
 });
 
-$("#movie-trailer-open").addEventListener("click",()=>{
+$("#movie-trailer-open").addEventListener("click", () => {
   $("#movie-trailer-box").className =
-    "w-full h-full bg-modal fixed top-0 left-0 flex items-center justify-center";
-})
+    "w-full h-full bg-popup dark:bg-modal fixed top-0 left-0 flex items-center justify-center z-20";
+});
 
 $("#movie-details-close").addEventListener("click", () => {
+  $("footer").className =
+    "bg-slate-100 dark:bg-black block relative w-full roboto-condensed-light";
 
-$("footer").className="bg-inherit dark:bg-gray-900 block relative w-full roboto-condensed-light"
-
-$("#movies").className = "w-full flex flex-col";
+  $("#movies").className = "w-full flex flex-col";
 
   $("#movie-details-page").className =
     "w-full h-full hidden flex-row items-center justify-center gap-0";
+
+  //clear movie content to improve memory
+  $("#movie-logo-title").textContent = null;
+  $("#movie-details-poster").src = null;
+  $("#movie-details-title").textContent = null;
+  $("#movie-details-tagline").textContent = null;
+  $("#movie-details-rating-count").textContent = null;
+  $("#movie-details-rating").textContent = null;
+  $("#movie-details-release-date").textContent = null;
+  $("#movie-details-duration").textContent = null;
+  $("#movie-details-language").textContent = null;
+  $("#movie-details-revenue").textContent = null;
+  $("#movies-details-description").textContent = null;
+  $("#movie-details-backdrop").src = null;
+  $("#movie-details-trailer").src = null;
+  $("#movie-details-genre-box").textContent = null;
+  $("#movie-details-countries-box").textContent = null;
+  $("#movie-details-companies-box").textContent = null;
+  $("#movie-details-languages-box").textContent = null;
+  $("#movie-details-recommendations-wrapper").textContent = null;
+  $("#movie-details-similar-wrapper").textContent = null;
 });
 
-
 const movieDetailsOverview = $("#movie-details-overview");
-const movieDetailsVideo = $("#movie-details-video");
 const movieDetailsRecommendations = $("#movie-details-recommendations");
 const movieDetailsSimilar = $("#movie-details-similar");
+
+const movieDetailsOverviewWrapper = $("#movie-details-overview-wrapper");
+const movieDetailsRecommendationsWrapper = $(
+  "#movie-details-recommendations-wrapper"
+);
+const movieDetailsSimilarWrapper = $("#movie-details-similar-wrapper");
+
+const movieDetailsWrappers = [
+  movieDetailsOverviewWrapper,
+  movieDetailsRecommendationsWrapper,
+  movieDetailsSimilarWrapper,
+];
+
+function removeMovieListActive() {
+  $$(`#movie-details-nav span`).forEach((span) => {
+    span.classList.remove("filter-active");
+    span.classList.add("filter-disabled");
+  });
+}
+
+$$(`#movie-details-nav span`).forEach((span) => {
+  span.addEventListener("click", function (ev) {
+    removeMovieListActive();
+
+    ev.currentTarget.classList.add("filter-active");
+
+    ev.currentTarget.classList.remove("filter-disabled");
+
+    movieDetailsWrappers.forEach((wrapper) => {
+      wrapper.classList.add("hidden");
+      wrapper.classList.remove("flex");
+    });
+
+    let pageToOpen = $(`#${ev.currentTarget.id}-wrapper`);
+    flex(pageToOpen);
+  });
+});
+
+//set default movie details wrapper to overview
+movieDetailsOverview.click();

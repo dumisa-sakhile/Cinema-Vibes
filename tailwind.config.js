@@ -5,8 +5,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        modal: "rgb(0, 0, 0, 0.9)",
-        popup: "rgb(255, 255, 255, 0.9)",
+        modal: "rgb(0, 0, 0, 0.8)",
+        popup: "rgb(255, 255, 255, 0.8)",
         customGray: "rgb(60, 60, 60)",
       },
     },

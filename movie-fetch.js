@@ -211,6 +211,22 @@ async function fetchMovies() {
         createMovieCard(movie, $("#movie-display-box"));
       });
 
+      $$("#movie-display-box article").forEach((article) => {
+        article.addEventListener("click", function (ev) {
+          fetchMovieSources(ev.currentTarget.id);
+          $("footer").className =
+            "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+          $("#movies").className = "w-full hidden flex-col";
+
+          $("#movie-details-page").className =
+            "w-full h-full flex flex-row items-center justify-center gap-0";
+
+            $("#movie-details-overview").click();
+        });
+      })
+
+
       //Event Listeners
       $$("#movie-display-box article").forEach((article) => {
 
@@ -408,15 +424,97 @@ async function fetchMovieSources(movieId) {
     const recommendedMoviesData = recommendedMovies.data.results;
     const similarMoviesData = similarMovies.data.results;
 
+    //createMovieCard
     // Handle the data
-    console.log("details", movieDetailsData);
-    console.log("videos", movieVideosData);
-    console.log("recommended",recommendedMoviesData);
-    console.log("similar",similarMoviesData);
+
+    $("#movie-logo-title").textContent = movieDetailsData.title;
+    $("#movie-details-poster").src = `https://image.tmdb.org/t/p/w500${movieDetailsData.poster_path}`;
+    $("#movie-details-poster").setAttribute("alt", movieDetailsData.title);
+    $("#movie-details-title").textContent = movieDetailsData.title;
+    $("#movie-details-tagline").textContent = movieDetailsData.tagline;
+    $("#movie-details-rating-count").textContent = `(${movieDetailsData.vote_count})`;
+    $("#movie-details-rating").textContent = movieDetailsData.vote_average;
+    $("#movie-details-release-date").textContent =
+      new Date(movieDetailsData.release_date).toLocaleDateString() || "";
+    $("#movie-details-duration").textContent = `${movieDetailsData.runtime} mins`;
+    $("#movie-details-language").textContent = movieDetailsData.original_language;
+    $("#movie-details-revenue").textContent =
+      movieDetailsData.revenue.toLocaleString();
+    $("#movies-details-description").textContent = movieDetailsData.overview;
+    $("#movie-details-backdrop").src = `https://image.tmdb.org/t/p/w500${movieDetailsData.backdrop_path}`;
+
+    movieVideosData.forEach(type=>{
+      if(type.type === "Trailer"){
+        $("#movie-details-trailer").src = `https://www.youtube.com/embed/${type.key}`;
+        return;
+      }
+      else{
+    $(
+      "#movie-details-trailer"
+    ).src = `https://www.youtube.com/embed/${movieVideosData[0].key}`;
+      }
+    })
+
+    $("#movie-details-genre-box").textContent = "";
+    movieDetailsData.genres.forEach((genre) => {
+      const span = document.createElement("span");
+      span.className = "hover:text-green-600";
+      span.textContent = genre.name;
+      span.setAttribute("data-id", genre.id);
+      $("#movie-details-genre-box").appendChild(span);
+    });
+
+    $("#movie-details-countries-box").textContent = "";
+    movieDetailsData.production_countries.forEach((country) => {
+      const span = document.createElement("span");
+      span.className = "hover:text-green-600";
+      span.textContent = country.name;
+      span.setAttribute("data-id", country.id);
+      $("#movie-details-countries-box").appendChild(span);
+    });
+
+    $("#movie-details-companies-box").textContent = "";
+    movieDetailsData.production_companies.forEach((company) => {  
+      const span = document.createElement("span");
+      span.className = "hover:text-green-600";
+      span.textContent = company.name;
+      span.setAttribute("data-id", company.id);
+      $("#movie-details-companies-box").appendChild(span);
+    });
+
+    $("#movie-details-languages-box").textContent = "";
+    movieDetailsData.spoken_languages.forEach((language) => {
+      const span = document.createElement("span");
+      span.className = "hover:text-green-600";  
+      span.textContent = language.name;
+      span.setAttribute("data-id", language.iso_639_1);
+      $("#movie-details-languages-box").appendChild(span);
+    });
+
+// recommended movies
+    $("#movie-details-recommendations-wrapper").textContent = "";
+    recommendedMoviesData.forEach((movie) => {
+      createMovieCard(movie, $("#movie-details-recommendations-wrapper"));
+    });
+
+
+    //similar movies
+    $("#movie-details-similar-wrapper").textContent = "";
+    similarMoviesData.forEach((movie) => {
+      createMovieCard(movie, $("#movie-details-similar-wrapper"));
+    });
+
+
+    // console.log("details", movieDetailsData);
+    // console.log("videos", movieVideosData);
+    // console.log("recommended",recommendedMoviesData);
+    // console.log("similar",similarMoviesData);
   } catch (error) {
     console.error(error);
   }
 }
+
+fetchMovieSources(519182);
 //Movie Description
 
 
