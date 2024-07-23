@@ -206,7 +206,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-//$(`#movie-list-box #popular`).click();
+$(`#movie-list-box #popular`).click();
 //commented out for now
 
 
@@ -499,7 +499,7 @@ async function fetchMovieSources(movieId) {
 
 
     //movie trailer
-    
+
     for (const video of movieVideosData) {
       if (video.type === "Clip" || video.type === "Trailer") {
         $(
