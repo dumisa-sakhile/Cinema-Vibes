@@ -591,7 +591,7 @@ async function fetchMovieSources(movieId) {
         fetchMoviesSpecial("with_companies", ev.currentTarget.id);
         alert(
           "Production Companies Filter",
-          `Movie list filtered according to the Production Company: ${ev.currentTarget.textContent}.`,
+          `Movies filtered according to the Production Company: ${ev.currentTarget.textContent}.`,
           200
         );
       });
