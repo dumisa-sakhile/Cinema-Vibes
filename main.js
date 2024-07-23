@@ -37,6 +37,7 @@ function toggleFullscreen() {
     });
   }
 }
+
 //Fullscreen
 
 //Theme Toggle

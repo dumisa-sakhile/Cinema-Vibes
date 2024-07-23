@@ -75,6 +75,9 @@ $("#movie-clear-search").addEventListener("click", () => {
 //Fetch Movie Summary
 let movieListType;
 
+//used by the fetchMovieSources function to set a global argument
+let globalSpecialId;
+let globalSpecialType;
 
 //Pagination Functionality
 let moviePageNumber;
@@ -102,6 +105,11 @@ function hideShowMovieButtons(total_pages) {
         "hidden py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-green-700");
 }
 
+
+//determines whether the pagination is being used for movie list
+let paginationStatus = "list";
+//paginationStatus = "list" or "genre" or "details"
+
 let moviePreviousPage = $("#movie-previous-page");
 let movieNextPage = $("#movie-next-page");
 
@@ -115,6 +123,10 @@ moviePreviousPage.addEventListener("click", function(){
 
     case "genre":
       fetchMoviesGenre();
+      break;
+
+    case "special":
+      fetchMoviesSpecial(globalSpecialType,globalSpecialId);
       break;
   }
 
@@ -130,15 +142,15 @@ movieNextPage.addEventListener("click", () => {
     case "genre":
       fetchMoviesGenre();
       break;
+
+    case "special":
+      fetchMoviesSpecial(globalSpecialType,globalSpecialId);
+      break;
   }
 
   
 });
 //Pagination Functionality END
-
-//determines whether the pagination is being used for movie list
-let paginationStatus = "list";
-//paginationStatus = "list" or "genre" or "details"
 
 let movieGenresQuery = new Set();
 const movieListBox = $("#movie-list-box");
@@ -194,7 +206,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-$(`#movie-list-box #popular`).click();
+//$(`#movie-list-box #popular`).click();
 //commented out for now
 
 
@@ -221,6 +233,7 @@ async function fetchMovies() {
       showSearchBox(false);
       hideShowMovieButtons(response.data.total_pages);
       setMoviePages(response.data.total_pages);
+
       //Map movies
       response.data.results.map((movie) => {
         createMovieCard(movie, $("#movie-display-box"));
@@ -460,101 +473,181 @@ async function fetchMovieSources(movieId) {
     // Handle the data
 
     $("#movie-logo-title").textContent = movieDetailsData.title;
-    $("#movie-details-poster").src = movieDetailsData.poster_path ? `https://image.tmdb.org/t/p/w500${movieDetailsData.poster_path}` : "/poster.png";
+    $("#movie-details-poster").src = movieDetailsData.poster_path
+      ? `https://image.tmdb.org/t/p/w500${movieDetailsData.poster_path}`
+      : "/poster.png";
     $("#movie-details-poster").setAttribute("alt", movieDetailsData.title);
     $("#movie-details-title").textContent = movieDetailsData.title;
     $("#movie-details-tagline").textContent = movieDetailsData.tagline;
-    $("#movie-details-rating-count").textContent = `(${movieDetailsData.vote_count})`;
+    $(
+      "#movie-details-rating-count"
+    ).textContent = `(${movieDetailsData.vote_count})`;
     $("#movie-details-rating").textContent = movieDetailsData.vote_average;
     $("#movie-details-release-date").textContent =
       new Date(movieDetailsData.release_date).toLocaleDateString() || "";
-    $("#movie-details-duration").textContent = `${movieDetailsData.runtime} mins`;
-    $("#movie-details-language").textContent = movieDetailsData.original_language;
+    $(
+      "#movie-details-duration"
+    ).textContent = `${movieDetailsData.runtime} mins`;
+    $("#movie-details-language").textContent =
+      movieDetailsData.original_language;
     $("#movie-details-revenue").textContent =
       movieDetailsData.revenue.toLocaleString();
     $("#movies-details-description").textContent = movieDetailsData.overview;
-    $("#movie-details-backdrop").src = movieDetailsData.backdrop_path ? `https://image.tmdb.org/t/p/w500${movieDetailsData.backdrop_path}` : "/wallpaper.jpg";
+    $("#movie-details-backdrop").src = movieDetailsData.backdrop_path
+      ? `https://image.tmdb.org/t/p/w500${movieDetailsData.backdrop_path}`
+      : "/wallpaper.jpg";
 
-    movieVideosData.forEach(video=>{
 
-      switch (video.type) {
-        case "Trailer":
+    //movie trailer
+    
+    for (const video of movieVideosData) {
+      if (video.type === "Clip" || video.type === "Trailer") {
         $(
           "#movie-details-trailer"
         ).src = `https://www.youtube.com/embed/${video.key}`;
-          
-          break;
-      
-        default:
+        break;
+      } else {
         $(
           "#movie-details-trailer"
-        ).src = `https://www.youtube.com/embed/Y-x0efG1seA`;
-
-          break;
+        ).src = `https://www.youtube-nocookie.com/embed/Y-x0efG1seA`;
       }
+    }
 
-      
-    })
 
+    //movie trailer
+
+    //Genre Filter
     $("#movie-details-genre-box").textContent = "";
     movieDetailsData.genres.forEach((genre) => {
       const span = document.createElement("span");
       span.className = "hover:text-green-600";
       span.textContent = genre.name;
-      span.setAttribute("data-id", genre.id);
+      span.id = genre.id;
       $("#movie-details-genre-box").appendChild(span);
     });
 
+    $$("#movie-details-genre-box span").forEach((genre) => {
+      genre.addEventListener("click", function (ev) {
+        moviePageNumber = parseInt(1);
+        removeMovieListActive();
+        paginationStatus = "special";
+        globalSpecialType = "with_genres";
+        globalSpecialId = ev.currentTarget.id;
+        fetchMoviesSpecial("with_genres", ev.currentTarget.id);
+        alert(
+          "Genre Filter",
+          `Movies filtered according to the ${ev.currentTarget.textContent} genre.`,
+          200
+        );
+      });
+    });
+    //Genre Filter
+
+    //Country Filter
     $("#movie-details-countries-box").textContent = "";
     movieDetailsData.production_countries.forEach((country) => {
       const span = document.createElement("span");
       span.className = "hover:text-green-600";
       span.textContent = country.name;
-      span.setAttribute("data-id", country.id);
+      span.id = country.iso_3166_1;
       $("#movie-details-countries-box").appendChild(span);
     });
+    
+    $$("#movie-details-countries-box span").forEach((country) => {
+      country.addEventListener("click", function (ev) {
+        moviePageNumber = parseInt(1);
+        removeMovieListActive();
+        globalSpecialType = "with_origin_country";
+        globalSpecialId = ev.currentTarget.id;
+        paginationStatus = "special";
+        fetchMoviesSpecial("with_origin_country", ev.currentTarget.id);
+        alert(
+          "Countries Filter",
+          `Movies filtered according to the country ${ev.currentTarget.textContent}.`,
+          200
+        );
+      });
+    });
+    //Country Filter
 
+
+    //Company Filter
     $("#movie-details-companies-box").textContent = "";
-    movieDetailsData.production_companies.forEach((company) => {  
+    movieDetailsData.production_companies.forEach((company) => {
       const span = document.createElement("span");
       span.className = "hover:text-green-600";
       span.textContent = company.name;
-      span.setAttribute("data-id", company.id);
+      span.id = company.id;
       $("#movie-details-companies-box").appendChild(span);
     });
 
+    $$("#movie-details-companies-box span").forEach((company) => {
+      company.addEventListener("click", function (ev) {
+        moviePageNumber = parseInt(1);
+        removeMovieListActive();
+        paginationStatus = "special";
+        globalSpecialType = "with_companies";
+        globalSpecialId = ev.currentTarget.id;
+        fetchMoviesSpecial("with_companies", ev.currentTarget.id);
+        alert(
+          "Production Companies Filter",
+          `Movie list filtered according to the Production Company ${ev.currentTarget.textContent}.`,
+          200
+        );
+      });
+    });
+
+    //Company Filter
+
+    //Language Filter
     $("#movie-details-languages-box").textContent = "";
     movieDetailsData.spoken_languages.forEach((language) => {
       const span = document.createElement("span");
-      span.className = "hover:text-green-600";  
+      span.className = "hover:text-green-600";
       span.textContent = language.english_name;
-      span.setAttribute("data-id", language.iso_639_1);
+      span.id = language.iso_639_1;
       $("#movie-details-languages-box").appendChild(span);
     });
 
-// recommended movies
+     
+    $$("#movie-details-languages-box span").forEach((language) => {
+      language.addEventListener("click", function (ev) {
+        moviePageNumber = parseInt(1);
+        removeMovieListActive();
+        paginationStatus = "special";
+        globalSpecialType = "with_original_language";
+        globalSpecialId = ev.currentTarget.id;
+        fetchMoviesSpecial("with_original_language", ev.currentTarget.id);
+        alert(
+          "Languages Filter",
+          `Movie list filtered according to the language ${ev.currentTarget.textContent}.`,
+          200
+        );
+      });
+    });
+    //Language Filter
+
+    // recommended movies
     $("#movie-details-recommendations-wrapper").textContent = "";
     recommendedMoviesData.forEach((movie) => {
       createMovieCard(movie, $("#movie-details-recommendations-wrapper"));
     });
 
-      $$("#movie-details-recommendations-wrapper article").forEach(
-        (article) => {
-          article.addEventListener("click", function (ev) {
-            fetchMovieSources(ev.currentTarget.id);
-            $("footer").className =
-              "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+    $$("#movie-details-recommendations-wrapper article").forEach((article) => {
+      article.addEventListener("click", function (ev) {
 
-            $("#movies").className = "w-full hidden flex-col";
+        fetchMovieSources(ev.currentTarget.id);
+        $("footer").className =
+          "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
 
-            $("#movie-details-page").className =
-              "w-full h-full flex flex-row items-center justify-center gap-0";
+        $("#movies").className = "w-full hidden flex-col";
 
-            $("#movie-details-overview").click();
-          });
-        }
-      );
+        $("#movie-details-page").className =
+          "w-full h-full flex flex-row items-center justify-center gap-0";
 
+        $("#movie-details-overview").click();
+      });
+    });
 
     //similar movies
     $("#movie-details-similar-wrapper").textContent = "";
@@ -562,22 +655,20 @@ async function fetchMovieSources(movieId) {
       createMovieCard(movie, $("#movie-details-similar-wrapper"));
     });
 
-    $$("#movie-details-similar-wrapper article").forEach(
-        (article) => {
-          article.addEventListener("click", function (ev) {
-            fetchMovieSources(ev.currentTarget.id);
-            $("footer").className =
-              "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+    $$("#movie-details-similar-wrapper article").forEach((article) => {
+      article.addEventListener("click", function (ev) {
+        fetchMovieSources(ev.currentTarget.id);
+        $("footer").className =
+          "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
 
-            $("#movies").className = "w-full hidden flex-col";
+        $("#movies").className = "w-full hidden flex-col";
 
-            $("#movie-details-page").className =
-              "w-full h-full flex flex-row items-center justify-center gap-0";
+        $("#movie-details-page").className =
+          "w-full h-full flex flex-row items-center justify-center gap-0";
 
-            $("#movie-details-overview").click();
-          });
-        }
-      );
+        $("#movie-details-overview").click();
+      });
+    });
 
     // console.log("details", movieDetailsData);
     // console.log("videos", movieVideosData);
@@ -591,6 +682,78 @@ async function fetchMovieSources(movieId) {
 //fetchMovieSources(519182);
 //Movie Description
 
+async function fetchMoviesSpecial(with_type, with_type_query) {
+  try {
 
+    paginationStatus = "special";
 
+    //back to main page
+    $("#movie-details-close").click();
+
+    const response = await tmdbApi.get(`discover/movie?`, {
+      params: {
+        include_adult: false,
+        include_video: false,
+        language: "en-US",
+        page: parseInt(moviePageNumber),
+        sort_by: "popularity.desc",
+        [with_type]: with_type_query,
+      },
+    });
+
+    if (!response.data.results.length) {
+      alert("movie not found", "requested movie could not be found", 404);
+    } else {
+      $("#movie-display-box").innerText = "";
+
+      showSearchBox(false);
+      hideShowMovieButtons(response.data.total_pages);
+      setMoviePages(response.data.total_pages);
+
+      //update pagination tippy
+      updatePaginationTippy();
+
+      //Map movies
+      response.data.results.map((movie) => {
+        createMovieCard(movie, $("#movie-display-box"));
+      });
+
+      $$("#movie-display-box article").forEach((article) => {
+        article.addEventListener("click", function (ev) {
+          fetchMovieSources(ev.currentTarget.id);
+          $("footer").className =
+            "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+          $("#movies").className = "w-full hidden flex-col";
+
+          $("#movie-details-page").className =
+            "w-full h-full flex flex-row items-center justify-center gap-0";
+
+          $("#movie-details-overview").click();
+        });
+      });
+
+      //Event Listeners
+      $$("#movie-display-box article").forEach((article) => {
+        article.addEventListener("click", function (ev) {
+          //console.log(ev.currentTarget.id);
+        });
+      });
+
+      //Reset list filters
+      $$(`#movie-list-box span`).forEach((span) => {
+        span.className = "filter-disabled";
+      });
+
+      //Reset genre filters
+      $$(`#movie-genre-box span`).forEach((span) => {
+        span.className = "filter-disabled";
+      });
+
+      // console.log(response.data);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
