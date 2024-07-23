@@ -489,7 +489,7 @@ async function fetchMovieSources(movieId) {
       "#movie-details-duration"
     ).textContent = `${movieDetailsData.runtime} mins`;
     $("#movie-details-language").textContent =
-      movieDetailsData.original_language;
+      movieDetailsData.original_language.toUpperCase();
     $("#movie-details-revenue").textContent =
       movieDetailsData.revenue.toLocaleString();
     $("#movies-details-description").textContent = movieDetailsData.overview;

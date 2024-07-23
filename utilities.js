@@ -50,7 +50,7 @@ export function alert(alertTitle, alertMessage, alertType) {
 
   setTimeout(() => {
     $("#close-alert").click();
-  }, 3000);
+  }, 5000);
 }
 export function createMovieCard(movie, container) {
   const imgBaseUrl = "https://image.tmdb.org/t/p/original";
