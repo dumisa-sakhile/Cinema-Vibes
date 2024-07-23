@@ -421,8 +421,8 @@ $("#movie-genre-apply").addEventListener("click", () => {
   //for alert purposes
   let movieActiveGenreArray = Array.from(movieActiveGenre);
   alert(
-    "Movie Genre Filter",
-    `Movie list filtered according to ${movieActiveGenreArray.join(",")} movies`,
+    "Genre Filter",
+    `Movie genre filtered according to ${movieActiveGenreArray.join(", ")} movies`,
     200
   );
   //for alert purposes End
