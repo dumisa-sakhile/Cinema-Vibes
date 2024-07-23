@@ -563,7 +563,7 @@ async function fetchMovieSources(movieId) {
         fetchMoviesSpecial("with_origin_country", ev.currentTarget.id);
         alert(
           "Countries Filter",
-          `Movies filtered according to the country ${ev.currentTarget.textContent}.`,
+          `Movies filtered according to the country: ${ev.currentTarget.textContent}.`,
           200
         );
       });
@@ -591,7 +591,7 @@ async function fetchMovieSources(movieId) {
         fetchMoviesSpecial("with_companies", ev.currentTarget.id);
         alert(
           "Production Companies Filter",
-          `Movie list filtered according to the Production Company ${ev.currentTarget.textContent}.`,
+          `Movie list filtered according to the Production Company: ${ev.currentTarget.textContent}.`,
           200
         );
       });
@@ -620,7 +620,7 @@ async function fetchMovieSources(movieId) {
         fetchMoviesSpecial("with_original_language", ev.currentTarget.id);
         alert(
           "Languages Filter",
-          `Movie list filtered according to the language ${ev.currentTarget.textContent}.`,
+          `Movies filtered according to the language: ${ev.currentTarget.textContent}.`,
           200
         );
       });
