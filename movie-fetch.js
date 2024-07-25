@@ -30,6 +30,7 @@ async function searchMovies() {
       alert("movie not found", "requested movie could not be found", 404);
     }else{
 
+      $("#movie-search-title").textContent = $("#movie-search").value;
         showSearchBox(true);
 
       response.data.results.map((movie) => {
@@ -206,7 +207,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-$(`#movie-list-box #popular`).click();
+//$(`#movie-list-box #popular`).click();
 //commented out for now
 
 

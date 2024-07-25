@@ -31,8 +31,8 @@
   }
 </script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-    <script type="module" crossorigin src="/assets/index-D-pkrhOy.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CAiX4mnD.css">
+    <script type="module" crossorigin src="/assets/index-Cbm5akax.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-rjH_389O.css">
   </head>
 
   <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-black dark:text-slate-300 scroll selection:text-green-500 selection:bg-emerald-900 ">
@@ -55,6 +55,12 @@
 <nav id="movie-list-box" class="p-2 min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2"></nav>
 <!-- Movie List -->
 
+<!-- Searched Movie Name -->
+ <div id="movie-search-title-box" class="p-2 min-w-[320px] w-full hidden items-center justify-center flex-wrap gap-2 mt-2 roboto-condensed-bold">
+  Searched: <h1 id="movie-search-title" class="capitalize"></h1>
+ </div>
+<!-- Searched Movie Name -->
+
 <div class="flex w-full min-w-[320px] items-center justify-center flex-wrap gap-2">
 
   <!-- search -->
@@ -65,7 +71,7 @@
 
   <!-- filter -->
   <button
-    class="py-2 px-6 bg-black hover:bg-gray-900 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-gray-900 text-slate-100 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular  ring-[1px] ring-slate-600 dark:ring-slate-700 focus:ring-2 focus:ring-slate-500"
+    class=" py-2 px-6 bg-black hover:bg-gray-900 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-gray-900 text-slate-100 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular  ring-[1px] ring-slate-600 dark:ring-slate-700 focus:ring-2 focus:ring-slate-500"
     id="movie-filter">Filters</button>
   <!-- filter -->
 
@@ -135,7 +141,7 @@
 
 
   <div class="flex items-center justify-center gap-2 pointer-events-auto">
-    <button class="block py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700">clear movie search</button>
+    <button class="block py-4 px-8 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700 animate-bounce hover:animate-none">clear movie search</button>
   </div>
 
 </main>
