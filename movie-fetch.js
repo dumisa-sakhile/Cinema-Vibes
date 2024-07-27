@@ -521,7 +521,7 @@ async function fetchMovieSources(movieId) {
     $("#movie-details-genre-box").textContent = "";
     movieDetailsData.genres.forEach((genre) => {
       const span = document.createElement("span");
-      span.className = "hover:text-green-600";
+      span.className = "hover:text-[#a7fe53]";
       span.textContent = genre.name;
       span.id = genre.id;
       $("#movie-details-genre-box").appendChild(span);
@@ -548,7 +548,7 @@ async function fetchMovieSources(movieId) {
     $("#movie-details-countries-box").textContent = "";
     movieDetailsData.production_countries.forEach((country) => {
       const span = document.createElement("span");
-      span.className = "hover:text-green-600";
+      span.className = "hover:text-[#a7fe53]";
       span.textContent = country.name;
       span.id = country.iso_3166_1;
       $("#movie-details-countries-box").appendChild(span);
@@ -576,7 +576,7 @@ async function fetchMovieSources(movieId) {
     $("#movie-details-companies-box").textContent = "";
     movieDetailsData.production_companies.forEach((company) => {
       const span = document.createElement("span");
-      span.className = "hover:text-green-600";
+      span.className = "hover:text-[#a7fe53]";
       span.textContent = company.name;
       span.id = company.id;
       $("#movie-details-companies-box").appendChild(span);
@@ -604,7 +604,7 @@ async function fetchMovieSources(movieId) {
     $("#movie-details-languages-box").textContent = "";
     movieDetailsData.spoken_languages.forEach((language) => {
       const span = document.createElement("span");
-      span.className = "hover:text-green-600";
+      span.className = "hover:text-[#a7fe53]";
       span.textContent = language.english_name;
       span.id = language.iso_639_1;
       $("#movie-details-languages-box").appendChild(span);
