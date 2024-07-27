@@ -101,9 +101,9 @@ function hideShowMovieButtons(total_pages) {
 
   moviePageNumber < total_pages
     ? (movieNextPage.className =
-        "block py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-green-700")
+        "block py-2 px-8 bg-[#a7fe53] hover:bg-[#a7fe77] ring-[1px] ring-[#a9fe03] rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular")
     : (movieNextPage.className =
-        "hidden py-2 px-6 bg-green-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-green-700");
+        "hidden py-2 px-8 bg-[#a7fe53] hover:bg-[#a7fe77] ring-[1px] ring-[#a9fe03] rounded-lg text-sm capitalize text-green-950 shadow-lg roboto-condensed-regular");
 }
 
 
@@ -207,7 +207,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-$(`#movie-list-box #popular`).click();
+//$(`#movie-list-box #popular`).click();
 //commented out for now
 
 

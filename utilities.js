@@ -28,7 +28,7 @@ export function alert(alertTitle, alertMessage, alertType) {
   $("#alert-message").textContent = alertMessage;
 
   if (alertType == 404) {
-    $("#alert").classList.remove("bg-green-300");
+    $("#alert").classList.remove("bg-[#a7fe53]");
     $("#alert").classList.add("bg-red-300");
     $("#alert").classList.remove("ring-green-500");
     $("#alert").classList.add("ring-red-500");
@@ -38,7 +38,7 @@ export function alert(alertTitle, alertMessage, alertType) {
     $("#close-alert").style.fill = "maroon";
   } else if (alertType == 200) {
     $("#alert").classList.remove("bg-red-300");
-    $("#alert").classList.add("bg-green-300");
+    $("#alert").classList.add("bg-[#a7fe53]");
 
     $("#alert").classList.add("ring-green-500");
     $("#alert").classList.remove("ring-red-500");
@@ -69,12 +69,12 @@ export function createMovieCard(movie, container) {
 
   const hover = document.createElement("div");
   hover.className =
-    "movie-hover bg-popup dark:bg-modal  w-full h-full absolute -top-2 left-0 rounded-md opacity-0 hover:opacity-100 cursor-pointer flex items-center justify-center flex-col ring-2 dark:ring-[1px] ring-green-600";
+    "movie-hover bg-popup dark:bg-modal  w-full h-full absolute -top-2 left-0 rounded-md opacity-0 hover:opacity-100 cursor-pointer flex items-center justify-center flex-col ring-2 dark:ring-[1px] ring-[#a9fe03]";
   article.appendChild(hover);
 
   const rating = document.createElement("div");
   rating.className =
-    "movie-rating bg-green-400  w-[50px] h-[50px]  rounded-full flex items-center justify-center roboto-condensed-light text-slate-900 text-md ring-[1px] ring-green-600 shadow";
+    "movie-rating bg-[#a9fe03]  w-[50px] h-[50px]  rounded-full flex items-center justify-center roboto-condensed-light text-slate-900 text-md ring-[1px] ring-green-600 shadow";
   rating.textContent = vote_average ?? 0;
   hover.appendChild(rating);
 
