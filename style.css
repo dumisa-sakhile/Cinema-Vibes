@@ -102,7 +102,7 @@ font-style: normal;
 @layer components {
 
 .scroll{
-    @apply scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-customGray dark:scrollbar-thumb-slate-100 scrollbar-track-inherit hover:scrollbar-thumb-gray-700 dark:hover:scrollbar-thumb-slate-400;
+    @apply scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-[#a7fe53] scrollbar-track-inherit hover:scrollbar-thumb-[#a7fe77];
   }
 
   .filter-disabled{
