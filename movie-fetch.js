@@ -95,9 +95,9 @@ function setMoviePages(total_pages){
 function hideShowMovieButtons(total_pages) {
   moviePageNumber <= 1
     ? (moviePreviousPage.className =
-        "hidden py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700")
+        "hidden py-2 px-6 bg-red-500 rounded-lg text-sm capitalize text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700")
     : (moviePreviousPage.className =
-        "block py-2 px-6 bg-red-500 rounded-lg text-sm uppercase text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700");
+        "block py-2 px-6 bg-red-500 rounded-lg text-sm capitalize text-slate-800 shadow-lg roboto-condensed-medium hover:bg-red-700");
 
   moviePageNumber < total_pages
     ? (movieNextPage.className =
