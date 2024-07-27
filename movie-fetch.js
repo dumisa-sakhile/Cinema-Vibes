@@ -207,7 +207,7 @@ $$(`#movie-list-box span`).forEach((span) => {
   });
 });
 
-//$(`#movie-list-box #popular`).click();
+$(`#movie-list-box #popular`).click();
 //commented out for now
 
 

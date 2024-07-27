@@ -184,3 +184,10 @@ $$(`#movie-details-nav span`).forEach((span) => {
 
 //set default movie details wrapper to overview
 movieDetailsOverview.click();
+
+
+
+//prevent context menu on right click
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();   
+}); 

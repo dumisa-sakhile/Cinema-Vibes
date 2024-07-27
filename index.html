@@ -13,8 +13,8 @@
      <!-- <meta name="theme-color" content="rgb(226,232,240)" /> -->
      <meta
       name="description"
-      content="Experience the ultimate cinematic journey with Cinema Vibes. Get hooked on our expertly curated movie and TV show recommendations, featuring similar titles, captivating summaries, and thrilling trailers. Find your new favorite film or series and vibe with the community of movie lovers!" />
-      <meta name="keywords" content="TV, movie,movies, tv shows, tv series, television, shows">
+      content="Experience the ultimate cinematic journey with Cinema Vibes. Get hooked on our expertly curated movie recommendations, featuring similar titles, captivating summaries, and thrilling trailers. Find your new favorite film and vibe with the community of movie lovers!" />
+      <meta name="keywords" content="cinema, cinema vibes, movie,movies, motion picture, movie recommendations, movie trailer, movie details">
     <title>Cinema Vibes</title>
 
     <script type="module" src="/main.js" defer></script>
@@ -34,7 +34,7 @@
 <script defer src="/_vercel/speed-insights/script.js"></script>
   </head>
 
-  <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-black dark:text-slate-300 scroll selection:text-green-500 selection:bg-emerald-900 ">
+  <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-black dark:text-slate-300 scroll selection:text-black selection:bg-[#a9fe03] select-none">
 
 <!-- Movies -->
 <section id="movies" class="w-full flex flex-col">
@@ -46,7 +46,7 @@
 <div class="hidden md:flex items-center min-w-[320px] justify-around gap-2">
 <span id="logo" class="flex items-center justify-center space-x-4 cursor-pointer">
  <img src="/blob.svg" alt="blob" class="w-12 h-12">
- <h1 class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-[#a9fe03] to-[#a7fe53] roboto-condensed-regular uppercase">Cinema&nbsp;Vibes</h1>
+ <h1 class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-[#a9fe03] to-[#a7fe53] roboto-condensed-bold uppercase">Cinema&nbsp;Vibes</h1>
 </span></div>
 <!-- logo -->
 
@@ -56,7 +56,7 @@
 
 <!-- Searched Movie Name -->
  <div id="movie-search-title-box" class="p-2 min-w-[320px] w-full hidden items-center justify-center flex-wrap gap-2 mt-2 roboto-condensed-bold">
-  Searched: <h1 id="movie-search-title" class="capitalize"></h1>
+  Searched: <h1 id="movie-search-title" class="capitalize text-[#a7fe53]"></h1>
  </div>
 <!-- Searched Movie Name -->
 
@@ -64,7 +64,7 @@
 
   <!-- search -->
   <input type="search" name="movie-search" id="movie-search" placeholder="Search a movie e.g. Hobbit"
-    class="w-[90%] lg:w-[50%] rounded-md h-[40px] text-sm bg-slate-50 dark:bg-black  px-6 roboto-condensed-light shadow border-none focus:outline-none ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2 text-gray-900 dark:text-slate-300"
+    class="w-[90%] lg:w-[50%] rounded-md h-[40px] text-sm bg-slate-50 dark:bg-black  px-6 roboto-condensed-light shadow border-none focus:outline-none ring-[1px] ring-slate-200 dark:ring-gray-600 focus:ring-2 text-gray-900 dark:text-slate-300 accent-[#a7fe53] caret-[#a7fe53]"
     autocomplete="off">
   <!-- search -->
 
@@ -356,7 +356,7 @@
 <span id="close-alert" class="text-xl w-[10%] focus:outline-none hover:grayscale cursor-pointer">x</span>
 </div>
 
-<p class="roboto-condensed-light text-sm" id="alert-message"></p>
+<p class="roboto-condensed-regular text-sm" id="alert-message"></p>
 
 </section>
 <!-- Alert -->
@@ -398,7 +398,7 @@
               <div>
                   <h2 class="mb-6 text-sm  text-gray-900 uppercase dark:text-white">Settings</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-light">
-                      <li class="mb-4 hover:text-[#a9fe03]"></li>
+                      <li class="mb-4 hover:text-[#a9fe03] go-up">Top</li>
                       <li class="hover:text-[#a9fe03] cursor-pointer" id="fullscreen">
   Fullscreen</li>
                   </ul>

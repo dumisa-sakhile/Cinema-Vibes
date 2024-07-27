@@ -29,19 +29,19 @@ export function alert(alertTitle, alertMessage, alertType) {
 
   if (alertType == 404) {
     $("#alert").classList.remove("bg-[#a7fe53]");
-    $("#alert").classList.add("bg-red-300");
+    $("#alert").classList.add("bg-red-500");
     $("#alert").classList.remove("ring-green-500");
-    $("#alert").classList.add("ring-red-500");
+    $("#alert").classList.add("ring-red-600");
     $("#alert").classList.remove("text-green-950");
     $("#alert").classList.add("text-red-950");
 
     $("#close-alert").style.fill = "maroon";
   } else if (alertType == 200) {
-    $("#alert").classList.remove("bg-red-300");
+    $("#alert").classList.remove("bg-red-500");
     $("#alert").classList.add("bg-[#a7fe53]");
 
     $("#alert").classList.add("ring-green-500");
-    $("#alert").classList.remove("ring-red-500");
+    $("#alert").classList.remove("ring-red-600");
     $("#alert").classList.add("text-green-950");
     $("#alert").classList.remove("text-red-950");
 
