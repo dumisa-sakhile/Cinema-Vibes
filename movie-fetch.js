@@ -239,7 +239,7 @@ async function fetchMovies() {
       alert("movie not found", "requested movie could not be found", 404);
     } else {
 
-      $("#movie-display-box").innerText = "";
+      $("#movie-display-box").textContent = "";
 
       showSearchBox(false);
       hideShowMovieButtons(response.data.total_pages);
@@ -321,7 +321,7 @@ async function fetchMoviesGenre() {
     if (!response.data.results.length) {
       alert("movie not found", "requested movie could not be found", 404);
     } else {
-      $("#movie-display-box").innerText = "";
+      $("#movie-display-box").textContent = "";
 
       showSearchBox(false);
       //console.log(`invoked`, response.data.results);
@@ -692,7 +692,7 @@ async function fetchMoviesSpecial(with_type, with_type_query) {
     if (!response.data.results.length) {
       alert("movie not found", "requested movie could not be found", 404);
     } else {
-      $("#movie-display-box").innerText = "";
+      $("#movie-display-box").textContent = "";
 
       showSearchBox(false);
       hideShowMovieButtons(response.data.total_pages);
