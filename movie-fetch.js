@@ -38,20 +38,7 @@ async function searchMovies() {
       })
       
 
-      $$("#movie-search-box article").forEach((article) => {
-        article.addEventListener("click", function (ev) {
-          fetchMovieSources(ev.currentTarget.id);
-          $("footer").className =
-            "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
-
-          $("#movies").className = "w-full hidden flex-col";
-
-          $("#movie-details-page").className =
-            "w-full h-full flex flex-row items-center justify-center gap-0";
-
-          $("#movie-details-overview").click();
-        });
-      });
+     
     //console.log(response.data);
 
     }
@@ -60,6 +47,28 @@ async function searchMovies() {
     console.error(error);
   }
 }
+
+//handle article click using delegation
+   $("#movie-search-box").addEventListener("click", function (ev) {
+
+if(ev.target.parentElement.closest("article")){
+
+   fetchMovieSources(ev.target.closest("article").id);
+   $("footer").className =
+     "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+   $("#movies").className = "w-full hidden flex-col";
+
+   $("#movie-details-page").className =
+     "w-full h-full flex flex-row items-center justify-center gap-0";
+
+   $("#movie-details-overview").click();
+
+}
+    
+   });
+//handle article click using delegation
+
 $("#movie-search").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     !this.value.trim()
@@ -181,37 +190,38 @@ function removeMovieListActive() {
   $$(`#movie-list-box span`).forEach((span) => {
     span.classList.remove("filter-active");
     span.classList.add("filter-disabled");
+
   });
 }
 
-$$(`#movie-list-box span`).forEach((span) => {
-  span.addEventListener("click", function (ev) {
-    removeMovieListActive();
 
-    ev.currentTarget.classList.add("filter-active");
-    alert(
-      "Movie List Filter",
-      `Movie list filtered according to ${ev.currentTarget.textContent} movies`,
-      200
-    );
-    ev.currentTarget.classList.remove("filter-disabled");
 
-    movieListType = ev.currentTarget.id;
-    moviePageNumber = 1;
+ $(`#movie-list-box`).addEventListener("click", function (ev) {
+   if (ev.target.matches("span")) {
+     removeMovieListActive();
 
-    //Reset genre filters
-    movieGenresQuery.clear();
+     ev.target.classList.add("filter-active");
+     alert(
+       "Movie List Filter",
+       `Movie list filtered according to ${ev.target.textContent} movies`,
+       200
+     );
+     ev.target.classList.remove("filter-disabled");
 
-    fetchMovies();
+     movieListType = ev.target.id;
+     moviePageNumber = 1;
 
-  });
-});
+     //Reset genre filters
+     movieGenresQuery.clear();
+
+     fetchMovies();
+   }
+ });
 
 $(`#movie-list-box #popular`).click();
 //commented out for now
 
 
-//alert("Cinema Vibes", "Welcome to the Movies Page, please note that this site is still under construction!", 404);
 
 async function fetchMovies() {
 
@@ -240,31 +250,7 @@ async function fetchMovies() {
         createMovieCard(movie, $("#movie-display-box"));
       });
 
-      $$("#movie-display-box article").forEach((article) => {
-        article.addEventListener("click", function (ev) {
-          fetchMovieSources(ev.currentTarget.id);
-          $("footer").className =
-            "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
-
-          $("#movies").className = "w-full hidden flex-col";
-
-          $("#movie-details-page").className =
-            "w-full h-full flex flex-row items-center justify-center gap-0";
-
-            $("#movie-details-overview").click();
-        });
-      })
-
-
-      //Event Listeners
-      $$("#movie-display-box article").forEach((article) => {
-
-        article.addEventListener("click", function (ev) {
-          //console.log(ev.currentTarget.id);
-        });
-
-      });
-
+    
       //Reset genre filters
       $$(`#movie-genre-box span`).forEach((span) => {
         span.className = "filter-disabled";
@@ -281,6 +267,23 @@ async function fetchMovies() {
 }
 //Fetch Movie Summary END
 
+
+//handle article click using delegation
+ $("#movie-display-box").addEventListener("click", function (ev) {
+   if (ev.target.parentElement.closest("article")) {
+     fetchMovieSources(ev.target.closest("article").id);
+     $("footer").className =
+       "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+     $("#movies").className = "w-full hidden flex-col";
+
+     $("#movie-details-page").className =
+       "w-full h-full flex flex-row items-center justify-center gap-0";
+
+     $("#movie-details-overview").click();
+   }
+ });
+ //handle article click using delegation
 
 // Fetch Movie Genres
 const movieGenre = $("#movie-genre-filter");
@@ -334,30 +337,6 @@ async function fetchMoviesGenre() {
         createMovieCard(movie, $("#movie-display-box"));
       });
 
-      $$("#movie-display-box article").forEach(
-        (article) => {
-          article.addEventListener("click", function (ev) {
-            fetchMovieSources(ev.currentTarget.id);
-            $("footer").className =
-              "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
-
-            $("#movies").className = "w-full hidden flex-col";
-
-            $("#movie-details-page").className =
-              "w-full h-full flex flex-row items-center justify-center gap-0";
-
-            $("#movie-details-overview").click();
-          });
-        }
-      );
-
-      //Event Listeners
-      $$("#movie-display-box article").forEach((article) => {
-        article.addEventListener("click", function (ev) {
-          //console.log(ev.currentTarget.id);
-        });
-      });
-
       //Reset genre filters
       $$(`#movie-list-box span`).forEach((span) => {
         span.className = "filter-disabled";
@@ -401,22 +380,22 @@ movieGenres.map((genre) => {
   genreFilterBox.appendChild(span);
 });
 
-$$(`#movie-genre-box span`).forEach((span) => {
-  span.addEventListener("click", function (ev) {
-    ev.currentTarget.classList.toggle("filter-active");
-    ev.currentTarget.classList.toggle("filter-disabled");
-    //console.log(ev.currentTarget.dataset.query);
-    ev.currentTarget.classList.contains("filter-active")
-      ? movieGenresQuery.add(ev.currentTarget.dataset.query)
-      : movieGenresQuery.delete(ev.currentTarget.dataset.query);
-      //console.log(movieGenresQuery);
+ $("#movie-genre-box").addEventListener("click", function (ev) {
+   if (ev.target.matches("span")) {
+     ev.target.classList.toggle("filter-active");
+     ev.target.classList.toggle("filter-disabled");
+     //console.log(ev.target.dataset.query);
+     ev.target.classList.contains("filter-active")
+       ? movieGenresQuery.add(ev.target.dataset.query)
+       : movieGenresQuery.delete(ev.target.dataset.query);
+     //console.log(movieGenresQuery);
 
-      //for alert purposes
-      ev.currentTarget.classList.contains("filter-active")
-        ? movieActiveGenre.add(ev.currentTarget.textContent)
-        : movieActiveGenre.delete(ev.currentTarget.textContent);
-  });
-});
+     //for alert purposes
+     ev.target.classList.contains("filter-active")
+       ? movieActiveGenre.add(ev.target.textContent)
+       : movieActiveGenre.delete(ev.target.textContent);
+   }
+ });
 
 $("#movie-genre-apply").addEventListener("click", () => {
   //for alert purposes
@@ -527,21 +506,22 @@ async function fetchMovieSources(movieId) {
       $("#movie-details-genre-box").appendChild(span);
     });
 
-    $$("#movie-details-genre-box span").forEach((genre) => {
-      genre.addEventListener("click", function (ev) {
-        moviePageNumber = parseInt(1);
-        removeMovieListActive();
-        paginationStatus = "special";
-        globalSpecialType = "with_genres";
-        globalSpecialId = ev.currentTarget.id;
-        fetchMoviesSpecial("with_genres", ev.currentTarget.id);
-        alert(
-          "Genre Filter",
-          `Movies filtered according to the ${ev.currentTarget.textContent} genre.`,
-          200
-        );
+      $("#movie-details-genre-box").addEventListener("click", function (ev) {
+        if (ev.target.matches("span")) {
+          moviePageNumber = parseInt(1);
+          removeMovieListActive();
+          paginationStatus = "special";
+          globalSpecialType = "with_genres";
+          globalSpecialId = ev.target.id;
+          fetchMoviesSpecial("with_genres", ev.target.id);
+          alert(
+            "Genre Filter",
+            `Movies filtered according to the ${ev.target.textContent} genre.`,
+            200
+          );
+        }
       });
-    });
+
     //Genre Filter
 
     //Country Filter
@@ -554,21 +534,22 @@ async function fetchMovieSources(movieId) {
       $("#movie-details-countries-box").appendChild(span);
     });
     
-    $$("#movie-details-countries-box span").forEach((country) => {
-      country.addEventListener("click", function (ev) {
-        moviePageNumber = parseInt(1);
-        removeMovieListActive();
-        globalSpecialType = "with_origin_country";
-        globalSpecialId = ev.currentTarget.id;
-        paginationStatus = "special";
-        fetchMoviesSpecial("with_origin_country", ev.currentTarget.id);
-        alert(
-          "Countries Filter",
-          `Movies filtered according to the country: ${ev.currentTarget.textContent}.`,
-          200
-        );
-      });
-    });
+   $("#movie-details-countries-box").addEventListener("click", function (ev) {
+     if (ev.target.matches("span")) {
+       moviePageNumber = parseInt(1);
+       removeMovieListActive();
+       globalSpecialType = "with_origin_country";
+       globalSpecialId = ev.target.id;
+       paginationStatus = "special";
+       fetchMoviesSpecial("with_origin_country", ev.target.id);
+       alert(
+         "Countries Filter",
+         `Movies filtered according to the country: ${ev.target.textContent}.`,
+         200
+       );
+     }
+   });
+     
     //Country Filter
 
 
@@ -582,20 +563,20 @@ async function fetchMovieSources(movieId) {
       $("#movie-details-companies-box").appendChild(span);
     });
 
-    $$("#movie-details-companies-box span").forEach((company) => {
-      company.addEventListener("click", function (ev) {
+    $("#movie-details-companies-box").addEventListener("click", function (ev) {
+      if (ev.target.matches("span")) {
         moviePageNumber = parseInt(1);
         removeMovieListActive();
         paginationStatus = "special";
         globalSpecialType = "with_companies";
-        globalSpecialId = ev.currentTarget.id;
-        fetchMoviesSpecial("with_companies", ev.currentTarget.id);
+        globalSpecialId = ev.target.id;
+        fetchMoviesSpecial("with_companies", ev.target.id);
         alert(
           "Production Companies Filter",
-          `Movies filtered according to the Production Company: ${ev.currentTarget.textContent}.`,
+          `Movies filtered according to the Production Company: ${ev.target.textContent}.`,
           200
         );
-      });
+      }
     });
 
     //Company Filter
@@ -611,20 +592,20 @@ async function fetchMovieSources(movieId) {
     });
 
      
-    $$("#movie-details-languages-box span").forEach((language) => {
-      language.addEventListener("click", function (ev) {
+    $("#movie-details-languages-box").addEventListener("click", function (ev) {
+      if (ev.target.matches("span")) {
         moviePageNumber = parseInt(1);
         removeMovieListActive();
         paginationStatus = "special";
         globalSpecialType = "with_original_language";
-        globalSpecialId = ev.currentTarget.id;
-        fetchMoviesSpecial("with_original_language", ev.currentTarget.id);
+        globalSpecialId = ev.target.id;
+        fetchMoviesSpecial("with_original_language", ev.target.id);
         alert(
           "Languages Filter",
-          `Movies filtered according to the language: ${ev.currentTarget.textContent}.`,
+          `Movies filtered according to the language: ${ev.target.textContent}.`,
           200
         );
-      });
+      }
     });
     //Language Filter
 
@@ -634,43 +615,13 @@ async function fetchMovieSources(movieId) {
       createMovieCard(movie, $("#movie-details-recommendations-wrapper"));
     });
 
-    $$("#movie-details-recommendations-wrapper article").forEach((article) => {
-      article.addEventListener("click", function (ev) {
-
-        fetchMovieSources(ev.currentTarget.id);
-        $("footer").className =
-          "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
-
-        $("#movies").className = "w-full hidden flex-col";
-
-        $("#movie-details-page").className =
-          "w-full h-full flex flex-row items-center justify-center gap-0";
-
-        $("#movie-details-overview").click();
-      });
-    });
 
     //similar movies
     $("#movie-details-similar-wrapper").textContent = "";
     similarMoviesData.forEach((movie) => {
       createMovieCard(movie, $("#movie-details-similar-wrapper"));
     });
-
-    $$("#movie-details-similar-wrapper article").forEach((article) => {
-      article.addEventListener("click", function (ev) {
-        fetchMovieSources(ev.currentTarget.id);
-        $("footer").className =
-          "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
-
-        $("#movies").className = "w-full hidden flex-col";
-
-        $("#movie-details-page").className =
-          "w-full h-full flex flex-row items-center justify-center gap-0";
-
-        $("#movie-details-overview").click();
-      });
-    });
-
+  
     // console.log("details", movieDetailsData);
     // console.log("videos", movieVideosData);
     // console.log("recommended",recommendedMoviesData);
@@ -680,8 +631,44 @@ async function fetchMovieSources(movieId) {
   }
 }
 
-//fetchMovieSources(519182);
 //Movie Description
+
+//handle article click using delegation on recommendations
+ $("#movie-details-recommendations-wrapper").addEventListener(
+   "click",
+   function (ev) {
+     if (ev.target.parentElement.closest("article")) {
+       fetchMovieSources(ev.target.closest("article").id);
+       $("footer").className =
+         "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+       $("#movies").className = "w-full hidden flex-col";
+
+       $("#movie-details-page").className =
+         "w-full h-full flex flex-row items-center justify-center gap-0";
+
+       $("#movie-details-overview").click();
+     }
+   }
+ );
+ //handle article click using delegation on recommendations
+
+ //handle article click using delegation on similar
+ $("#movie-details-similar-wrapper").addEventListener("click", function (ev) {
+   if (ev.target.parentElement.closest("article")) {
+     fetchMovieSources(ev.target.closest("article").id);
+     $("footer").className =
+       "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+
+     $("#movies").className = "w-full hidden flex-col";
+
+     $("#movie-details-page").className =
+       "w-full h-full flex flex-row items-center justify-center gap-0";
+
+     $("#movie-details-overview").click();
+   }
+ });
+ //handle article click using delegation on similar
 
 async function fetchMoviesSpecial(with_type, with_type_query) {
   try {
@@ -719,27 +706,6 @@ async function fetchMoviesSpecial(with_type, with_type_query) {
         createMovieCard(movie, $("#movie-display-box"));
       });
 
-      $$("#movie-display-box article").forEach((article) => {
-        article.addEventListener("click", function (ev) {
-          fetchMovieSources(ev.currentTarget.id);
-          $("footer").className =
-            "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
-
-          $("#movies").className = "w-full hidden flex-col";
-
-          $("#movie-details-page").className =
-            "w-full h-full flex flex-row items-center justify-center gap-0";
-
-          $("#movie-details-overview").click();
-        });
-      });
-
-      //Event Listeners
-      $$("#movie-display-box article").forEach((article) => {
-        article.addEventListener("click", function (ev) {
-          //console.log(ev.currentTarget.id);
-        });
-      });
 
       //Reset list filters
       $$(`#movie-list-box span`).forEach((span) => {
