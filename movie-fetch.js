@@ -30,6 +30,8 @@ async function searchMovies() {
       alert("movie not found", "requested movie could not be found", 404);
     }else{
 
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
       $("#movie-search-title").textContent = $("#movie-search").value;
         showSearchBox(true);
 
@@ -48,7 +50,7 @@ async function searchMovies() {
   }
 }
 
-//handle article click using delegation
+//!handle article click using delegation
    $("#movie-search-box").addEventListener("click", function (ev) {
 
 if(ev.target.parentElement.closest("article")){
@@ -124,7 +126,7 @@ let moviePreviousPage = $("#movie-previous-page");
 let movieNextPage = $("#movie-next-page");
 
 moviePreviousPage.addEventListener("click", function(){
-
+window.scrollTo({ top: 0, behavior: "smooth" });
   moviePageNumber--;
   switch (paginationStatus) {
     case "list":
@@ -143,6 +145,7 @@ moviePreviousPage.addEventListener("click", function(){
 });
 
 movieNextPage.addEventListener("click", () => {
+window.scrollTo({ top: 0, behavior: "smooth" });
   moviePageNumber++;
   switch (paginationStatus) {
     case "list":
@@ -194,8 +197,6 @@ function removeMovieListActive() {
   });
 }
 
-
-
  $(`#movie-list-box`).addEventListener("click", function (ev) {
    if (ev.target.matches("span")) {
      removeMovieListActive();
@@ -239,6 +240,7 @@ async function fetchMovies() {
       alert("movie not found", "requested movie could not be found", 404);
     } else {
 
+      window.scrollTo({ top: 0, behavior: "smooth" });
       $("#movie-display-box").textContent = "";
 
       showSearchBox(false);
@@ -321,7 +323,10 @@ async function fetchMoviesGenre() {
     if (!response.data.results.length) {
       alert("movie not found", "requested movie could not be found", 404);
     } else {
-      $("#movie-display-box").textContent = "";
+
+window.scrollTo({ top: 0, behavior: "smooth" });
+
+$("#movie-display-box").textContent = "";
 
       showSearchBox(false);
       //console.log(`invoked`, response.data.results);
@@ -692,7 +697,10 @@ async function fetchMoviesSpecial(with_type, with_type_query) {
     if (!response.data.results.length) {
       alert("movie not found", "requested movie could not be found", 404);
     } else {
-      $("#movie-display-box").textContent = "";
+
+window.scrollTo({ top: 0, behavior: "smooth" });
+
+$("#movie-display-box").textContent = "";
 
       showSearchBox(false);
       hideShowMovieButtons(response.data.total_pages);
