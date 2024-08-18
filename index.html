@@ -34,13 +34,13 @@
 <script defer src="/_vercel/speed-insights/script.js"></script>
   </head>
 
-  <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-black dark:text-slate-300 scroll selection:text-black selection:bg-[#a9fe03] select-none">
+  <body class="text-gray-700 bg-slate-100 flex flex-col items-center justify-center dark:bg-black dark:text-slate-100 scroll selection:text-black selection:bg-[#a9fe03] select-none">
 
 <!-- Movies -->
 <section id="movies" class="w-full flex flex-col">
 
    <!-- Movie Header -->
-<header class="flex-wrap md:flex-nowrap w-full min-h-[40px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3 shadow-sm dark:shadow-slate-800">
+<header class="flex-wrap md:flex-nowrap w-full min-h-[40px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3 ">
 
 <!-- logo -->
 <div class="hidden md:flex items-center min-w-[320px] justify-around gap-2">
@@ -118,7 +118,7 @@
 
 <!--Movie Pagination -->
 <aside id="movie-pagination" class="fixed bottom-10 w-full min-h-20 flex flex-col items-center justify-center gap-6 p-4 z-10 rounded pointer-events-none">
-  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 rounded shadow-lg pointer-events-auto bg-slate-50 dark:bg-black dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-transparent focus:ring-2">
+  <main class="min-w-[320px] min-h-[20px] flex flex-row flex-wrap items-center justify-center gap-6 p-4 z-10 rounded shadow-lg pointer-events-auto bg-slate-50 dark:bg-black dark:text-slate-100 ring-[1px] ring-slate-200 dark:ring-transparent focus:ring-2">
 
   <p class="roboto-condensed-light text-sm capitalize">Page <span id="movie-current-page">1</span> of <span id="movie-total-pages">300</span> page(s)</p>
 
@@ -170,7 +170,7 @@
 
 <!-- Details Header -->
 <header
-  class="absolute top-0 left-0 z-[1] flex-wrap md:flex-nowrap w-full min-h-[60px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3 shadow-sm dark:shadow-slate-800 bg-transparent">
+  class="absolute top-0 left-0 z-[1] flex-wrap md:flex-nowrap w-full min-h-[60px] flex items-center justify-center gap-4 lg:grid lg:grid-cols-3  bg-transparent">
 
   <!-- trailer play popup -->
   <aside class="w-full h-full bg-popup dark:bg-modal fixed top-0 left-0 hidden items-center justify-center z-20" id="movie-trailer-box">
@@ -219,7 +219,7 @@
 
 <!-- close movie details page -->
     <button
-      class="block py-2 px-6 bg-red-500 rounded-lg text-sm capitalize text-slate-800 shadow-lg roboto-condensed-regular hover:bg-red-700" id="movie-details-close">close movie info</button>
+      class="block py-2 px-6 bg-red-500 rounded-lg text-sm capitalize text-slate-900 shadow-lg roboto-condensed-regular hover:bg-red-700" id="movie-details-close">close movie info</button>
 <!-- close movie details page -->
 
 
@@ -377,10 +377,10 @@
                   <h2 class="mb-6 text-sm  text-gray-900 uppercase dark:text-white">Resources</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-light">
                       <li class="mb-4">
-                          <a href="https://developer.themoviedb.org/docs/getting-started" class="hover:text-[#a9fe03]">TMDB API</a>
+                          <a href="https://developer.themoviedb.org/docs/getting-started" class="hover:text-[#a9fe03]" target="_blank">TMDB API</a>
                       </li>
                       <li>
-                          <a href="https://tailwindcss.com/" class="hover:text-[#a9fe03]">Tailwind CSS</a>
+                          <a href="https://tailwindcss.com/" class="hover:text-[#a9fe03]" target="_blank">Tailwind CSS</a>
                       </li>
                   </ul>
               </div>
@@ -388,7 +388,7 @@
                   <h2 class="mb-6 text-sm  text-gray-900 uppercase dark:text-white">Follow us</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-light">
                       <li class="mb-4">
-                          <a href="https://github.com/dumisa-sakhile" class="hover:text-[#a9fe03] ">Github</a>
+                          <a href="https://github.com/dumisa-sakhile" class="hover:text-[#a9fe03]" target="_blank">Github</a>
                       </li>
                       <li>
                           <a href="mailto:dumisa.developer@gmail.com?subject=Reach Out from the CinemaVibes" class="hover:text-[#a9fe03]">Email us</a>

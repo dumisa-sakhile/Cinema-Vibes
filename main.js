@@ -191,3 +191,19 @@ movieDetailsOverview.click();
 document.addEventListener("contextmenu", (e) => {
   e.preventDefault();   
 }); 
+
+
+// Close of the universal modal using the escape key
+document.onkeydown = function(evt) {
+    evt = evt;
+    var isEscape = false;
+    if ("key" in evt) {
+        isEscape = (evt.key === "Escape" || evt.key === "Esc");
+    } else {
+        isEscape = (evt.keyCode === 27);
+    }
+    if (isEscape) {
+        $("#close-alert").click();
+    }
+};
+// Close of the universal modal using the escape key
