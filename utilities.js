@@ -29,7 +29,7 @@ export function alert(alertTitle, alertMessage, alertType) {
 
   if (alertType == 404) {
     $("#alert").classList.remove("bg-[#a7fe53]");
-    $("#alert").classList.add("bg-red-500");
+    $("#alert").classList.add("bg-[#ff3d00]");
     $("#alert").classList.remove("ring-green-500");
     $("#alert").classList.add("ring-red-600");
     $("#alert").classList.remove("text-green-950");
@@ -37,7 +37,7 @@ export function alert(alertTitle, alertMessage, alertType) {
 
     $("#close-alert").style.fill = "maroon";
   } else if (alertType == 200) {
-    $("#alert").classList.remove("bg-red-500");
+    $("#alert").classList.remove("bg-[#ff3d00]");
     $("#alert").classList.add("bg-[#a7fe53]");
 
     $("#alert").classList.add("ring-green-500");
