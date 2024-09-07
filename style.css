@@ -106,7 +106,7 @@ font-style: normal;
   }
 
   .filter-disabled{
-  @apply py-2 px-6 text-sm bg-inherit hover:ring-[1px] hover:ring-[#a7fe77]  rounded-md roboto-condensed-light border-none focus:outline-none focus:ring-2 text-gray-900 dark:text-slate-100 dark:hover:text-[#a7fe77] cursor-pointer capitalize;
+  @apply py-2 px-6 text-sm bg-inherit hover:ring-0  rounded-md roboto-condensed-light border-none focus:outline-none focus:ring-2 text-gray-900 dark:text-slate-100 dark:hover:text-[#a7fe77] cursor-pointer capitalize hover:roboto-condensed-bold;
 }
 
 .filter-active{
