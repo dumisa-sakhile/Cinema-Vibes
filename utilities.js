@@ -96,7 +96,7 @@ export function showSearchBox(isSearch) {
   if (isSearch) {
 
     $("#movie-filters-group").className =
-      "bg-slate-50 dark:bg-black dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-gray-900 focus:ring-2  w-[320px] min-h-[100px] absolute top-[150px] left-10 rounded-md shadow-sm py-2 hidden flex-col items-center  roboto-condensed-light z-[12]";
+      "bg-slate-50 dark:bg-[#151515] dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-gray-900 focus:ring-2  w-[320px] min-h-[100px] absolute top-[150px] left-10 rounded-md shadow-sm py-2 hidden flex-col items-center  roboto-condensed-light z-[12]";
 
     $("#movie-search-title-box").className =
       "p-2 min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2 roboto-condensed-light";
