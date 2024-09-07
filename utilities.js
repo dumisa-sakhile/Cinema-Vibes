@@ -59,7 +59,7 @@ export function createMovieCard(movie, container) {
   const article = document.createElement("article");
   article.id = id;
   article.className =
-    "movie-container w-[180px] h-[360px] rounded-md flex flex-col items-center justify-start relative bg-inherit dark:text-slate-300 space-y-2 ring-[1px] ring-slate-300 dark:ring-gray-800 shadow-sm";
+    "movie-container w-[180px] h-[360px] rounded-md flex flex-col items-center justify-start relative bg-inherit dark:text-slate-300 space-y-2 ring-[1px] ring-slate-300 dark:ring-[#151515] shadow-sm";
 
   const img = document.createElement("img");
   img.src = poster_path ? `${imgBaseUrl}${poster_path}` : "/poster.png";
@@ -99,10 +99,10 @@ export function showSearchBox(isSearch) {
       "bg-slate-50 dark:bg-black dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-gray-900 focus:ring-2  w-[320px] min-h-[100px] absolute top-[150px] left-10 rounded-md shadow-sm py-2 hidden flex-col items-center  roboto-condensed-light z-[12]";
 
     $("#movie-search-title-box").className =
-      "p-2 min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2 roboto-condensed-bold";
+      "p-2 min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2 roboto-condensed-light";
 
       $("#movie-list-box").className =
-        "p-2 min-w-[320px] w-full hidden items-center justify-center flex-wrap gap-2 mt-2";
+        "p-2 min-w-[320px] w-full hidden items-center justify-center flex-wrap gap-2 mt-2 dark:bg-[#151515] rounded-lg";
 
     $("#movie-search-box").className =
       "w-full min-h-[700px] flex flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
@@ -126,7 +126,7 @@ export function showSearchBox(isSearch) {
       "p-2 min-w-[320px] w-full hidden items-center justify-center flex-wrap gap-2 mt-2 roboto-condensed-bold";
 
     $("#movie-list-box").className =
-      "p-2 min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2";
+      "min-w-[320px] w-full flex items-center justify-center flex-wrap gap-2 mt-2 dark:bg-[#151515] rounded-lg";
 
     $("#movie-search-box").className =
       "w-full min-h-[700px] hidden flex-wrap items-center justify-center gap-4 py-10 px-10 space-y-4";
