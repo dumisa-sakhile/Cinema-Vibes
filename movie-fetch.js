@@ -57,7 +57,7 @@ if(ev.target.parentElement.closest("article")){
 
    fetchMovieSources(ev.target.closest("article").id);
    $("footer").className =
-     "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+     "bg-slate-100 dark:bg-[#151515] hidden relative w-full roboto-condensed-light";
 
    $("#movies").className = "w-full hidden flex-col";
 
@@ -275,7 +275,7 @@ async function fetchMovies() {
    if (ev.target.parentElement.closest("article")) {
      fetchMovieSources(ev.target.closest("article").id);
      $("footer").className =
-       "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+       "bg-slate-100 dark:bg-[#151515] hidden relative w-full roboto-condensed-light";
 
      $("#movies").className = "w-full hidden flex-col";
 
@@ -645,7 +645,7 @@ async function fetchMovieSources(movieId) {
      if (ev.target.parentElement.closest("article")) {
        fetchMovieSources(ev.target.closest("article").id);
        $("footer").className =
-         "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+         "bg-slate-100 dark:bg-[#151515] hidden relative w-full roboto-condensed-light";
 
        $("#movies").className = "w-full hidden flex-col";
 
@@ -663,7 +663,7 @@ async function fetchMovieSources(movieId) {
    if (ev.target.parentElement.closest("article")) {
      fetchMovieSources(ev.target.closest("article").id);
      $("footer").className =
-       "bg-slate-100 dark:bg-black hidden relative w-full roboto-condensed-light";
+       "bg-slate-100 dark:bg-[#151515] hidden relative w-full roboto-condensed-light";
 
      $("#movies").className = "w-full hidden flex-col";
 

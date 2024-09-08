@@ -112,7 +112,7 @@ $("#movie-trailer-open").addEventListener("click", () => {
 
 $("#movie-details-close").addEventListener("click", () => {
   $("footer").className =
-    "bg-slate-100 dark:bg-black block relative w-full roboto-condensed-light";
+    "bg-slate-100 dark:bg-[#151515] block relative w-full roboto-condensed-light";
 
   $("#movies").className = "w-full flex flex-col";
 

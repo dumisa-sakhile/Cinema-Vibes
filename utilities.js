@@ -59,7 +59,7 @@ export function createMovieCard(movie, container) {
   const article = document.createElement("article");
   article.id = id;
   article.className =
-    "movie-container w-[180px] h-[360px] rounded-md flex flex-col items-center justify-start relative bg-inherit dark:text-slate-300 space-y-2 ring-[1px] ring-slate-300 dark:ring-[#151515] shadow-sm";
+    "movie-container w-[180px] h-[360px] rounded-md flex flex-col items-center justify-start relative bg-inherit dark:text-slate-300 space-y-2 ring-[1px] ring-slate-300 dark:ring-[#151515] shadow-sm dark:bg-[#151515]";
 
   const img = document.createElement("img");
   img.src = poster_path ? `${imgBaseUrl}${poster_path}` : "/poster.png";
