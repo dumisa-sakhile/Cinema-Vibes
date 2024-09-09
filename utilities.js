@@ -30,7 +30,7 @@ export function alert(alertTitle, alertMessage, alertType) {
   if (alertType == 404) {
     $("#alert").classList.remove("bg-[#a7fe53]");
     $("#alert").classList.add("bg-[#ff3d00]");
-    $("#alert").classList.remove("ring-green-500");
+    $("#alert").classList.remove("ring-[#a7fe53]");
     $("#alert").classList.add("ring-red-600");
     $("#alert").classList.remove("text-green-950");
     $("#alert").classList.add("text-red-950");
@@ -40,7 +40,7 @@ export function alert(alertTitle, alertMessage, alertType) {
     $("#alert").classList.remove("bg-[#ff3d00]");
     $("#alert").classList.add("bg-[#a7fe53]");
 
-    $("#alert").classList.add("ring-green-500");
+    $("#alert").classList.add("ring-[#a7fe53]");
     $("#alert").classList.remove("ring-red-600");
     $("#alert").classList.add("text-green-950");
     $("#alert").classList.remove("text-red-950");
@@ -95,6 +95,12 @@ export function createMovieCard(movie, container) {
 export function showSearchBox(isSearch) {
   if (isSearch) {
 
+    $("#click-close-search").className =
+      "block py-2 px-6 bg-[#ff3d00] rounded-lg text-sm capitalize text-slate-800 shadow-lg roboto-condensed-regular hover:bg-red-700";
+
+    $("#movie-filter").className =
+        "hidden py-2 px-6 bg-[#a7fe53] hover:bg-[#a7fe77] ring-[1px] ring-[#a9fe03] text-green-900 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular";
+
     $("#movie-filters-group").className =
       "bg-slate-50 dark:bg-[#151515] dark:text-slate-300 ring-[1px] ring-slate-200 dark:ring-gray-900 focus:ring-2  w-[320px] min-h-[100px] absolute top-[150px] left-10 rounded-md shadow-sm py-2 hidden flex-col items-center  roboto-condensed-light z-[12]";
 
@@ -120,7 +126,14 @@ export function showSearchBox(isSearch) {
 
     //hide filters when search box is shown
     $("#movie-filters-group-close").click();
+
   } else {
+
+    $("#click-close-search").className =
+      "hidden py-2 px-6 bg-[#ff3d00] rounded-lg text-sm capitalize text-slate-800 shadow-lg roboto-condensed-regular hover:bg-red-700";
+
+    $("#movie-filter").className =
+      "block py-2 px-6 bg-[#a7fe53] hover:bg-[#a7fe77] ring-[1px] ring-[#a9fe03] text-green-900 rounded-lg text-sm capitalize shadow-lg roboto-condensed-regular";
 
     $("#movie-search-title-box").className =
       "p-2 min-w-[320px] w-full hidden items-center justify-center flex-wrap gap-2 mt-2 roboto-condensed-bold";

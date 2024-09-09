@@ -31,3 +31,6 @@ $("#movie-filter").addEventListener("click", () => {flex($("#movie-filters-group
 
 
 
+$("#click-close-search").addEventListener("click", () => {
+  showSearchBox(false);
+});
