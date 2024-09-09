@@ -470,9 +470,18 @@ async function fetchMovieSources(movieId) {
     $("#movie-details-rating").textContent = movieDetailsData.vote_average;
     $("#movie-details-release-date").textContent =
       new Date(movieDetailsData.release_date).toLocaleDateString() || "";
-    $(
-      "#movie-details-duration"
-    ).textContent = `${movieDetailsData.runtime} mins`;
+    
+      const hours = Math.floor(movieDetailsData.runtime / 60);
+      const minutes = movieDetailsData.runtime % 60;
+
+      if (hours > 0) {
+        $("#movie-details-duration").textContent = `${hours}h ${minutes}m`;
+      } else {
+        $("#movie-details-duration").textContent = `${minutes}m`;
+      }
+
+
+
     $("#movie-details-language").textContent =
       movieDetailsData.original_language.toUpperCase();
     $("#movie-details-revenue").textContent =
