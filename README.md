@@ -2,6 +2,10 @@
 
 Experience the ultimate cinematic journey with Cinema Vibes. Get hooked on our expertly curated movie and TV show recommendations, featuring similar titles, captivating summaries, and thrilling trailers. Find your new favorite film or series and vibe with the community of movie lovers!
 
+## Live Preview
+
+Preview the live site at: https://cinema-vibes.vercel.app/
+
 ## Getting Started
 
 To run Cinema Vibes, follow these steps:
@@ -28,7 +32,7 @@ Replace `YOUR_API_KEY_HERE` with the actual API key.
 
 *Features*
 
-- Expertly curated movie and TV show recommendations
+- Expertly curated movie and recommendations
 - Similar titles and captivating summaries
 - Thrilling trailers
 - Community discussion forum
@@ -36,3 +40,7 @@ Replace `YOUR_API_KEY_HERE` with the actual API key.
 *Contributing*
 
 Contributions are welcome! Please submit a pull request with your changes.
+
+## Upcoming
+
+version 2 is coming soon and will be based on React.js plus user authentication.
