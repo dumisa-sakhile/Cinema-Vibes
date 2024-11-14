@@ -7,6 +7,7 @@ const tmdbApi = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
 });
 
+// ! from the .env file
 const token = process.env.TMDB_API_KEY;
 
 tmdbApi.interceptors.request.use((config) => {
