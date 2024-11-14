@@ -1,6 +1,6 @@
 # Cinema-Vibes
 
-![Cinema-Vibes Screenshot](https://raw.githubusercontent.com/dumisa-sakhile/Cinema-Vibes/main/public/mockup.png)
+![Cinema-Vibes Screenshot](https://raw.githubusercontent.com/dumisa-sakhile/Cinema-Vibes/main/public/screenshot.png)
 
 
 Experience the ultimate cinematic journey with Cinema Vibes. Get hooked on our expertly curated movie and TV show recommendations, featuring similar titles, captivating summaries, and thrilling trailers. Find your new favorite film or series and vibe with the community of movie lovers!
