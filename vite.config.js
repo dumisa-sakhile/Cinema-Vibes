@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [
     EnvironmentPlugin({
       prefix: ['TMDB_API_KEY'],
-      safe: true, 
     }),
   ],
   build: {
