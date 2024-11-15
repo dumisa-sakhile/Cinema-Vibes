@@ -8,7 +8,7 @@ const tmdbApi = axios.create({
 });
 
 // ! from the .env file
-const token = process.env.TMDB_API_KEY;
+const token = import.meta.env.TMDB_API_KEY;
 
 tmdbApi.interceptors.request.use((config) => {
   if (token) {
