@@ -9,6 +9,11 @@ Experience the ultimate cinematic journey with Cinema Vibes. Get hooked on our e
 
 Preview the live site at: https://cinema-vibes.vercel.app/
 
+
+## New Reactjs version Live Preview 
+
+Preview the live site at: https://cinema-vibes.land.app/
+
 ## Getting Started
 
 To run Cinema Vibes, follow these steps:
