@@ -12,7 +12,7 @@ Preview the live site at: https://cinema-vibes.vercel.app/
 
 ## New Reactjs version Live Preview 
 
-Preview the live site at: https://cinema-vibes.land.app/
+Preview the live site at: https://trailerbase.tech
 
 ## Getting Started
 
